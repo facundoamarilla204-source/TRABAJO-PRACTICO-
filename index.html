@@ -3,82 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Nombre de la pagina</h1>
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="index.html">Vuelos</a>
-        <a href="index.html">Oferta</a>
-        <a href="index.html">Contacto</a>
-        <a href="index.html">Perfil</a>
-      </nav>
+    <header class="header">
+      <div class="container nav">
+        <h1>Nombre de la pagina</h1>
+        <nav>
+          <a href="index.html">Inicio</a>
+          <a href="/pages/vuelo.html">Vuelos</a>
+          <a href="index.html">Oferta</a>
+          <a href="index.html">Contacto</a>
+          <a href="/pages/login.html">Perfil</a>
+        </nav>
+      </div>
     </header>
 
-    <section>
-      <h2>Una Frase principal /</h2>
-      <p>un texto corto : encontra tu mejor vuelo</p>
+    <section class="hero">
+      <div class="contenedorFrase">
+        <h2>Una Frase principal</h2>
+        <p>Encontra tu mejor vuelo</p>
+      </div>
     </section>
-    <main>
-      <section>
-        <h3>Busca tu vuelo</h3>
 
-        <form action="../index.html"> 
-          <label for="origen">Origen</label>
-          <input type="text" id="origen" name="origen" required />
+    <main class="container">
+      <section class="container-formulario">
+        <form action="../index.html" class="form-busqueda">
+          <div>
+            <label for="origen">Origen</label>
+            <input type="text" id="origen" name="origen" required />
+          </div>
+          <div>
+            <label for="destino">Destino</label>
+            <input type="text" id="destino" name=" destino" required />
+          </div>
+          <div>
+            <label for="fechaIda">Fecha de ida</label>
+            <input type="date" id="fechaIda" name="fechaIda" required />
+          </div>
+          <div>
+            <label for="fechaVuelta">Fecha de vuelta</label>
+            <input type="date" id="fechaVuelta" name="fechaVuelta" required />
+          </div>
+          <div>
+            <label for="Pasajeros">Cuantas Personas?</label>
+            <select name="Numero De Pasajeros" id="Numero De Pasajeros">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
 
-          <label for="destino">Destino</label>
-          <input type="text" id="destino" name=" destino" required />
-
-          <label for="fechaIda">Fecha de ida</label>
-          <input type="date" id="fechaIda" name="fechaIda" required />
-
-          <label for="fechaVuelta">Fecha de vuelta</label>
-          <input type="date" id="fechaVuelta" name="fechaVuelta" required />
-
-          <button type="submit">Buscar vuelos</button>
+          <div class="card-button">
+            <button type="submit">Buscar vuelos</button>
+          </div>
         </form>
+
+
+
+      </section>
+      <section class="ofertas-container">
+        <div class="cajas">
+          <a href="pages/vuelo.html" class="caja-oferta">
+            <img src="img/fondo.jpg" alt="Mendoza" />
+            <div class="info">
+              <h4>Mendoza</h4>
+              <p class="precio">$40.000</p>
+            </div>
+          </a>
+
+          <a href="pages/vuelo.html" class="caja-oferta">
+            <img src="img/fondo.jpg" alt="Madrid" />
+            <div class="info">
+              <h4>Madrid</h4>
+              <p class="precio">$350.000</p>
+            </div>
+          </a>
+
+          <!-- OFERTA 3 -->
+          <a href="pages/vuelo.html" class="caja-oferta">
+            <img src="img/fondo.jpg" alt="Miami" />
+            <div class="info">
+              <h4>Miami</h4>
+              <p class="precio">AR$420.000 </p>
+            </div>
+          </a>
+        </div>
       </section>
 
-      <section>
-        <h3>Beneficios</h3>
-        <div>
-          <h4>Benificio 1</h4>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-            soluta laudantium eos autem incidunt excepturi nisi minus quidem
-            impedit unde.
-          </p>
-        </div>
-        <div>
-          <h4>Benificio 2</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
-            alias placeat dicta
-          </p>
-        </div>
-        <div>
-          <h4>Benificio 3</h4>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-            tenetur commodi eaque necessitatibus vero. Dicta, fugit eum
-            explicabo eius.
-          </p>
+
+
+
+
+
+
+
+
+      <section class="beneficios">
+        <div class="cajas">
+          <div class="caja">
+            <h4>Benificio 1</h4>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+              soluta laudantium eos autem incidunt excepturi nisi minus quidem
+              impedit unde.
+            </p>
+          </div>
+          <div class="caja">
+            <h4>Benificio 2</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+              alias placeat dicta
+            </p>
+          </div>
+          <div class="caja">
+            <h4>Benificio 3</h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
+              tenetur commodi eaque necessitatibus vero. Dicta, fugit eum
+              explicabo eius.
+            </p>
+          </div>
+          <div class="caja">
+            <h4>Benificio 4</h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
+              tenetur commodi eaque necessitatibus vero. Dicta, fugit eum
+              explicabo eius.
+            </p>
+          </div>
         </div>
       </section>
     </main>
-    <footer>
-        <p>copy</p>
 
-        <div>
-            <p>Redes Sociales</p>
-        </div>
+    <footer class="footer">
+      <p>copy</p>
 
-
+      <div>
+        <p>Redes Sociales</p>
+      </div>
     </footer>
-
-
   </body>
 </html>

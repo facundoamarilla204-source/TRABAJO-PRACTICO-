@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #bfdae9;
+  color: black;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  
+}
+
+
+.header {
+  background-color: #0b3d91;
+  color: white;
+  padding: 15px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  background-image: url("../img/fondo.jpg");
+  padding: 200px 40px;
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  color: black;
+}
+
+.hero h2 {
+  font-size: 50px;
+}
+
+.hero p {
+  font-weight: bold;
+  padding: 50px 0;
+}
+
+
+.container-formulario {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 100%;
+  width: 1000px;
+  margin: -80px auto  0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-busqueda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.form-busqueda div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-busqueda label {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-busqueda input,
+.form-busqueda select,
+.form-busqueda button {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-busqueda button {
+  background-color: #0b3d91;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.form-busqueda button:hover {
+  background-color: #082c6c;
+}
+
+/*OFERTAS*/
+
+.ofertas-container {
+    margin: 60px auto;
+    max-width: 1200px;
+    padding:  0 16px;
+}
+
+.caja-oferta{
+flex: 1;
+  min-width: 280px;
+  background: white;
+  border-radius: 12px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.caja-oferta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.info h4{
+    font-size: 20px;
+}
+
+.precio {
+    position: absolute;
+    bottom: 10px ;
+    right: 10px;
+    padding: auto 12px;
+    color: #0b3d91;
+    font-weight: bold;
+    font-size: 20px;
+    
+
+}
+
+
+
+
+
+
+.beneficios {
+  margin: 40px 0;
+}
+
+.cajas {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.caja {
+  background: white;
+  padding: auto;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+  
+
+.footer {
+  background-color: #0b3d91;
+  color: white;
+  padding: 30px 20px;
+}
+

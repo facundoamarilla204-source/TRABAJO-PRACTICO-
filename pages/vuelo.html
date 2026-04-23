@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vuelos</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="contenedor nav">
+        <h1>Nombre de la pagina</h1>
+        <nav>
+          <a href="/index.html">Inicio</a>
+          <a href="/pages/vuelo.html">Vuelos</a>
+          <a href="index.html">Oferta</a>
+          <a href="index.html">Contacto</a>
+          <a href="/pages/login.html">Perfil</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h2>Vuelos Disponibles</h2>
+      <div>
+        <aside>
+          <h3>Filtros</h3>
+          <details>
+            <summary>Precio</summary>
+            <input type="range" name="" id="" />
+          </details>
+
+          <details>
+            <summary>Tipo de Vuelo</summary>
+            <label for="Directo"> <input type="checkbox" />Directo</label>
+            <br />
+            <label for="ConEscala"> <input type="checkbox" />Con escala</label>
+          </details>
+
+          <details>
+            <summary>Aerolinea</summary>
+            <label for=""><input type="checkbox" />Aerolinea 1</label>
+            <label for=""><input type="checkbox" />Aerolinea 2</label>
+            <label for=""><input type="checkbox" />Aerolinea 3</label>
+            <label for=""><input type="checkbox" />Aerolinea 4</label>
+          </details>
+        </aside>
+        <section class="resultadosdevuelos">
+            <div class="barra-resultado">
+                <p>10 vuelos encontrados</p>
+                <div>
+                    <label for="ordenar">Ordenas Por :</label>
+                    <select name="ordenar" id="odenar">
+                        <option value="">Precio (menor a mayor )</option>
+                        <option value="">Precio (mayor a menor )</option>
+
+                    </select>
+                </div>
+            </div>
+            <article>
+                <p>Buenos Aire ----- Cordoba</p>
+                <p>Salida 10pm  - Llegada 12pm</p>
+                <p>Precio 250000 pesos</p>
+                <a href="detalles.html"></a>
+            </article>
+            <article>
+                <p>Buenos Aire ----- Cordoba</p>
+                <p>Salida 10pm  - Llegada 12pm</p>
+                <p>Precio 250000 pesos</p>
+                <a href="detalles.html"></a>
+            </article>
+            <article>
+                <p>Buenos Aire ----- Cordoba</p>
+                <p>Salida 10pm  - Llegada 12pm</p>
+                <p>Precio 250000 pesos</p>
+                <a href="detalles.html"></a>
+            </article>
+        </section>
+      </div>
+    </main>
+    <footer>
+        <p>copy</p>
+    </footer>
+  </body>
+</html>

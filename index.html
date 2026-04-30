@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <title>AeroLink</title>
+    <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   </head>
   <body>
     <header class="header">
       <div class="container nav">
-        <h1>Nombre de la pagina</h1>
+        <h1>AeroLink</h1>
         <nav>
           <a href="index.html">Inicio</a>
-          <a href="/pages/vuelo.html">Vuelos</a>
+          <a href="/pages/vuelo.html">Mi reservas</a>
           <a href="index.html">Oferta</a>
           <a href="index.html">Contacto</a>
           <a href="/pages/login.html">Perfil</a>
@@ -22,14 +24,14 @@
 
     <section class="hero">
       <div class="contenedorFrase">
-        <h2>Una Frase principal</h2>
-        <p>Encontra tu mejor vuelo</p>
+        <h2>Conectamos tus ganas de viajar</h2>
+        <p>Tu próximo destino empieza acá</p>
       </div>
     </section>
 
     <main class="container">
       <section class="container-formulario">
-        <form action="../index.html" class="form-busqueda">
+        <form action="pages/resultados.html" class="form-busqueda">
           <div>
             <label for="origen">Origen</label>
             <input type="text" id="origen" name="origen" required />
@@ -60,90 +62,177 @@
             <button type="submit">Buscar vuelos</button>
           </div>
         </form>
-
-
-
       </section>
+
+
+
       <section class="ofertas-container">
+        <h2 class="titulo-seccion">Precios Increíbles</h2>
+        <p class="parrafo-seccion">
+          ¡Nuestra selección de destinos con precios únicos pensados para vos!
+        </p>
         <div class="cajas">
-          <a href="pages/vuelo.html" class="caja-oferta">
-            <img src="img/fondo.jpg" alt="Mendoza" />
+          <a href="pages/resultados.html" class="caja-oferta">
+            <img src="img/mendoza.jpg" alt="Mendoza" />
             <div class="info">
               <h4>Mendoza</h4>
               <p class="precio">$40.000</p>
             </div>
           </a>
 
-          <a href="pages/vuelo.html" class="caja-oferta">
-            <img src="img/fondo.jpg" alt="Madrid" />
+          <a href="pages/resultados.html" class="caja-oferta">
+            <img src="img/madrid.jpg" alt="Madrid" />
             <div class="info">
               <h4>Madrid</h4>
               <p class="precio">$350.000</p>
             </div>
           </a>
 
-          <!-- OFERTA 3 -->
-          <a href="pages/vuelo.html" class="caja-oferta">
-            <img src="img/fondo.jpg" alt="Miami" />
+          <a href="pages/resultados.html" class="caja-oferta">
+            <img src="img/miami.jpg" alt="Miami" />
             <div class="info">
               <h4>Miami</h4>
-              <p class="precio">AR$420.000 </p>
+              <p class="precio">AR$420.000</p>
             </div>
           </a>
         </div>
       </section>
 
+      <section class="beneficios container">
+        <h2 class="titulo-seccion">Beneficios</h2>
+        <p class="parrafo-seccion">
+          ¡Nuestra selección de destinos con precios únicos pensados para vos!
+        </p>
 
-
-
-
-
-
-
-
-      <section class="beneficios">
         <div class="cajas">
           <div class="caja">
-            <h4>Benificio 1</h4>
+            <img src="/img/precio.svg" alt="Precio" />
+            <h4>MEJORES PRECIOS</h4>
+            <p>Encontrá vuelos al mejor precio del mercado.</p>
+          </div>
+
+          <div class="caja">
+            <img src="/img/pagoseguro.svg" alt="Pago seguro" />
+            <h4>PAGO SEGURO</h4>
+            <p>Tus datos están protegidos en todo momento.</p>
+          </div>
+
+          <div class="caja">
+            <img src="/img/atencion.svg" alt="Atención 24/7" />
+            <h4>ATENCIÓN 24/7</h4>
+            <p>Estamos para ayudarte cuando lo necesites.</p>
+          </div>
+
+          <div class="caja">
+            <img src="/img/aviones.svg" alt="Flexibilidad" />
+            <h4>FLEXIBILIDAD</h4>
+            <p>Cambios y opciones adaptadas a tu viaje.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="servicios container">
+        <h2 class="titulo-seccion">La libertad de volar, paso a paso</h2>
+        <p class="parrafo-seccion">
+          Sigue estos sencillos pasos para disfrutar de tu viaje sin preocupaciones.
+        </p>
+        <div class="grid-servicios">
+          <div class="servicio">
+            <img src="img/calendario.svg" alt="Calendario" />
+            <h4> SELECCIONA TU VUELO</h4>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-              soluta laudantium eos autem incidunt excepturi nisi minus quidem
-              impedit unde.
+              Elegí a dónde querés ir y cuándo. Acordate que cuanto antes
+              compres, más barato vas a volar..
             </p>
           </div>
-          <div class="caja">
-            <h4>Benificio 2</h4>
+
+          <div class="servicio">
+            <img src="img/matela.svg" alt="Maleta" />
+            <h4>QUE INCLUYE MI PASAJE</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
-              alias placeat dicta
+              Un bolso o mochila de mano. Podés incluir un equipaje de cabina
+              y/o de bodega con un costo adicional.
             </p>
           </div>
-          <div class="caja">
-            <h4>Benificio 3</h4>
+          <div class="servicio">
+            <img src="img/tarjeta.svg" alt="Tarjeta" />
+            <h4>PAGA</h4>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-              tenetur commodi eaque necessitatibus vero. Dicta, fugit eum
-              explicabo eius.
+              Usá tu tarjeta de débito o crédito y recibí nuestra confirmación
+              de compra inmediatamente en tu mail. También podés pagar en
+              efectivo a través de Rapipago o Pago Fácil.
             </p>
           </div>
-          <div class="caja">
-            <h4>Benificio 4</h4>
+
+          <div class="servicio">
+            <img src="img/check-in.svg" alt="check-in" />
+            <h4>HACE EL CHECK-IN</h4>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-              tenetur commodi eaque necessitatibus vero. Dicta, fugit eum
-              explicabo eius.
+              A partir de las 48 hs. antes de tu vuelo, entrá a nuestra web y
+              confirmá tu viaje. Ahórrate el costo adicional de realizarlo en el
+              aeropuerto.
             </p>
+          </div>
+
+          <div class="servicio">
+            <img src="img/embarque.svg" alt="Tarjeta" />
+            <h4>RECIBI TU TARJETA DE EMBARQUE</h4>
+            <p>
+              Te vamos a enviar por email la tarjeta de embarque para que
+              presentes con tu teléfono o imprimas en tu casa. Ahorrate el costo
+              adicional de realizarlo en el aeropuerto.
+            </p>
+          </div>
+
+          <div class="servicio">
+            <img src="img/avion.svg" alt="Accesibilidad" />
+            <h4>NOS VEMOS EN EL AEROPUERTO</h4>
+            <p>No olvides llevar la documentación necesaria para volar.</p>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>copy</p>
+     <div class="footer-container">
 
-      <div>
-        <p>Redes Sociales</p>
-      </div>
+    <div class="footer-col">
+      <h3>AeroLink</h3>
+      <p>Tu mejor opción para encontrar vuelos al mejor precio.</p>
+    </div>
+
+    
+    <div class="footer-col">
+      <h4>Secciones</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pages/vuelo.html">Vuelos</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <p>Email: </p>
+      <p>Tel: </p>
+    </div>
+    <div class="footer-col">
+  <h4>Seguinos</h4>
+  <div class="redes">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+</div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    <p>© 2026 . Todos los derechos reservados.</p>
+  </div>
     </footer>
   </body>
 </html>

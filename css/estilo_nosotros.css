@@ -1,0 +1,15 @@
+.titulo {
+    text-align: center;
+    color: #333;
+}
+
+.grupo-texto{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+

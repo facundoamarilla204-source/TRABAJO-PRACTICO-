@@ -5,30 +5,36 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="../css/estilo_login.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <title>Aerolink - Login</title>
 </head>
 
 <body>
 
 
-  <header>
-    <h1>Nombre de la pagina</h1>
-    <nav>
-      <a href="../index.html">Inicio</a>
-      <a href="../pages/vuelo.html">Mi reservas</a>
-      <a href="../index.html">Oferta</a>
-      <a href="../index.html">Contacto</a>
-      <a href="../index.html">Perfil</a>
-    </nav>
+  <header class="header">
+    <div class="container nav">
+      <h1>AeroLink</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="/pages/vuelo.html">Mi reservas</a>
+        <a href="index.html">Oferta</a>
+        <a href="index.html">Contacto</a>
+        <a href="/pages/login.html">Perfil</a>
+      </nav>
+    </div>
   </header>
+
   <main>
     <section>
-      <h2>Iniciar Sesion</h2>
+      <h2 class="titulo" >Iniciar Sesion</h2>
 
       <section class="formulario">
         <form action="../index.html">
 
-          <div class ="grupo-formulario">
+          <div class="grupo-formulario">
             <label for="email">Correo electrónico</label>
             <input type="email" id="email" name="email" required />
           </div>
@@ -40,14 +46,52 @@
 
           <button type="submit" class="btn-iniciar-sesion">Iniciar sesión</button>
         </form>
-        
+
         <p>¿No tienes una cuenta?<a href="../pages/registro.html">Registrate</a></p>
       </section>
   </main>
 
-  <footer>
-    <p>copy</p>
-  </footer>
+   <footer class="footer">
+     <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>AeroLink</h3>
+      <p>Tu mejor opción para encontrar vuelos al mejor precio.</p>
+    </div>
+
+    
+    <div class="footer-col">
+      <h4>Secciones</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pages/vuelo.html">Vuelos</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <p>Email: </p>
+      <p>Tel: </p>
+    </div>
+    <div class="footer-col">
+  <h4>Seguinos</h4>
+  <div class="redes">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+</div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    <p>© 2026 . Todos los derechos reservados.</p>
+  </div>
+    </footer>
 
 </body>
 

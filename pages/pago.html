@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroLink</title>
+    <link rel="stylesheet" href="../css/estilo_pago.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main class="checkout">
+
+        <h1>Checkout</h1>
+
+        <form class="info_pago_container">
+
+            
+
+            <section class="datos_pasajero_container">
+
+
+                <h2>Datos Del Pasajero</h2>
+
+                <div class="datos_pasajero">
+
+                    
+                    <label for="nombre">Nombre Completo</label>
+                    <div class="input_nombre_container">
+                        <i class="fa-solid fa-user icono_usuario"></i>
+                        <input class="input_nombre_completo" type="text" name="nombre" placeholder="Nombre Completo">
+                    </div>
+                    
+
+                    <label for="dni">Documento De Identidad</label>
+                        <div class="datos_dni">
+                            <select class="select_dni" name="documento">
+                                <option value="dni">DNI</option>
+                                <option value="pasaporte">PASAPORTE</option>
+                            </select>
+                            <input class="input_documento" type="text" name="documento" placeholder="35648798">
+                        </div>
+                
+                    <label for="correo">Correo Electrónico</label>
+                    <div class="input_email_container">
+                        <i class="fa-solid fa-envelope icono_email"></i>
+                        <input class="input_email" type="email" name="correo" placeholder="Email">
+                    </div>
+                   
+
+                    <label for="telefono">Teléfono (Opcional)</label>
+                    <input class="input_telefono" type="tel" name="telefono" placeholder="Telefono">
+
+                </div>
+
+                
+
+            </section>
+
+
+            <section class="metodo_pago_container">
+
+                <h2>Método De Pago</h2>
+
+                <div class="metodo_pago">
+
+                    <label for="opcion_tarjeta_credito" class="opcion_tarjeta_credito">
+                        <input type="radio" name="pago" value="tarjeta_credito" checked>
+                        <span>Tarjeta De Crédito</span>
+                    </label>
+                    
+                    <label for="opcion_tarjeta_transferencia" class="opcion_transferencia">
+                        <input type="radio" name="pago" value="transferecnia">
+                        <span>Transferencia Bancaria</span>
+                    </label>
+
+                </div>
+
+                
+
+
+            </section>
+
+
+            <section class="resumen_vuelo_container">
+
+                <h2>Resumen De Vuelo</h2>
+
+                <div class="info_vuelo_container">
+
+
+                    <div class="info_vuelo">
+                        <p>Buenos Aires (BUE) - Madrid (MAD)</p>
+                        <p>10/08/2024 – 20/08/2024</p>
+                        <p class="escala">1 escala LIM (ida y vuelta)</p>
+                    </div>     
+
+
+                    <div class="total_vuelo">
+
+                        <span>Total</span>
+                        <strong>$550 USD</strong>
+
+                    </div>
+
+                    <div class="cupon">
+
+                        <input class="input_cupon" type="text" name="cupon" placeholder="Ingresá Tu Cupón">
+                        <button class="button_cupon" type="button">Aplicar</button>
+
+                    </div>
+
+                </div>
+
+               
+            
+
+            </section>
+
+
+        </form>
+
+
+        <div class="total_container">
+            <span>Total</span>
+            <strong>$550 USD</strong>
+        </div>
+        
+
+        
+    </main>
+</body>
+</html>

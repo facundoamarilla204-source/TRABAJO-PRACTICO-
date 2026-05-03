@@ -2,6 +2,7 @@
 
     margin: 0;
     box-sizing: border-box;
+    
 
 
 }
@@ -10,16 +11,21 @@
 
     display: flex;
     flex-direction: column;
-    margin: 2rem;
-    gap: 2rem;
-    padding: 5rem;
+    margin-bottom: 0.1rem;
+
+
+}
+
+.checkout h1 {
+
+    padding: 3rem;
+    padding-left: 4rem;
 
 
 }
 
 .fondo {
 
-    background-color: antiquewhite;
     height: 20%;
     width: 100%;
     padding: 2rem;
@@ -31,7 +37,10 @@
 
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: white;
+    border-radius: 0.3rem;
+    overflow: hidden;
+
 
 
 
@@ -41,17 +50,19 @@
 
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: white;
     padding: 2rem;
-    gap: 0.5rem;
+    gap: 0.8rem;
 
 
 }
 
 .datos_pasajero_container h2 {
 
-    background-color: bisque;
+    background-color: #0b3d91;
     padding: 1rem;
+    color: white;
+    padding-left: 2rem;
 
 
 }
@@ -60,7 +71,6 @@
 
     display: flex;
     flex-direction: column;
-    background-color: gray;
     padding: 2rem;
     gap: 0.5rem;
 
@@ -71,15 +81,20 @@
 
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: white;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 23rem;
 
 
 }
 
 .resumen_vuelo_container h2 {
 
-    background-color: bisque;
+    background-color: #0b3d91;
     padding: 1rem;
+    color: white;
+    padding-left: 2rem;
 
 }
 
@@ -89,13 +104,17 @@
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+    padding: 4rem;
+    padding-top: 0;
 
 }
 
 .total_vuelo {
 
     display: flex;
-    gap: 10rem;
+    justify-content: space-between;
+    border-top: 0.1rem solid black;
+    padding-top: 2rem;
 
 
 }
@@ -105,6 +124,10 @@
     display: flex;
     gap: 5rem;
     margin-top: 3rem;
+    background-color: white;
+    padding: 3rem;
+    padding-left: 4rem;
+    width: 100%;
 
 }
 
@@ -120,6 +143,7 @@
 
     width: 28.5%;
     padding: 0.3rem;
+    padding-left: 0.5rem;
 
 
 }
@@ -135,8 +159,10 @@
 
 .input_telefono {
 
+
     width: 50.2%;
     padding: 0.3rem;
+    padding-left: 0.5rem;
 
 
 }
@@ -144,18 +170,29 @@
 .select_dni {
 
     padding: 0.3rem;
+    border-radius: 0.2rem;
+    width: 4rem;
+    height: 2.5rem;
+    border: none;
+    background: #bfdae9;
 
 }
 
 .input_cupon {
 
     padding: 0.3rem;
+    padding-left: 0.5rem;
 
 }
 
 .button_cupon {
 
-    padding: 0.3rem;
+    background-color: #0b3d91;
+    color: white;
+    height: 2.5rem;
+    width: 5rem;
+    
+
 
 }
 
@@ -163,7 +200,11 @@
 
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: white;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 10rem;
+    
 
 
 }
@@ -171,8 +212,11 @@
 .metodo_pago_container h2 {
 
 
-    background-color: bisque;
+    background-color: #0b3d91;
+    color: white;
     padding: 1rem;
+    padding-left: 2rem;
+    border: 10rem;
 
 }
 
@@ -180,6 +224,7 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
 
 
@@ -227,6 +272,46 @@
     top: 50%;
     transform: translateY(-50%);
     left: 1%;
+
+}
+
+input {
+
+    border-radius: 0.2rem;
+    height: 2.5rem;
+    background: #bfdae9;
+    border: none;
+   
+
+}
+
+button {
+
+    border-radius: 0.2rem;
+    border: none;
+    
+   
+
+
+}
+
+.input_elegir_opcion_pago {
+
+    accent-color: #0b3d91;
+    height: 1rem;
+    
+
+
+}
+
+.cupon {
+
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    border-top: 0.1rem solid #0b3d91;
+    padding-top: 2rem;
+    
 
 }
 

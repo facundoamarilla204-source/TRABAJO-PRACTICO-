@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+      <header class="header">
+      <div class="container nav">
+        <h1>AeroLink</h1>
+        <nav>
+          <a href="../index.html">Inicio</a>
+          <a href="/pages/vuelo.html">Mi reservas</a>
+          <a href="index.html">Oferta</a>
+          <a href="index.html">Contacto</a>
+          <a href="/pages/login.html">Perfil</a>
+        </nav>
+      </div>
+    </header>
+
+
     <main class="checkout">
 
         <h1>Checkout</h1>
@@ -66,12 +82,12 @@
                 <div class="metodo_pago">
 
                     <label for="opcion_tarjeta_credito" class="opcion_tarjeta_credito">
-                        <input type="radio" name="pago" value="tarjeta_credito" checked>
+                        <input class="input_elegir_opcion_pago" type="radio" name="pago" value="tarjeta_credito" checked>
                         <span>Tarjeta De Crédito</span>
                     </label>
                     
                     <label for="opcion_tarjeta_transferencia" class="opcion_transferencia">
-                        <input type="radio" name="pago" value="transferecnia">
+                        <input class="input_elegir_opcion_pago" type="radio" name="pago" value="transferecnia">
                         <span>Transferencia Bancaria</span>
                     </label>
 
@@ -94,7 +110,8 @@
                         <p>Buenos Aires (BUE) - Madrid (MAD)</p>
                         <p>10/08/2024 – 20/08/2024</p>
                         <p class="escala">1 escala LIM (ida y vuelta)</p>
-                    </div>     
+                    </div>    
+                    
 
 
                     <div class="total_vuelo">
@@ -103,6 +120,7 @@
                         <strong>$550 USD</strong>
 
                     </div>
+
 
                     <div class="cupon">
 
@@ -130,5 +148,50 @@
 
         
     </main>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>AeroLink</h3>
+                <p>Tu mejor opción para encontrar vuelos al mejor precio.</p>
+            </div>
+
+        
+            <div class="footer-col">
+                <h4>Secciones</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="pages/vuelo.html">Vuelos</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: </p>
+                <p>Tel: </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Seguinos</h4>
+                <div class="redes">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>© 2026 . Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
 </body>
 </html>

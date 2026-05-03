@@ -5,21 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AeroLink</title>
     <link rel="stylesheet" href="/css/style.css" /> 
+    <link rel="stylesheet" href="/../css/header.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   </head>
   <body>
     <header class="header">
-      <div class="container nav">
-        <h1>AeroLink</h1>
-        <nav>
-          <a href="index.html">Inicio</a>
-          <a href="/pages/vuelo.html">Mi reservas</a>
-          <a href="index.html">Oferta</a>
-          <a href="index.html">Contacto</a>
-          <a href="/pages/login.html">Perfil</a>
+        <div class="header__logo">
+            <a href="../index.html" style="text-decoration: none;">
+                <span>AeroLink</span>
+            </a>
+        </div>
+
+        <nav class="header__nav">
+            <ul class="nav__list">
+                <li><a href="#" class="nav__link">Vuelos</a></li>
+                <li><a href="#" class="nav__link">Ofertas</a></li>
+                <li><a href="./pages/contacto.html" class="nav__link">Contacto</a></li>
+            </ul>
         </nav>
-      </div>
+
+        <div class="header__actions">
+            <a href="#" class="btn btn--outline">Ingresar</a>
+            <a href="#" class="btn btn--primary">Mi Perfil</a>
+        </div>
     </header>
 
     <section class="hero">
@@ -194,45 +203,53 @@
     </main>
 
     <footer class="footer">
-     <div class="footer-container">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__logo">AeroLink</h3>
+                    <p class="footer__desc">Conectando tus destinos al mejor precio, con la seguridad y comodidad que merecés en cada vuelo.</p>
+                    <div class="footer__socials">
+                        <a href="#" class="social-icon">Ig</a>
+                        <a href="#" class="social-icon">Tw</a>
+                        <a href="#" class="social-icon">Fb</a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Navegación</h4>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link">Buscar Vuelos</a></li>
+                        <li><a href="#" class="footer__link">Ofertas de la Semana</a></li>
+                        <li><a href="#" class="footer__link">Check-in Online</a></li>
+                        <li><a href="#" class="footer__link">Estado del Vuelo</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Soporte y Ayuda</h4>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link">Centro de Ayuda (FAQ)</a></li>
+                        <li><a href="../pages/contacto.html" class="footer__link">Formulario de Contacto</a></li>
+                        <li><a href="#" class="footer__link">Política de Equipaje</a></li>
+                        <li><a href="#" class="footer__link">Viajar con Mascotas</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Legal</h4>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link">Términos y Condiciones</a></li>
+                        <li><a href="#" class="footer__link">Políticas de Privacidad</a></li>
+                    </ul>
+                    <div class="footer__payments">
+                        <span class="payment-badge">VISA</span>
+                        <span class="payment-badge">MC</span>
+                        <span class="payment-badge">AMEX</span>
+                    </div>
+                </div>
 
-    <div class="footer-col">
-      <h3>AeroLink</h3>
-      <p>Tu mejor opción para encontrar vuelos al mejor precio.</p>
-    </div>
-
-    
-    <div class="footer-col">
-      <h4>Secciones</h4>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/vuelo.html">Vuelos</a></li>
-        <li><a href="#">Ofertas</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <p>Email: </p>
-      <p>Tel: </p>
-    </div>
-    <div class="footer-col">
-  <h4>Seguinos</h4>
-  <div class="redes">
-    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-  </div>
-</div>
-
-  </div>
-
-
-  <div class="footer-bottom">
-    <p>© 2026 . Todos los derechos reservados.</p>
-  </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 AeroLink. Todos los derechos reservados. Proyecto Académico.</p>
+            </div>
+        </div>
     </footer>
   </body>
 </html>

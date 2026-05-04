@@ -1,32 +1,31 @@
-
 main {
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 60px 20px; 
+    padding: 6.25rem 1.25rem 3.75rem 1.25rem; 
 }
 
 .titulo {
     color: var(--brand-color);
-    margin-bottom: 30px;
-    font-size: 36px;
+    margin-bottom: 1.875rem;
+    font-size: 2.25rem;
     font-weight: 800;
     text-align: center;
 }
 
 .formulario {
     background-color: #ffffff;
-    padding: 40px; 
-    border-radius: 30px; 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem; 
+    border-radius: 1.875rem; 
+    box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 550px; 
+    max-width: 34.375rem; 
 }
 
 .grupo-formulario {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     display: flex;
     flex-direction: column; 
     text-align: left;
@@ -36,38 +35,38 @@ main {
     flex-direction: row-reverse;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 0.625rem;
+    margin-top: 0.625rem;
 }
 
 .grupo-formulario label {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     color: #444;
 }
 
 .grupo-formulario input:not([type="checkbox"]) {
     width: 100%;
     box-sizing: border-box; 
-    padding: 14px;
+    padding: 0.875rem;
     background-color: #f4f5f7; 
-    border: 2px solid transparent;
-    border-radius: 12px;
+    border: 0.125rem solid transparent;
+    border-radius: 0.75rem;
     outline: none;
-    font-size: 15px;
+    font-size: 0.9375rem;
     transition: all 0.3s ease;
 }
 
 .grupo-formulario input:focus {
     border-color: var(--brand-color);
     background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 86, 179, 0.1);
 }
 
 .grupo-formulario input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
     cursor: pointer;
 }
 
@@ -75,25 +74,25 @@ main {
     background-color: var(--brand-color);
     color: #ffffff;
     border: none;
-    padding: 16px;
+    padding: 1rem;
     width: 100%; 
-    border-radius: 12px;
-    font-size: 16px;
+    border-radius: 0.75rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     transition: all 0.3s ease;
 }
 
 .btn-registrar:hover {
     background-color: #004494;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 86, 179, 0.3);
 }
 
 .formulario p {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
     text-align: center;
     color: #666;
     display: block; 
@@ -103,7 +102,7 @@ main {
     color: var(--brand-color);
     text-decoration: none;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 0.3125rem;
 }
 
 .formulario p a:hover {

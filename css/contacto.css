@@ -1,9 +1,8 @@
-
 .contenido-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 2.5rem 1.25rem;
 }
 
 .contact-card {
@@ -11,15 +10,15 @@
     grid-template-columns: 1fr 1fr; 
     background-color: #ffffff;
     width: 100%;
-    max-width: 1100px;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    max-width: 68.75rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
     overflow: hidden; 
-    margin: 40px 0;
+    margin: 2.5rem 0;
 }
 
 .contact-form-side {
-    padding: 60px 50px;
+    padding: 3.75rem 3.125rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,41 +28,40 @@
     display: inline-block;
     color: var(--brand-color);
     font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: 0.875rem;
+    margin-bottom: 0.9375rem;
 }
 
 .brand-badge i {
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 .contact-header h2 {
-    font-size: 38px;
+    font-size: 2.375rem;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 15px;
-    letter-spacing: -1px;
+    margin-bottom: 0.9375rem;
+    letter-spacing: -0.0625rem;
 }
 
 .contact-header p {
     color: #666;
-    font-size: 15px;
+    font-size: 0.9375rem;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
-
 .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 1.375rem;
     display: flex;
     flex-direction: column;
 }
 
 .form-group label {
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
 }
 
 .custom-form input,
@@ -71,10 +69,10 @@
 .custom-form textarea {
     width: 100%;
     background-color: #f4f5f7; 
-    border: 2px solid transparent; 
-    padding: 14px 18px;
-    border-radius: 12px;
-    font-size: 14px;
+    border: 0.125rem solid transparent; 
+    padding: 0.875rem 1.125rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
     color: #333;
     outline: none;
     transition: all 0.3s ease;
@@ -86,7 +84,7 @@
 .custom-form textarea:focus {
     background-color: #ffffff;
     border-color: var(--brand-color); 
-    box-shadow: 0 4px 15px rgba(11, 61, 145, 0.1);
+    box-shadow: 0 0.25rem 0.9375rem rgba(11, 61, 145, 0.1);
 }
 
 .custom-form input[type="email"]:not(:placeholder-shown):invalid {
@@ -99,26 +97,26 @@
     background-color: #0b7bff; 
     color: white;
     border: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-size: 16px;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-submit:hover {
     background-color: var(--brand-color); 
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .contact-image-side {
     position: relative;
-    margin: 20px; 
-    border-radius: 20px; 
+    margin: 1.25rem; 
+    border-radius: 1.25rem; 
     overflow: hidden;
-    min-height: 550px; 
+    min-height: 34.375rem; 
 }
 
 .img-fondo-cover {

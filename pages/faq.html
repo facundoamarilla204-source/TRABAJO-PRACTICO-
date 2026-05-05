@@ -24,27 +24,95 @@
         <span></span>
     </label>
 
-    <nav class="header__nav">
-      <ul class="nav__list">
-          <li><a href="../index.html" class="nav__link">Vuelos</a></li>
-          <li><a href="ofertas.html" class="nav__link">Ofertas</a></li>
-          <li><a href="./contacto.html" class="nav__link">Contacto</a></li>
-          <li class="mobile-only"><a href="./login.html" class="nav__link">Ingresar</a></li>
-          <li class="mobile-only"><a href="./usuario.html" class="nav__link">Mi Perfil</a></li>
-      </ul>
-    </nav>
+      <nav class="header__nav">
+        <ul class="nav__list">
+            <li><a href="vuelos.html" class="nav__link">Vuelos</a></li>
+            <li><a href="ofertas.html" class="nav__link">Ofertas</a></li>
+            <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+            <li class="mobile-only"><a href="login.html" class="nav__link">Ingresar</a></li>
+            <li class="mobile-only"><a href="registro.html" class="nav__link">Registrarse</a></li>
+        </ul>
+      </nav>
 
-    <div class="header__actions">
-        <a href="./login.html" class="btn btn--outline">Ingresar</a>
-        <a href="./usuario.html" class="btn btn--primary">Mi Perfil</a>
-    </div>
-  </header>
-    <main class="contenido-principal">
-        <section class="faq-container">
-            <div class="faq-header">
-                <span class="brand-badge"><i class="fa-solid fa-circle-question"></i> Centro de Ayuda</span>
-                <h2>Preguntas Frecuentes</h2>
-                <p>Todo lo que necesitas saber para tu próximo vuelo con AeroLink.</p>
+      <div class="header__actions">
+          <a href="login.html" class="btn btn--outline">Ingresar</a>
+          <a href="registro.html" class="btn btn--primary">Registrarse</a>
+      </div>
+    </header>
+      <main class="contenido-principal">
+          <section class="faq-container">
+              <div class="faq-header">
+                  <span class="brand-badge"><i class="fa-solid fa-circle-question"></i> Centro de Ayuda</span>
+                  <h2>Preguntas Frecuentes</h2>
+                  <p>Todo lo que necesitas saber para tu próximo vuelo con AeroLink.</p>
+              </div>
+
+              <div class="faq-accordion">
+                
+                  <div class="faq-item">
+                      <input type="checkbox" id="faq-1" class="faq-checkbox">
+                      <label for="faq-1" class="faq-question">
+                          ¿Cómo puedo realizar el check-in online?
+                          <i class="fa-solid fa-chevron-down"></i>
+                      </label>
+                      <div class="faq-answer">
+                          <p>Podés realizar el check-in directamente desde nuestra web en la sección "Mis Reservas", a partir de las 48 hs antes de la salida de tu vuelo. Es rápido, gratuito y te ahorra tiempo en el aeropuerto.</p>
+                      </div>
+                  </div>
+
+                  <div class="faq-item">
+                      <input type="checkbox" id="faq-2" class="faq-checkbox">
+                      <label for="faq-2" class="faq-question">
+                          ¿Qué equipaje está incluido en mi pasaje?
+                          <i class="fa-solid fa-chevron-down"></i>
+                      </label>
+                      <div class="faq-answer">
+                          <p>Todos nuestros pasajes incluyen un bolso de mano o mochila que debe ubicarse debajo del asiento delantero. Dependiendo de tu tarifa, podés agregar equipaje de cabina o de bodega con un costo adicional.</p>
+                      </div>
+                  </div>
+                  <div class="faq-item">
+                      <input type="checkbox" id="faq-3" class="faq-checkbox">
+                      <label for="faq-3" class="faq-question">
+                          ¿Puedo viajar con mi mascota?
+                          <i class="fa-solid fa-chevron-down"></i>
+                      </label>
+                      <div class="faq-answer">
+                          <p>¡Sí! En AeroLink permitimos el transporte de perros y gatos pequeños en la cabina. Recordá consultar las dimensiones del canil permitido y realizar la reserva con anticipación, ya que los cupos por vuelo son limitados.</p>
+                      </div>
+                  </div>
+
+                  <div class="faq-item">
+                      <input type="checkbox" id="faq-4" class="faq-checkbox">
+                      <label for="faq-4" class="faq-question">
+                          ¿Cómo solicito un reembolso o cambio de fecha?
+                          <i class="fa-solid fa-chevron-down"></i>
+                      </label>
+                      <div class="faq-answer">
+                          <p>Los cambios y devoluciones dependen de la regulación de la tarifa adquirida. Podés gestionar estas solicitudes a través de nuestro formulario de contacto o ingresando a tu perfil de usuario.</p>
+                      </div>
+                  </div>
+
+              </div>
+          </section>
+      </main>
+
+      <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <h3 class="footer__logo">AeroLink</h3>
+            <p class="footer__desc">Conectando tus destinos al mejor precio, con la seguridad y comodidad que merecés en
+              cada vuelo.</p>
+            <div class="footer__socials">
+              <a href="https://www.instagram.com/" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://x.com/?lang=es" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
             </div>
 
             <div class="faq-accordion">
@@ -104,32 +172,32 @@
           <p class="footer__desc">Conectando tus destinos al mejor precio, con la seguridad y comodidad que merecés en
             cada vuelo.</p>
           <div class="footer__socials">
-            <a href="#" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
+              <a href="https://www.instagram.com/" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://x.com/?lang=es" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
           </div>
         </div>
         <div class="footer__col">
           <h4 class="footer__title">Navegación</h4>
           <ul class="footer__list">
-            <li><a href="#" class="footer__link">Buscar Vuelos</a></li>
-            <li><a href="/pages/ofertas.html" class="footer__link">Ofertas de la Semana</a></li>
-            <li><a href="../pages/nosotros.html" class="footer__link">Sobre Nosotros</a></li>
+            <li><a href="vuelos.html" class="footer__link">Buscar Vuelos</a></li>
+            <li><a href="pages/ofertas.html" class="footer__link">Ofertas de la Semana</a></li>
+            <li><a href="nosotros.html" class="footer__link">Sobre Nosotros</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__title">Soporte y Ayuda</h4>
           <ul class="footer__list">
-            <li><a href="../pages/faq.html" class="footer__link">Centro de Ayuda (FAQ)</a></li>
-            <li><a href="../pages/contacto.html" class="footer__link">Formulario de Contacto</a></li>
-            <li><a href="../pages/faq.html" class="footer__link">Política de Equipaje</a></li>
-            <li><a href="../pages/faq.html" class="footer__link">Viajar con Mascotas</a></li>
+            <li><a href="faq.html" class="footer__link">Centro de Ayuda (FAQ)</a></li>
+            <li><a href="contacto.html" class="footer__link">Formulario de Contacto</a></li>
+            <li><a href="faq.html" class="footer__link">Política de Equipaje</a></li>
+            <li><a href="faq.html" class="footer__link">Viajar con Mascotas</a></li>
           </ul>
         </div>
         <div class="footer__col">

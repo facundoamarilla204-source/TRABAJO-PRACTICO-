@@ -75,6 +75,7 @@
     flex-direction: column;
     padding: 5rem;
     gap: 1.5rem;
+    background-color: white;
     
 
 
@@ -87,7 +88,7 @@
     background-color: white;
     border-radius: 0.3rem;
     overflow: hidden;
-    height: 40rem;
+    height: 100%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 
 
@@ -218,7 +219,7 @@
     background-color: white;
     border-radius: 0.3rem;
     overflow: hidden;
-    height: 40rem;
+    height: 100%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     
 

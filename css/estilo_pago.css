@@ -1,509 +1,222 @@
+
+:root {
+    --brand-color: #0056b3;
+    --text-main: #2b2b2b;
+    --white: #ffffff;
+    --bg-body: #f0f2f5;
+    --shadow-soft: 0 0.5rem 2rem rgba(0, 0, 0, 0.08);
+}
+
 * {
-
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    
+}
 
-
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f4e8ff 0%, #bbd3eb 100%); 
+    color: var(--text-main);
 }
 
 .checkout {
-
     display: flex;
     flex-direction: column;
     margin-bottom: 0.1rem;
     align-items: center;
-    color: #0a192f;;
-
-
 }
 
 .checkout h1 {
-
     padding: 3rem;
     padding-left: 4rem;
-
-
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--brand-color);
 }
 
 .fondo {
-
     height: 20%;
     width: 100%;
     padding: 2rem;
-
-
 }
 
-.datos_pasajero_container {
-
+.datos_pasajero_container,
+.resumen_vuelo_container,
+.metodo_pago_container {
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border-radius: 0.3rem;
+    background-color: var(--white);
+    border-radius: 1.5rem; 
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-
-
-
-
-}
-
-.datos_pasajero {
-
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 2rem;
-    gap: 1.5rem;
-
-
-}
-
-.datos_pasajero_container h2 {
-
-    background-color: #0b3d91;
-    padding: 1rem;
-    color: white;
-    padding-left: 2rem;
-
-
-}
-
-.metodo_pago {
-
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
-    background-color: white;
-    
-
-
-}
-
-.resumen_vuelo_container {
-
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 0.3rem;
-    overflow: hidden;
+    box-shadow: var(--shadow-soft); 
     height: 100%;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-
-
 }
 
-.resumen_vuelo_container h2 {
-
-    background-color: #0b3d91;
-    padding: 1rem;
-    color: white;
+.datos_pasajero_container h2,
+.resumen_vuelo_container h2,
+.metodo_pago_container h2 {
+    background-color: var(--brand-color); 
+    padding: 1.25rem;
+    color: var(--white);
     padding-left: 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
 
+.datos_pasajero,
+.metodo_pago,
+.info_vuelo_container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 2rem;
+    gap: 1.5rem;
 }
 
 .info_pago_container {
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
     padding-bottom: 6rem;
-    
-    
-    
-
-}
-
-.total_vuelo {
-
-    display: flex;
-    justify-content: space-between;
-    border-top: 0.1rem solid #0b3d91;
-    padding-top: 2rem;
-
-
+    width: 100%;
+    max-width: 1200px; 
 }
 
 .total_container {
-
     display: flex;
     gap: 5rem;
-    background-color: white;
+    background-color: var(--white);
     padding: 2rem 4rem;
     justify-content: center;
     grid-column: 1 / -1;
-    border-radius: 0.3;
-    
-
+    border-radius: 1.5rem; 
+    box-shadow: var(--shadow-soft);
+    margin-top: 1rem;
 }
 
-.input_nombre_completo {
-
-    width: 100%;
-    padding: 0.3rem;
-    padding-left: 2.5rem;
-
-}
-
-.input_documento {
-
-    width: 70%;
-    padding: 0.3rem;
-    padding-left: 1rem;
-
-
-}
-
-.input_email {
-
-    width: 100%;
-    padding: 0.3rem;
-    padding-left: 2.5rem;
-
-
-}
-
-.input_telefono {
-
-
-    width: 100%;
-    padding: 0.3rem;
-    padding-left: 1rem;
-
-
-}
-
-.select_dni {
-
-    padding: 0.3rem;
-    border-radius: 0.2rem;
-    width: 30%;
+input, select {
+    border-radius: 0.75rem; 
     height: 2.5rem;
-    border: 0.1rem solid #0b3d91;
-    padding-left: 1rem;
-
-}
-
-.input_cupon {
-
+    border: 0.125rem solid #edf2f7; 
+    background-color: #f8fafc;
     padding: 0.3rem;
-    padding-left: 1rem;
-    
-
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-.button_cupon {
+input:focus, select:focus {
+    border-color: var(--brand-color);
+    background-color: var(--white);
+}
 
-    background-color: #0b3d91;
-    color: white;
-    height: 2.5rem;
-    width: 5rem;
+
+.input_nombre_completo, .input_email, .input_telefono, .input_tarjeta, .input_nombre_titular { width: 100%; }
+.input_documento { width: 70%; }
+.select_dni { width: 30%; border: 0.1rem solid var(--brand-color); }
+.input_fecha_vencimiento, .input_cvv { width: 5rem; }
+
+.input_nombre_completo, .input_email { padding-left: 2.5rem; }
+.input_documento, .input_telefono, .input_cupon, .input_tarjeta, .input_nombre_titular, .input_fecha_vencimiento, .input_cvv, .select_dni {
+    padding-left: 1rem;
+}
+
+.icono_usuario, .icono_email {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+    color: var(--brand-color);
+}
+
+.input_nombre_container, .input_email_container {
+    position: relative;
+    display: flex;
+}
+
+.button_confirmar_pago, .button_cupon {
+    background-color: var(--brand-color);
+    color: var(--white);
+    font-weight: 700;
     cursor: pointer;
-}
-
-.button_cupon:hover {
-
-    background-color: #0a192f;
-
-
-}
-
-.metodo_pago_container {
-
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 0.3rem;
-    overflow: hidden;
-    height: 100%;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    
-
-
-}
-
-.metodo_pago_container h2 {
-
-
-    background-color: #0b3d91;
-    color: white;
-    padding: 1rem;
-    padding-left: 2rem;
-    border: 10rem;
-
-}
-
-.info_vuelo {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-
-
-
-}
-
-.info_vuelo_container {
-
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 2rem;
-
-
-}
-
-.input_nombre_container {
-
-    position: relative;
-    display: flex;
-
-}
-
-.icono_usuario {
-
-
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 5%;
-    color: #0b3d91;
-
-}
-
-.input_email_container {
-
-    position: relative;
-    display: flex;
-
-}
-
-.icono_email {
-
-
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 5%;
-    color: #0b3d91;
-
-}
-
-input {
-
-    border-radius: 0.2rem;
-    height: 2.5rem;
-    border: 0.1rem solid #0b3d91;
-   
-
-}
-
-button {
-
-    border-radius: 0.2rem;
     border: none;
-    
-   
-
-
-}
-
-.input_elegir_opcion_pago {
-
-    accent-color: #0b3d91;
-    height: 1rem;
-    
-
-
-}
-
-.cupon {
-
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    border-top: 0.1rem solid #0b3d91;
-    padding-top: 2rem;
-    
-
-}
-
-.vencimiento_cvv_container {
-
-    display: flex;
-    justify-content: space-between;
-
-
-}
-
-.vencimiento_container {
-
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-
-}
-
-.cvv_container {
-
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-
-}
-
-.input_tarjeta {
-
-    width: 100%;
-    padding-left: 1rem;
-
-
-}
-
-.input_nombre_titular {
-
-
-    width: 100%;
-    padding-left: 1rem;
-
-}
-
-.input_fecha_vencimiento {
-
-
-    width: 5rem;
-    padding-left: 1rem;
-
-}
-
-.input_cvv {
-
-
-    width: 5rem;
-    padding-left: 1rem;
-
-}
-
-.datos_dni {
-
-    display: flex;
-    gap: 1rem;
-
-}
-
-.ida_texto, .vuelta_texto {
-
-    font-weight: bold;
-    margin-bottom: 1rem;
-
-}
-
-.ida_vuelta_container {
-
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .button_confirmar_pago {
+    height: 3rem;
+    width: 12rem; 
+}
 
-    background-color: #0b3d91;
-    color: white;
+.button_cupon {
     height: 2.5rem;
     width: 5rem;
-    cursor: pointer;
-
-
 }
 
-.button_confirmar_pago:hover {
-
-    background-color: #0a192f;
-
-
+.button_confirmar_pago:hover, .button_cupon:hover {
+    background-color: #004494;
+    transform: translateY(-1px);
 }
 
-.tarjeta_credito_container  {
-
+.total_vuelo {
     display: flex;
     justify-content: space-between;
-
-
+    border-top: 0.125rem solid #edf2f7;
+    padding-top: 2rem;
 }
 
-.tarjeta_imagen {
-
-    font-size: 2rem;
-    color: #0b3d91;
-
-
-}
-
-
-
-.mercado_pago_imagen {
-
-    width: 8rem;
-    height: auto;
-    color: #0b3d91;
-
-}
-
-.transferencia_container {
-
+.cupon {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    justify-content: center;
+    gap: 0.5rem;
+    border-top: 0.125rem solid #edf2f7;
+    padding-top: 2rem;
 }
 
 .total_precio {
-
-    color: #0b3d91;
-    font-size: 2rem;
-
+    color: var(--brand-color);
+    font-size: 2.5rem;
+    font-weight: 800;
 }
 
 .texto_total {
-
-    font-size: 2rem;
-    font-weight: bold;
-
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .total_precio_container {
-
     display: flex;
     gap: 1rem;
-
+    align-items: center;
 }
-    
+
+.input_elegir_opcion_pago { accent-color: var(--brand-color); height: 1rem; }
+.tarjeta_imagen, .mercado_pago_imagen { color: var(--brand-color); }
+.mercado_pago_imagen { width: 8rem; height: auto; }
+.transferencia_container { display: flex; justify-content: space-between; align-items: center; }
+
 
 @media (max-width: 768px) {
-
-
     .info_pago_container {
+        grid-template-columns: 1fr; 
+        padding: 2rem;
+        gap: 2rem;
+    }
 
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    gap: 6rem;
-
-
-}
-
-   .total_container {
+    .total_container {
         padding: 2rem;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         align-items: center;
     }
 
+    .checkout h1 {
+        padding: 2rem;
+        text-align: center;
+        font-size: 1.75rem;
+    }
 
-
+    .vencimiento_cvv_container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }

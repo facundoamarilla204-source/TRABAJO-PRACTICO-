@@ -49,3 +49,19 @@
 .desplegable-nosotros summary:focus {
     outline: none;
 }
+
+@media (max-width: 768px) {
+    .contenedor-nosotros {
+        width: 90%;
+        margin: 1rem auto;
+    }
+    
+    .desplegable-nosotros summary h2 {
+        font-size: 1rem;
+    }
+    
+    .grupo-texto {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}

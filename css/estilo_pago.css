@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 0.1rem;
+    align-items: center;
 
 
 }
@@ -40,6 +41,7 @@
     background-color: white;
     border-radius: 0.3rem;
     overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 
 
 
@@ -51,8 +53,8 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 2rem;
-    gap: 0.8rem;
+    padding: 5rem;
+    gap: 1.5rem;
 
 
 }
@@ -71,8 +73,10 @@
 
     display: flex;
     flex-direction: column;
-    padding: 2rem;
-    gap: 0.5rem;
+    padding: 5rem;
+    gap: 1.5rem;
+    background-color: white;
+    
 
 
 }
@@ -84,7 +88,8 @@
     background-color: white;
     border-radius: 0.3rem;
     overflow: hidden;
-    height: 23rem;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 
 
 }
@@ -101,11 +106,15 @@
 .info_pago_container {
 
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 0.2fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    padding: 4rem;
+    padding: 20rem;
     padding-top: 0;
+    padding-bottom: 6rem;
+    
+    
+    
 
 }
 
@@ -113,7 +122,7 @@
 
     display: flex;
     justify-content: space-between;
-    border-top: 0.1rem solid black;
+    border-top: 0.1rem solid #0b3d91;
     padding-top: 2rem;
 
 
@@ -123,36 +132,37 @@
 
     display: flex;
     gap: 5rem;
-    margin-top: 3rem;
     background-color: white;
     padding: 3rem;
-    padding-left: 4rem;
-    width: 100%;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    justify-content: space-between;
+    grid-column: 1 / 4;
 
 }
 
 .input_nombre_completo {
 
-    width: 50%;
+    width: 100%;
     padding: 0.3rem;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 
 }
 
 .input_documento {
 
-    width: 28.5%;
+    width: 70%;
     padding: 0.3rem;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 
 
 }
 
 .input_email {
 
-    width: 50.2%;
+    width: 100%;
     padding: 0.3rem;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 
 
 }
@@ -160,9 +170,9 @@
 .input_telefono {
 
 
-    width: 50.2%;
+    width: 100%;
     padding: 0.3rem;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 
 
 }
@@ -171,17 +181,18 @@
 
     padding: 0.3rem;
     border-radius: 0.2rem;
-    width: 4rem;
+    width: 30%;
     height: 2.5rem;
-    border: none;
-    background: #bfdae9;
+    border: 0.1rem solid #0b3d91;
+    padding-left: 1rem;
 
 }
 
 .input_cupon {
 
     padding: 0.3rem;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
+    
 
 }
 
@@ -191,7 +202,12 @@
     color: white;
     height: 2.5rem;
     width: 5rem;
-    
+    cursor: pointer;
+}
+
+.button_cupon:hover {
+
+    background-color: #0a192f;
 
 
 }
@@ -203,7 +219,8 @@
     background-color: white;
     border-radius: 0.3rem;
     overflow: hidden;
-    height: 10rem;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     
 
 
@@ -235,7 +252,7 @@
 
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 5rem;
     gap: 2rem;
 
 
@@ -254,7 +271,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 1%;
+    left: 5%;
+    color: #0b3d91;
 
 }
 
@@ -271,7 +289,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 1%;
+    left: 5%;
+    color: #0b3d91;
 
 }
 
@@ -279,8 +298,7 @@ input {
 
     border-radius: 0.2rem;
     height: 2.5rem;
-    background: #bfdae9;
-    border: none;
+    border: 0.1rem solid #0b3d91;
    
 
 }
@@ -315,3 +333,156 @@ button {
 
 }
 
+.vencimiento_cvv_container {
+
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.vencimiento_container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+
+}
+
+.cvv_container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+
+}
+
+.input_tarjeta {
+
+    width: 100%;
+    padding-left: 1rem;
+
+
+}
+
+.input_nombre_titular {
+
+
+    width: 100%;
+    padding-left: 1rem;
+
+}
+
+.input_fecha_vencimiento {
+
+
+    width: 5rem;
+    padding-left: 1rem;
+
+}
+
+.input_cvv {
+
+
+    width: 5rem;
+    padding-left: 1rem;
+
+}
+
+.datos_dni {
+
+    display: flex;
+    gap: 1rem;
+
+}
+
+.ida_texto, .vuelta_texto {
+
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+}
+
+.ida_vuelta_container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.button_confirmar_pago {
+
+    background-color: #0b3d91;
+    color: white;
+    height: 2.5rem;
+    width: 5rem;
+    cursor: pointer;
+
+
+}
+
+.button_confirmar_pago:hover {
+
+    background-color: #0a192f;
+
+
+}
+
+.tarjeta_credito_container  {
+
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.tarjeta_imagen {
+
+    font-size: 2rem;
+    color: #0b3d91;
+
+
+}
+
+
+
+.mercado_pago_imagen {
+
+    width: 8rem;
+    height: auto;
+    color: #0b3d91;
+
+}
+
+.transferencia_container {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.total_precio {
+
+    color: #0b3d91;
+    font-size: 2rem;
+
+}
+
+.texto_total {
+
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.total_precio_container {
+
+    display: flex;
+    gap: 1rem;
+
+}
+    

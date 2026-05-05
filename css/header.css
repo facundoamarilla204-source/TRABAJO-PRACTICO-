@@ -226,7 +226,7 @@ body {
 }
 
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
 
     .menu-btn {
         display: flex; 

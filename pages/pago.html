@@ -9,28 +9,37 @@
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 
       <header class="header">
-      <div class="container nav">
-        <h1>AeroLink</h1>
-        <nav>
-          <a href="../index.html">Inicio</a>
-          <a href="/pages/vuelo.html">Mi reservas</a>
-          <a href="index.html">Oferta</a>
-          <a href="index.html">Contacto</a>
-          <a href="/pages/login.html">Perfil</a>
-        </nav>
-      </div>
-    </header>
+    <div class="header__logo">
+      <a href="../index.html" style="text-decoration: none;">
+        <span>AeroLink</span>
+      </a>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="nav__list">
+        <li><a href="#" class="nav__link">Vuelos</a></li>
+        <li><a href="#" class="nav__link">Ofertas</a></li>
+        <li><a href="./pages/contacto.html" class="nav__link">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a href="./pages/login.html" class="btn btn--outline">Ingresar</a>
+      <a href="./pages/usuario.html" class="btn btn--primary">Mi Perfil</a>
+    </div>
+  </header>
 
 
     <main class="checkout">
 
         <h1>Checkout</h1>
 
-        <form class="info_pago_container">
+        <form class="info_pago_container" action="../pages/pago_confirmado.html" method="get">
 
             
 
@@ -45,7 +54,7 @@
                     <label for="nombre">Nombre Completo</label>
                     <div class="input_nombre_container">
                         <i class="fa-solid fa-user icono_usuario"></i>
-                        <input class="input_nombre_completo" type="text" name="nombre" placeholder="Nombre Completo">
+                        <input class="input_nombre_completo" type="text" name="nombre_completo" placeholder="Nombre Completo" required>
                     </div>
                     
 
@@ -55,13 +64,13 @@
                                 <option value="dni">DNI</option>
                                 <option value="pasaporte">PASAPORTE</option>
                             </select>
-                            <input class="input_documento" type="text" name="documento" placeholder="35648798">
+                            <input class="input_documento" type="text" name="documento" placeholder="35648798" required>
                         </div>
                 
                     <label for="correo">Correo Electrónico</label>
                     <div class="input_email_container">
                         <i class="fa-solid fa-envelope icono_email"></i>
-                        <input class="input_email" type="email" name="correo" placeholder="Email">
+                        <input class="input_email" type="email" name="correo" placeholder="Email" required>
                     </div>
                    
 
@@ -81,15 +90,62 @@
 
                 <div class="metodo_pago">
 
-                    <label for="opcion_tarjeta_credito" class="opcion_tarjeta_credito">
-                        <input class="input_elegir_opcion_pago" type="radio" name="pago" value="tarjeta_credito" checked>
-                        <span>Tarjeta De Crédito</span>
-                    </label>
+                    <div class="tarjeta_credito_container">
+                        
+                        <label for="opcion_tarjeta_credito" class="opcion_tarjeta_credito">
+                            <input class="input_elegir_opcion_pago" type="radio" name="metodo_pago" value="tarjeta_credito" checked>
+                            <span>Tarjeta De Crédito</span>
+                        </label>
+
+                        <div class="imagenes_tarjetas">
+                            <i class="fa-brands fa-cc-visa tarjeta_imagen"></i>
+                            <i class="fa-brands fa-cc-mastercard tarjeta_imagen"></i>
+                        </div>
+
+                    </div>
+
+                  
+
+
+
+                    <label for="tarjeta">Número De Tarjeta</label>
+                    <input class="input_tarjeta" type="number" name="numero_tarjeta" placeholder="5197 2598 4782 3615" required>
+
+                    <label for="nombre_titular">Titular De La Tarjeta</label>
+                    <input class="input_nombre_titular" type="text" name="nombre_titular_tarjeta" placeholder="FERNANDO GUTIERREZ" required>
                     
-                    <label for="opcion_tarjeta_transferencia" class="opcion_transferencia">
-                        <input class="input_elegir_opcion_pago" type="radio" name="pago" value="transferecnia">
-                        <span>Transferencia Bancaria</span>
-                    </label>
+                    <div class="vencimiento_cvv_container">
+
+                        <div class="vencimiento_container">
+
+                            <label for="fecha_vencimiento">Vencimiento</label>
+                            <input class="input_fecha_vencimiento" type="text" name="fecha_vencimiento_tarjeta" placeholder="MM/AA" required>
+
+                        </div>
+
+                        <div class="cvv_container">
+
+                            <label for="cvv">CVV</label>
+                            <input class="input_cvv" type="number" name="codigo_seguridad_tarjeta" placeholder="123" required>
+
+                        </div>
+
+                    </div>
+                    
+                      <div class="transferencia_container">
+                        
+                        <label for="opcion_transferencia" class="opcion_transferencia">
+                            <input class="input_elegir_opcion_pago" type="radio" name="mercado_pago" value="transferecnia">
+                            <span>Transferencia</span>
+                        </label>
+
+                        <div class="imagen_transferencia">
+                            <img class="mercado_pago_imagen" src="../img/mercado_pago.png" alt="">
+                        </div>
+
+                    </div>
+
+                 
 
                 </div>
 
@@ -105,11 +161,36 @@
 
                 <div class="info_vuelo_container">
 
+                    
 
                     <div class="info_vuelo">
-                        <p>Buenos Aires (BUE) - Madrid (MAD)</p>
-                        <p>10/08/2024 – 20/08/2024</p>
-                        <p class="escala">1 escala LIM (ida y vuelta)</p>
+
+                        <div class="ida_vuelta_container">
+
+                            <div class="ida_container">
+
+                                <p class="ida_texto">Ida</p>
+                                <p><b>EZE (BS.AS)</b>  <i class="fa-solid fa-arrow-right"></i> <b>MAD (MAD)</b> </p>
+                                <p>10/08/2024 – 23:55 - 16:15</p>
+
+                            </div>
+
+                            <div class="vuelta_container">
+
+                                <p class="vuelta_texto">Vuelta</p>
+                                <p><b>EZE (BS.AS)</b>  <i class="fa-solid fa-arrow-left"></i> <b>MAD (MAD)</b> </p>
+                                <p>20/08/2024 – 17:45 - 23:40</p>
+                                
+
+                            </div>
+
+                            <p class="escala">1 escala LIM (ida y vuelta)</p>
+
+
+                        </div>
+               
+                       
+                        
                     </div>    
                     
 
@@ -136,14 +217,25 @@
 
             </section>
 
+            <div class="total_container">
+                <div class="total_precio_container">
+
+                    <span class="texto_total">Total:</span>
+                    <strong class="total_precio">$550 USD</strong>
+
+                </div>
+
+                <button class="button_confirmar_pago" type="submit">Pagar</button>
+            
+            </div>
+
 
         </form>
 
+        
 
-        <div class="total_container">
-            <span>Total</span>
-            <strong>$550 USD</strong>
-        </div>
+
+      
         
 
         

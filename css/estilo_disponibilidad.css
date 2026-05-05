@@ -250,3 +250,9 @@ h3 {
     background-color: #3f4652;
     border-color: #3f4652;
 }
+
+@media (max-width: 768px) {
+    .grid_vuelos {
+        grid-template-columns: 1fr;
+    }
+}

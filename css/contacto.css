@@ -129,3 +129,17 @@
     pointer-events: none; 
     user-select: none;
 }
+
+@media (max-width: 768px) {
+    .contact-card {
+        grid-template-columns: 1fr; 
+    }
+
+    .contact-form-side {
+        padding: 2rem;
+    }
+
+    .contact-image-side {
+        display: none; 
+    }
+}

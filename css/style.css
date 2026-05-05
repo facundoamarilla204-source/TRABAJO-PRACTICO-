@@ -198,3 +198,8 @@ body {
     color: #666;
 }
 
+@media (max-width: 768px) {
+    .grid-ofertas, .grid-beneficios {
+        grid-template-columns: 1fr;
+    }
+}

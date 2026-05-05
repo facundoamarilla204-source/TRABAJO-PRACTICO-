@@ -159,3 +159,26 @@ text-decoration: none;
 .icono.xl {
   font-size: 44px;
 }
+
+@media (max-width: 768px) {
+  .vuelo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .vuelo-precio {
+    align-items: center;
+  }
+
+  .equipaje-opciones {
+    flex-direction: column;
+  }
+
+  .equipaje-card {
+    width: 100%;
+  }
+
+  .filtros_vuelos {
+    grid-column: 1 / -1;
+  } 
+
+}

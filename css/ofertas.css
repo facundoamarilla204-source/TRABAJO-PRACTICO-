@@ -159,4 +159,10 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .grid-ofertas {
+    grid-template-columns: 1fr;
+  }
+}
+
 

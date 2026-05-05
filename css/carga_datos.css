@@ -103,3 +103,9 @@ select {
     color: #3474a8;
     font-size: 1.2rem;
 }
+
+@media (max-width: 768px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}

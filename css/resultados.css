@@ -1,0 +1,161 @@
+
+.layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 25px;
+}
+
+
+.filtros_vuelos {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.filtros_vuelos h3 {
+  margin-bottom: 15px;
+}
+
+details {
+  margin-bottom: 15px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filtros_vuelos label {
+  display: block;
+  margin-top: 5px;
+}
+
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+
+.vuelo-card {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 15px;
+}
+
+.aerolinea {
+  color: var(--brand-color);
+  margin-bottom: 10px;
+}
+.aerolinea img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.horarios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hora {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.duracion {
+  text-align: center;
+  font-size: 12px;
+}
+
+.linea {
+  height: 3px;
+  background: #ccc;
+  margin: 5px 0;
+}
+
+.directo {
+  color: green;
+}
+
+
+.vuelo-precio {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.precioregular {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--brand-color);
+}
+
+.vuelo-precio a {
+  background: #1e2a38;
+  width: auto;
+  color: white;
+  padding: 10px ;
+  border-radius: 6px;
+text-decoration: none;
+
+}
+
+.vuelo-precio a:hover {
+  background: var(--brand-color);
+}
+
+
+.equipaje {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.equipaje-opciones {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.equipaje-card {
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.equipaje-card:hover {
+  border-color: var(--brand-color);
+}
+
+.icono {
+  font-size: 28px;
+  color: var(--brand-color);
+  margin-bottom: 10px;
+}
+
+
+.icono.grande {
+  font-size: 36px;
+}
+
+.icono.xl {
+  font-size: 44px;
+}

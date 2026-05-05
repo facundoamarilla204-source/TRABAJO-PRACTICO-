@@ -108,3 +108,19 @@ main {
 .formulario p a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 4.375rem 1.25rem 2.5rem 1.25rem; 
+    }
+
+    .titulo {
+        font-size: 1.75rem;
+    }
+
+    .formulario {
+        padding: 1.875rem; 
+        border-radius: 1.25rem; 
+        box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+    }
+}

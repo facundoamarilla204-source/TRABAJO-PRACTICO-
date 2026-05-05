@@ -93,3 +93,24 @@ main h2 {
 .formulario p a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 480px) {
+    main {
+        padding: 3rem 1rem; 
+    }
+
+    main h2 {
+        font-size: 1.75rem;
+    }
+
+    .formulario {
+        padding: 2rem 1.5rem; 
+        border-radius: 1.25rem; 
+        box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-iniciar-sesion {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+}

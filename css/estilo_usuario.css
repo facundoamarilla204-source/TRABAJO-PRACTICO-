@@ -86,3 +86,9 @@ summary:hover {
 main{
     padding: 5rem 1.25rem;
 }
+
+@media (max-width: 768px) {
+    .perfil-vista {
+        grid-template-columns: 1fr; 
+    }
+}

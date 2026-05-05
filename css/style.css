@@ -16,7 +16,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f4e8ff 0%, #bbd3eb 100%);
+    background: linear-gradient(135deg, #e6f0fa 0%, #bbd3eb 100%);
     color: var(--text-main);
     line-height: 1.6;
 }
@@ -36,19 +36,19 @@ body {
 
 .hero h2 {
     font-size: 3.5rem;
-    color: var(--white);
+    color: white;
     text-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
 }
 
 .hero p {
     font-size: 1.25rem;
-    color: var(--white);
+    color: white;
 }
 
 
 .container-formulario {
-    background-color: var(--white);
+    background-color: white;
     padding: 2.5rem;
     border-radius: 1.5rem;
     max-width: 95%;
@@ -74,7 +74,8 @@ body {
 }
 
 .form-group--personas {
-    flex: 0 1 12.5rem !important; 
+    flex: 0 1 14.0rem ; 
+    max-width: 14.0rem;
 }
 
 .form-busqueda label {
@@ -87,7 +88,7 @@ body {
 .form-busqueda input, .form-busqueda select {
     padding: 0.875rem;
     border-radius: 0.75rem;
-    border: 0.125rem solid var(--bg-light);
+    border: 0.125rem solid rgba(0, 0, 0, 0.1);
     background-color: var(--bg-light);
     font-size: 0.875rem;
     outline: none;
@@ -140,7 +141,9 @@ body {
     transition: transform 0.3s ease;
 }
 
-.caja-oferta:hover { transform: translateY(-0.5rem); }
+.caja-oferta:hover {
+     transform: translateY(-0.5rem);
+    } 
 
 .caja-oferta img {
     width: 100%;

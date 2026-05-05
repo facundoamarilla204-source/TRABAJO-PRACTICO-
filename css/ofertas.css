@@ -1,0 +1,162 @@
+
+.ofertas-page {
+  margin: 10px auto;
+}
+
+.ofertas-header {
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+.ofertas-header h2 {
+  font-size: 26px;
+  color: var(--brand-color);
+  margin-bottom: 5px;
+}
+
+
+.ofertas-header p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+
+.barra-resultado {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+
+
+
+
+
+.barra-resultado > p {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+.barra-resultado div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.barra-resultado label {
+  font-size: 13px;
+  color: #555;
+}
+
+
+.barra-resultado select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: var(--white);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.ofertas {
+  margin-top: 40px;
+  max-width: 1000px;   
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.grid-ofertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  padding: 10px;
+}
+
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background: #2d3e50;
+  color: white;
+
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h3 {
+  margin-bottom: 5px;
+}
+
+.origen {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+
+.precio {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--brand-color);
+}
+
+.detalle {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+
+.card button {
+  width: 100%;
+  padding: 10px;
+
+  background: #1e2a38;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+

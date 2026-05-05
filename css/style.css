@@ -23,11 +23,12 @@ body {
 
 
 .hero {
+    margin-top: -9rem;
     padding: 10rem 1.25rem;
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("../img/fondo.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("../img/fondo1.jpeg");
     background-size: cover;
     background-position: center; 
-    min-height: 35rem;
+    min-height: 50rem;
     display: flex;
     align-items: center;
     justify-content: center;

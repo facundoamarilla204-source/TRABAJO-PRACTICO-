@@ -1,0 +1,124 @@
+.vuelos-tablero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.filtros {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--brand-color);
+}
+
+.form-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn-buscar {
+  background: var(--brand-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+
+.fecha-barra {
+  background: var(--brand-color);
+  color: white;
+  padding: 10px 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px auto;
+}
+
+.lista-vuelos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.vuelo-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 200px 150px 120px;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+
+.hora {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.vuelo-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vuelo-info img {
+  width: 40px;
+}
+
+
+.extra {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #555;
+  margin: 10px;
+}
+
+
+.estado {
+
+margin: 10px auto;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.estado.ok {
+  background:green;
+  color: white;
+}
+
+.estado.demora {
+  background: #d9534f;
+  color: white;
+}
+
+
+.vuelo-item a {
+  text-decoration: none;
+  color: var(--brand-color);
+  font-weight: bold;
+}

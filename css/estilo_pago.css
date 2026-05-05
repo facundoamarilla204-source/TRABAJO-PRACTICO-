@@ -13,6 +13,7 @@
     flex-direction: column;
     margin-bottom: 0.1rem;
     align-items: center;
+    color: #0a192f;;
 
 
 }
@@ -53,7 +54,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 5rem;
+    padding: 2rem;
     gap: 1.5rem;
 
 
@@ -73,7 +74,7 @@
 
     display: flex;
     flex-direction: column;
-    padding: 5rem;
+    padding: 2rem;
     gap: 1.5rem;
     background-color: white;
     
@@ -106,11 +107,8 @@
 .info_pago_container {
 
     display: grid;
-    grid-template-rows: 1fr 0.2fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    padding: 20rem;
-    padding-top: 0;
     padding-bottom: 6rem;
     
     
@@ -133,11 +131,11 @@
     display: flex;
     gap: 5rem;
     background-color: white;
-    padding: 3rem;
-    padding-left: 20rem;
-    padding-right: 20rem;
-    justify-content: space-between;
-    grid-column: 1 / 4;
+    padding: 2rem 4rem;
+    justify-content: center;
+    grid-column: 1 / -1;
+    border-radius: 0.3;
+    
 
 }
 
@@ -252,7 +250,7 @@
 
     display: flex;
     flex-direction: column;
-    padding: 5rem;
+    padding: 2rem;
     gap: 2rem;
 
 
@@ -486,3 +484,26 @@ button {
 
 }
     
+
+@media (max-width: 768px) {
+
+
+    .info_pago_container {
+
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 6rem;
+
+
+}
+
+   .total_container {
+        padding: 2rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+
+
+}

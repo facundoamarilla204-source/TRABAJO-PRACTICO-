@@ -321,6 +321,15 @@ summary::-webkit-details-marker {
     margin-bottom: 0.75rem;
 }
 
+.select_ordenar {
+
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+
+}
+
 
 @media (max-width: 900px) {
     .vuelo-summary {

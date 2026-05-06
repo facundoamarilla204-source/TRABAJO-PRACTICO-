@@ -190,7 +190,7 @@ input:focus, select:focus {
 }
 
 .input_elegir_opcion_pago { accent-color: var(--brand-color); height: 1rem; }
-.tarjeta_imagen, .mercado_pago_imagen { color: var(--brand-color); }
+.tarjeta_imagen { color: var(--brand-color); font-size: 1.5rem;}
 .mercado_pago_imagen { width: 8rem; height: auto; }
 .paypal_container { display: flex; justify-content: space-between; align-items: center; }
 
@@ -231,6 +231,13 @@ input:focus, select:focus {
     display: flex;
     gap: 1rem;
 
+
+}
+
+.tarjeta_credito_container {
+
+    display: flex;
+    justify-content: space-between;
 
 }
 

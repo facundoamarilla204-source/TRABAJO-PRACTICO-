@@ -122,3 +122,22 @@ margin: 10px auto;
   color: var(--brand-color);
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  main{
+    padding: 10px;
+    margin: auto;
+  }
+  .vuelo-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .vuelo-info {
+    justify-content: center;
+  }
+
+  .extra {
+    display: none;
+  }
+}

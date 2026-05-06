@@ -1,279 +1,291 @@
 <!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AeroLink - Vuelos</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AeroLink - Vuelos</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/detalles_ofertas.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../img/aerolink1.png" />
+  </head>
 
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/detalles_ofertas.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="../img/aerolink1.png">
-</head>
-
-<body>
-  <header class="header">
-    <div class="header__logo">
-      <a href="/index.html" style="text-decoration: none">
-        <span>AeroLink</span>
-      </a>
-    </div>
-    <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
-    <label for="menu-toggle" class="menu-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <nav class="header__nav">
-      <ul class="nav__list">
-        <li><a href="/pages/vuelos.html" class="nav__link">Vuelos</a></li>
-        <li><a href="/pages/ofertas.html" class="nav__link">Ofertas</a></li>
-        <li>
-          <a href="/pages/contacto.html" class="nav__link">Contacto</a>
-        </li>
-        <li class="mobile-only">
-          <a href="login.html" class="nav__link">Ingresar</a>
-        </li>
-        <li class="mobile-only">
-          <a href="registro.html" class="nav__link">Registrarse</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="header__actions">
-      <a href="login.html" class="btn btn--outline">Ingresar</a>
-      <a href="registro.html" class="btn btn--primary">Registrarse</a>
-    </div>
-  </header>
-
-  <main class="layout">
-
-  
-  <section class="resultados">
-
-    <div class="barra">
-      <p>3 vuelos a Madrid encontrados hoy</p>
-
-      <div>
-        <label>Ordenar por:</label>
-        <select>
-          <option>Mejor opción</option>
-          <option>Precio menor</option>
-          <option>Precio mayor</option>
-        </select>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <a href="/index.html" style="text-decoration: none">
+          <span>AeroLink</span>
+        </a>
       </div>
-    </div>
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    
-    <article class="vuelo-card">
-      <div class="vuelo-info">
-        <div class="aerolinea">
-          <img src="/img/aerolineasArgentinas.png" alt="Aerolíneas Argentinas" />
-        </div>
+      <nav class="header__nav">
+        <ul class="nav__list">
+          <li><a href="/pages/vuelos.html" class="nav__link">Vuelos</a></li>
+          <li><a href="/pages/ofertas.html" class="nav__link">Ofertas</a></li>
+          <li>
+            <a href="/pages/contacto.html" class="nav__link">Contacto</a>
+          </li>
+          <li class="mobile-only">
+            <a href="login.html" class="nav__link">Ingresar</a>
+          </li>
+          <li class="mobile-only">
+            <a href="registro.html" class="nav__link">Registrarse</a>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="horarios">
-          <div>
-            <p class="hora">08:30</p>
-            <span>EZE</span>
-          </div>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--outline">Ingresar</a>
+        <a href="registro.html" class="btn btn--primary">Registrarse</a>
+      </div>
+    </header>
 
-          <div class="duracion">
-            <span>10h 00m</span>
-            <div class="linea"></div>
-            <span class="directo">Hoy</span>
-          </div>
+    <main class="layout">
+      <section class="resultados">
+        <div class="barra">
+          <p>3 vuelos a Madrid encontrados hoy</p>
 
           <div>
-            <p class="hora">18:30</p>
-            <span>MAD</span>
+            <label>Ordenar por:</label>
+            <select>
+              <option>Mejor opción</option>
+              <option>Precio menor</option>
+              <option>Precio mayor</option>
+            </select>
           </div>
         </div>
-      </div>
 
-      <div class="vuelo-precio">
-        <p class="precioregular">USD $500</p>
-        <span>Ida y vuelta</span>
-        <a href="./disponibilidad.html">Ver detalle</a>
-      </div>
-    </article>
+        <article class="vuelo-card">
+          <div class="vuelo-info">
+            <div class="aerolinea">
+              <img
+                src="/img/aerolineasArgentinas.png"
+                alt="Aerolíneas Argentinas"
+              />
+            </div>
 
-    
-    <article class="vuelo-card">
-      <div class="vuelo-info">
-        <div class="aerolinea">
-          <img src="/img/latam2.png" alt="LATAM" />
+            <div class="horarios">
+              <div>
+                <p class="hora">08:30</p>
+                <span>EZE</span>
+              </div>
+
+              <div class="duracion">
+                <span>10h 00m</span>
+                <div class="linea"></div>
+                <span class="directo">Hoy</span>
+              </div>
+
+              <div>
+                <p class="hora">18:30</p>
+                <span>MAD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuelo-precio">
+            <p class="precioregular">USD $500</p>
+            <span>Ida y vuelta</span>
+            <a href="/pages/disponibilidad-madrid.html">Ver detalle</a>
+          </div>
+        </article>
+
+        <article class="vuelo-card">
+          <div class="vuelo-info">
+            <div class="aerolinea">
+              <img src="/img/latam2.png" alt="LATAM" />
+            </div>
+
+            <div class="horarios">
+              <div>
+                <p class="hora">14:15</p>
+                <span>EZE</span>
+              </div>
+
+              <div class="duracion">
+                <span>11h 10m</span>
+                <div class="linea"></div>
+                <span class="directo">06/05</span>
+              </div>
+
+              <div>
+                <p class="hora">01:25</p>
+                <span>MAD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuelo-precio">
+            <p class="precioregular">USD $450</p>
+            <span>Ida y vuelta</span>
+            <a href="/pages/disponibilidad-madrid.html">Ver detalle</a>
+          </div>
+        </article>
+
+        <article class="vuelo-card">
+          <div class="vuelo-info">
+            <div class="aerolinea">
+              <img src="/img/flyemirates.png" alt="Fly Emirates" />
+            </div>
+
+            <div class="horarios">
+              <div>
+                <p class="hora">19:45</p>
+                <span>EZE</span>
+              </div>
+
+              <div class="duracion">
+                <span>11h 55m</span>
+                <div class="linea"></div>
+                <span class="directo">08/05</span>
+              </div>
+
+              <div>
+                <p class="hora">10:05</p>
+                <span>MAD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vuelo-precio">
+            <p class="precioregular">USD $440</p>
+            <span>Ida y vuelta</span>
+            <a href="/pages/disponibilidad-madrid.html">Ver detalle</a>
+          </div>
+        </article>
+
+        <section class="equipaje">
+          <h3>Equipaje</h3>
+          <p>Seleccioná el equipaje que mejor se adapte a tu viaje</p>
+
+          <div class="equipaje-opciones">
+            <div class="equipaje-card">
+              <div class="icono">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <h4>Equipaje de mano</h4>
+              <p>1 carry-on hasta 10 kg</p>
+              <span>Incluido</span>
+            </div>
+
+            <div class="equipaje-card">
+              <div class="icono grande">
+                <i class="fa-solid fa-suitcase"></i>
+              </div>
+              <h4>Equipaje en bodega</h4>
+              <p>1 maleta hasta 23 kg</p>
+              <span>+ $15.000</span>
+            </div>
+
+            <div class="equipaje-card">
+              <div class="icono xl">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+              </div>
+              <h4>Equipaje flex</h4>
+              <p>Cambios permitidos + valija</p>
+              <span>+ $30.000</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__grid">
+          <div class="footer__col">
+            <h3 class="footer__logo">AeroLink</h3>
+            <p class="footer__desc">
+              Conectando tus destinos al mejor precio, con la seguridad y
+              comodidad que merecés en cada vuelo.
+            </p>
+            <div class="footer__socials">
+              <a href="https://www.instagram.com/" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://x.com/?lang=es" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr#"
+                class="social-icon"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__title">Navegación</h4>
+            <ul class="footer__list">
+              <li>
+                <a href="/pages/vuelos.html" class="footer__link"
+                  >Buscar Vuelos</a
+                >
+              </li>
+              <li>
+                <a href="ofertas.html" class="footer__link"
+                  >Ofertas de la Semana</a
+                >
+              </li>
+              <li>
+                <a href="nosotros.html" class="footer__link">Sobre Nosotros</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__title">Soporte y Ayuda</h4>
+            <ul class="footer__list">
+              <li>
+                <a href="faq.html" class="footer__link"
+                  >Centro de Ayuda (FAQ)</a
+                >
+              </li>
+              <li>
+                <a href="contacto.html" class="footer__link"
+                  >Formulario de Contacto</a
+                >
+              </li>
+              <li>
+                <a href="faq.html" class="footer__link">Política de Equipaje</a>
+              </li>
+              <li>
+                <a href="faq.html" class="footer__link">Viajar con Mascotas</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__title">Legal</h4>
+            <ul class="footer__list">
+              <li>
+                <a href="/pages/terminosycondiciones.html" class="footer__link"
+                  >Términos y Condiciones</a
+                >
+              </li>
+              <li>
+                <a href="/pages/terminosycondiciones.html" class="footer__link"
+                  >Políticas de Privacidad</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div class="horarios">
-          <div>
-            <p class="hora">14:15</p>
-            <span>EZE</span>
-          </div>
-
-          <div class="duracion">
-            <span>11h 10m</span>
-            <div class="linea"></div>
-            <span class="directo">06/05</span>
-          </div>
-
-          <div>
-            <p class="hora">01:25</p>
-            <span>MAD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vuelo-precio">
-        <p class="precioregular">USD $450</p>
-        <span>Ida y vuelta</span>
-        <a href="./disponibilidad.html">Ver detalle</a>
-      </div>
-    </article>
-
-    <!-- VUELO 3 -->
-    <article class="vuelo-card">
-      <div class="vuelo-info">
-        <div class="aerolinea">
-          <img src="/img/flyemirates.png" alt="Fly Emirates" />
-        </div>
-
-        <div class="horarios">
-          <div>
-            <p class="hora">19:45</p>
-            <span>EZE</span>
-          </div>
-
-          <div class="duracion">
-            <span>11h 55m</span>
-            <div class="linea"></div>
-            <span class="directo">08/05</span>
-          </div>
-
-          <div>
-            <p class="hora">10:05</p>
-            <span>MAD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vuelo-precio">
-        <p class="precioregular">USD $440</p>
-        <span>Ida y vuelta</span>
-        <a href="./disponibilidad.html">Ver detalle</a>
-      </div>
-    </article>
-
-    <!-- EQUIPAJE -->
-    <section class="equipaje">
-      <h3>Equipaje</h3>
-      <p>Seleccioná el equipaje que mejor se adapte a tu viaje</p>
-
-      <div class="equipaje-opciones">
-
-        <div class="equipaje-card">
-          <div class="icono">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <h4>Equipaje de mano</h4>
-          <p>1 carry-on hasta 10 kg</p>
-          <span>Incluido</span>
-        </div>
-
-        <div class="equipaje-card">
-          <div class="icono grande">
-            <i class="fa-solid fa-suitcase"></i>
-          </div>
-          <h4>Equipaje en bodega</h4>
-          <p>1 maleta hasta 23 kg</p>
-          <span>+ $15.000</span>
-        </div>
-
-        <div class="equipaje-card">
-          <div class="icono xl">
-            <i class="fa-solid fa-suitcase-rolling"></i>
-          </div>
-          <h4>Equipaje flex</h4>
-          <p>Cambios permitidos + valija</p>
-          <span>+ $30.000</span>
-        </div>
-
-      </div>
-    </section>
-
-  </section>
-
-</main>
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__grid">
-        <div class="footer__col">
-          <h3 class="footer__logo">AeroLink</h3>
-          <p class="footer__desc">
-            Conectando tus destinos al mejor precio, con la seguridad y
-            comodidad que merecés en cada vuelo.
+        <div class="footer__bottom">
+          <p>
+            &copy; 2026 AeroLink. Todos los derechos reservados. Proyecto
+            Académico.
           </p>
-          <div class="footer__socials">
-            <a href="https://www.instagram.com/" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://x.com/?lang=es" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__title">Navegación</h4>
-          <ul class="footer__list">
-            <li><a href="/pages/vuelos.html" class="footer__link">Buscar Vuelos</a></li>
-            <li><a href="ofertas.html" class="footer__link">Ofertas de la Semana</a></li>
-            <li>
-              <a href="nosotros.html" class="footer__link">Sobre Nosotros</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__title">Soporte y Ayuda</h4>
-          <ul class="footer__list">
-            <li>
-              <a href="faq.html" class="footer__link">Centro de Ayuda (FAQ)</a>
-            </li>
-            <li>
-              <a href="contacto.html" class="footer__link">Formulario de Contacto</a>
-            </li>
-            <li>
-              <a href="faq.html" class="footer__link">Política de Equipaje</a>
-            </li>
-            <li>
-              <a href="faq.html" class="footer__link">Viajar con Mascotas</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__title">Legal</h4>
-          <ul class="footer__list">
-            <li>
-              <a href="/pages/terminosycondiciones.html" class="footer__link">Términos y Condiciones</a>
-            </li>
-            <li>
-              <a href="/pages/terminosycondiciones.html" class="footer__link">Políticas de Privacidad</a>
-            </li>
-          </ul>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>
-          &copy; 2026 AeroLink. Todos los derechos reservados. Proyecto
-          Académico.
-        </p>
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

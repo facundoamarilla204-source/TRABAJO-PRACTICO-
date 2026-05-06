@@ -192,7 +192,48 @@ input:focus, select:focus {
 .input_elegir_opcion_pago { accent-color: var(--brand-color); height: 1rem; }
 .tarjeta_imagen, .mercado_pago_imagen { color: var(--brand-color); }
 .mercado_pago_imagen { width: 8rem; height: auto; }
-.transferencia_container { display: flex; justify-content: space-between; align-items: center; }
+.paypal_container { display: flex; justify-content: space-between; align-items: center; }
+
+.vencimiento_cvv_container {
+
+    display: flex;
+    gap: 0.5rem;
+
+
+}
+
+.transferencia_container {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+
+}
+
+.imagen_paypal {
+
+    font-size: 1.5rem;
+    color: var(--brand-color);
+
+}
+
+.imagen_transferencia {
+
+    font-size: 1.5rem;
+    color: var(--brand-color);
+
+}
+
+.datos_dni {
+
+    display: flex;
+    gap: 1rem;
+
+
+}
+
 
 
 @media (max-width: 768px) {

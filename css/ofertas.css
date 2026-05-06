@@ -147,14 +147,15 @@
 }
 
 
-.card button {
+.card .btn-oferta {
+  display: block; 
   width: 100%;
   padding: 10px;
-
   background: #1e2a38;
   color: white;
 
-  border: none;
+  text-align: center;
+  text-decoration: none; 
   border-radius: 6px;
   cursor: pointer;
 }

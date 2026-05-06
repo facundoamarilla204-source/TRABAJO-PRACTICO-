@@ -21,6 +21,13 @@ body {
     line-height: 1.6;
 }
 
+h4 {
+
+
+    color: var(--text-main);
+
+}
+
 
 .hero {
     margin-top: -9rem;

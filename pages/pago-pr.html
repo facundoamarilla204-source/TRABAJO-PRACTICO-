@@ -185,25 +185,39 @@
               </div>
             </div>
 
-            <div class="transferencia_container">
+            <div class="paypal_container">
+              <label for="opcion_paypal" class="opcion_paypal">
+                <input
+                  class="input_elegir_opcion_pago"
+                  type="radio"
+                  name="metodo_pago"
+                  value="paypal"
+                />
+                <span>Paypal</span>
+              </label>
+
+              <div class="imagen_paypal">
+               <i class="fa-brands fa-paypal imagen_paypal"></i>
+              </div>
+
+              
+            </div>
+            
+              <div class="transferencia_container">
               <label for="opcion_transferencia" class="opcion_transferencia">
                 <input
                   class="input_elegir_opcion_pago"
                   type="radio"
-                  name="mercado_pago"
-                  value="transferecnia"
+                  name="metodo_pago"
+                  value="banco"
                 />
-                <span>Transferencia</span>
+                <span>Transferencia Bancaria</span>
               </label>
 
               <div class="imagen_transferencia">
-                <img
-                  class="mercado_pago_imagen"
-                  src="../img/mercado_pago.png"
-                  alt=""
-                />
+               <i class="fa-solid fa-building-columns"></i>
               </div>
-            </div>
+              
           </div>
         </section>
 

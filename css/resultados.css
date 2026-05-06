@@ -53,6 +53,11 @@ summary {
     font-weight: 700;
     color: var(--text-main);
     outline: none;
+    /* Quitar el triángulo por defecto */
+    list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
 }
 
 .filtros_vuelos label {
@@ -63,61 +68,84 @@ summary {
     cursor: pointer;
 }
 
+/* --- NUEVOS ESTILOS PARA LA TARJETA DESPLEGABLE --- */
+
 .vuelo-card {
-    display: grid;
-    grid-template-columns: 1fr 200px; 
-    gap: 20px;
     background: var(--white);
-    padding: 2rem;
     border-radius: 1.5rem;
     box-shadow: var(--shadow-soft);
     margin-bottom: 1.5rem;
     border: 1px solid rgba(0,0,0,0.02);
-    transition: transform 0.3s ease;
+    overflow: hidden; /* Asegurar que el contenido redondeado funcione */
+    transition: all 0.3s ease;
+    padding-bottom: 0; /* Ajuste para el desplegable */
+    border-bottom: none; /* Quitar el borde inferior por defecto de details */
 }
 
 .vuelo-card:hover {
-    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.12);
 }
 
-.aerolinea {
-    color: var(--brand-color);
-    font-weight: 800;
-    margin-bottom: 1rem;
+/* Cabecera del desplegable */
+.vuelo-summary {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    padding: 2rem;
+    cursor: pointer;
+    position: relative; /* Para el icono */
 }
 
-.aerolinea img {
-    width: 80px;
-    height: auto;
-    object-fit: contain;
+.vuelo-info {
+    flex: 1;
 }
 
 .horarios {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    gap: 1.5rem;
+}
+
+.horarios div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hora {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: var(--brand-color);
+}
+
+.horarios span {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+.horarios .ciudad {
+    font-size: 0.8rem;
+    color: #a0aec0;
 }
 
 .duracion {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10rem;
+}
+
+.duracion span {
+    font-size: 0.8rem;
     color: #94a3b8;
 }
 
 .linea {
-    width: 8rem;
+    width: 100%;
     height: 2px;
     background: #e2e8f0;
-    margin: 0.5rem auto;
+    margin: 0.5rem 0;
     position: relative;
 }
 
@@ -138,25 +166,106 @@ summary {
     font-size: 0.85rem;
 }
 
-
-.vuelo-precio {
-    text-align: right;
+/* Precio en la cabecera */
+.vuelo-precio-summary {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;
-    gap: 1rem;
-    border-left: 2px solid #f1f5f9;
-    padding-left: 20px;
+    gap: 0.2rem;
+    padding-left: 2rem;
+    border-left: 1px solid #edf2f7;
+    margin-left: 2rem;
 }
 
-.precioregular {
-    font-size: 1.75rem;
-    font-weight: 800;
+.vuelo-precio-summary p:first-child {
+    font-size: 0.8rem;
+    color: #718096;
+}
+
+.vuelo-precio-summary .precioregular {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* Icono indicador */
+.toggle-icon {
+    font-size: 1.2rem;
     color: var(--brand-color);
+    margin-top: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
-.vuelo-precio a {
+/* Rotar icono cuando está abierto */
+.vuelo-card[open] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+
+/* --- ESTILOS PARA EL CONTENIDO DESPLEGABLE --- */
+
+.vuelo-options {
+    background-color: #f8fafc;
+    padding: 2rem;
+    border-top: 1px solid #edf2f7;
+}
+
+.vuelo-options h4 {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.option-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.option-row:hover {
+    box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+}
+
+.aerolinea-option {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.aerolinea-option img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.aerolinea-option span {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.price-selection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.price-selection .precioregular {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.price-selection span {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.btn-select {
+    display: inline-block;
     background: var(--brand-color); 
     color: var(--white) !important; 
     padding: 0.75rem 1.5rem;
@@ -165,20 +274,23 @@ summary {
     font-weight: 700;
     transition: all 0.3s ease;
     text-align: center;
-    width: 100%;
 }
 
-.vuelo-precio a:hover {
+.btn-select:hover {
     background: #004494;
+    transform: translateY(-2px);
     box-shadow: 0 0.5rem 1rem rgba(0, 86, 179, 0.2);
 }
 
+
+/* EQUIPAJE (Sin cambios) */
 .equipaje {
     margin-top: 2rem;
     background: var(--white);
     padding: 2.5rem;
     border-radius: 1.5rem;
     box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
 .equipaje-opciones {
@@ -195,6 +307,7 @@ summary {
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: var(--white);
 }
 
 .equipaje-card:hover {
@@ -209,6 +322,40 @@ summary {
 }
 
 
+@media (max-width: 900px) {
+    .vuelo-summary {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .vuelo-precio-summary {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid #edf2f7;
+        padding-top: 1rem;
+    }
+
+    .option-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .aerolinea-option {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .price-selection {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: 1fr;
@@ -218,16 +365,13 @@ summary {
         order: 2;
     }
 
-    .vuelo-card {
-        grid-template-columns: 1fr;
+    .horarios {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .vuelo-precio {
-        border-left: none;
-        border-top: 2px solid #f1f5f9;
-        padding-left: 0;
-        padding-top: 20px;
-        align-items: center;
+    .duracion {
+        width: 100%;
     }
 
     .equipaje-opciones {

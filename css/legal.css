@@ -1,0 +1,40 @@
+.legal-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.legal-header h1 {
+  color: var(--brand-color);
+  font-size: 2rem;
+}
+
+.legal-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.legal-box {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 40px;
+}
+
+.legal-box h2 {
+  margin-top: 20px;
+  color: var(--brand-color);
+  font-size: 1.2rem;
+}
+
+.legal-box p {
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.6;
+}

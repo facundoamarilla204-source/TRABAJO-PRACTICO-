@@ -1,4 +1,3 @@
-
 :root {
     --brand-color: #0056b3;
     --text-main: #2b2b2b;
@@ -13,6 +12,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-body);
@@ -21,8 +25,9 @@ body {
 
 .contenedor {
     max-width: 70rem; 
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 0 1rem;
+    width: 100%;
 }
 
 .grid_vuelos {
@@ -32,7 +37,6 @@ body {
     background-color: var(--white);
     border-radius: 1rem;
     box-shadow: var(--shadow);
-    overflow: hidden;
     padding: 2rem;
 }
 
@@ -86,6 +90,7 @@ body {
     padding: 1.5rem;
     display: inline-block;
     margin-top: 1rem;
+    max-width: 100%;
 }
 
 .asientos_letras, .fila {
@@ -120,6 +125,7 @@ body {
 
 .disponibilidad {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     font-size: 0.8rem;
     margin: 1.5rem 0 1rem;
@@ -174,34 +180,50 @@ body {
     text-align: center;
 }
 
-.resumen_vuelo button:hover {
-    background-color: #004494;
-}
-
-
-@media (max-width: 768px) {
-    .grid_vuelos { 
+@media (max-width: 992px) {
+    .grid_vuelos {
         grid-template-columns: 1fr;
-        padding: 1.5rem;
     }
-
     .resumen_vuelo {
         border-left: none;
         border-top: 1px solid #eee;
-        margin-top: 1.5rem;
     }
+}
 
-    .mapa {
-        display: block; 
-        overflow-x: auto;
+@media (max-width: 480px) {
+    .grid_vuelos {
         padding: 1rem;
     }
 
-    .asientos_letras, .fila {
-        min-width: 450px; 
+    .horario {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .contenedor { 
-        margin: 1rem auto;
+    .linea {
+        width: 2px;
+        height: 2rem;
+        margin: 0.5rem auto;
+    }
+
+    .mapa {
+        display: block;
+        overflow-x: auto;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+    }
+
+    .asientos_letras, .fila {
+        min-width: 320px; 
+        grid-template-columns: 1rem repeat(4, 1.8rem) 1rem repeat(4, 1.8rem);
+    }
+
+    .seat {
+        width: 1.8rem;
+        height: 2rem;
+    }
+
+    .vuelos h1 {
+        font-size: 1.2rem;
     }
 }

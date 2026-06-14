@@ -82,18 +82,21 @@
             </div>
 
             <label for="dni">Documento De Identidad</label>
-            <div class="datos_dni">
-              <select class="select_dni" name="documento">
+            <div class="datos_dni_pasaporte">
+
+              <select class="select_dni_pasaporte" name="documento">
                 <option value="dni">DNI</option>
                 <option value="pasaporte">PASAPORTE</option>
               </select>
+
               <input
-                class="input_documento"
+                class="input_documento_pasaporte"
                 type="text"
                 name="documento"
-                placeholder="35648798"
                 required
               />
+
+              <p class="dni_pasaporte_incorrecto">*dni o pasaporte incorrecto</p>
             </div>
 
             <label for="correo">Correo Electrónico</label>
@@ -115,6 +118,7 @@
               name="telefono"
               placeholder="Telefono"
             />
+            <p class="numero_incorrecto">*numero incorrecto</p>
           </div>
         </section>
 
@@ -148,7 +152,7 @@
               class="input_tarjeta"
               type="number"
               name="numero_tarjeta"
-              placeholder="5197 2598 4782 3615"
+              placeholder="5197259847823615"
               required
             />
 
@@ -352,4 +356,5 @@
       </div>
     </footer>
   </body>
+  <script src="../js/pago.js"></script>
 </html>

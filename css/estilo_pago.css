@@ -111,12 +111,12 @@ input:focus, select:focus {
 
 
 .input_nombre_completo, .input_email, .input_telefono, .input_tarjeta, .input_nombre_titular { width: 100%; }
-.input_documento { width: 70%; }
-.select_dni { width: 30%; border: 0.1rem solid var(--brand-color); }
+.input_documento_pasaporte { width: 40%; }
+.select_dni_pasaporte { width: 38%; border: 0.1rem solid var(--brand-color); }
 .input_fecha_vencimiento, .input_cvv { width: 5rem; }
 
 .input_nombre_completo, .input_email { padding-left: 2.5rem; }
-.input_documento, .input_telefono, .input_cupon, .input_tarjeta, .input_nombre_titular, .input_fecha_vencimiento, .input_cvv, .select_dni {
+.input_documento_pasaporte, .input_telefono, .input_cupon, .input_tarjeta, .input_nombre_titular, .input_fecha_vencimiento, .input_cvv, .select_dni_pasaporte {
     padding-left: 1rem;
 }
 
@@ -226,9 +226,10 @@ input:focus, select:focus {
 
 }
 
-.datos_dni {
+.datos_dni_pasaporte {
 
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 
 
@@ -241,6 +242,16 @@ input:focus, select:focus {
 
 }
 
+.dni_pasaporte_incorrecto, .numero_incorrecto {
+
+    display: none;
+    flex-wrap: wrap;
+    width: 100%;
+    color: red;
+    font-size: 0.8rem;
+
+
+}
 
 
 @media (max-width: 768px) {

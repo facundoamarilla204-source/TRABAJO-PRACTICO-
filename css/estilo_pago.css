@@ -140,6 +140,7 @@ input:focus, select:focus {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s, transform 0.2s;
+    border-radius: 2rem;
 }
 
 .button_confirmar_pago {
@@ -149,7 +150,7 @@ input:focus, select:focus {
 
 .button_cupon {
     height: 2.5rem;
-    width: 5rem;
+    width: 7rem;
 }
 
 .button_confirmar_pago:hover, .button_cupon:hover {
@@ -164,13 +165,6 @@ input:focus, select:focus {
     padding-top: 2rem;
 }
 
-.cupon {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    border-top: 0.125rem solid #edf2f7;
-    padding-top: 2rem;
-}
 
 .total_precio {
     color: var(--brand-color);
@@ -192,11 +186,11 @@ input:focus, select:focus {
 .input_elegir_opcion_pago { accent-color: var(--brand-color); height: 1rem; }
 .tarjeta_imagen { color: var(--brand-color); font-size: 1.5rem;}
 .mercado_pago_imagen { width: 8rem; height: auto; }
-.paypal_container { display: flex; justify-content: space-between; align-items: center; }
 
 .vencimiento_cvv_container {
 
     display: flex;
+    justify-content: space-between;
     gap: 0.5rem;
 
 
@@ -205,19 +199,14 @@ input:focus, select:focus {
 .transferencia_container {
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
 
 }
 
-.imagen_paypal {
-
-    font-size: 1.5rem;
-    color: var(--brand-color);
-
-}
 
 .imagen_transferencia {
 
@@ -242,14 +231,56 @@ input:focus, select:focus {
 
 }
 
-.dni_pasaporte_incorrecto, .numero_incorrecto {
+.dni_pasaporte_incorrecto, .numero_incorrecto, .numero_tarjeta_incorrecta, .fecha_vencimiento_incorrecta, .cvv_incorrecta, .cupon_invalido {
 
     display: none;
     flex-wrap: wrap;
     width: 100%;
     color: red;
-    font-size: 0.8rem;
+    font-size: 1rem;
 
+
+}
+
+
+.input_transferencia_imagen {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.datos_transferencia {
+
+    color: var(--brand-color);
+
+}
+
+.cupon_container {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+.tarjeta_datos_oculta {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.transferencia_oculto {
+
+    display: none;
+
+}
+
+.cupon_aplicado {
+
+    display: none;
+    color: var(--brand-color);
+    font-size: 1rem;
 
 }
 
@@ -275,7 +306,32 @@ input:focus, select:focus {
     }
 
     .vencimiento_cvv_container {
-        flex-direction: column;
-        gap: 1.5rem;
+
+        display: flex;
+    }
+
+    .vencimiento_container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+    }
+
+     .cvv_container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+    }
+
+    .metodo_pago_container {
+
+        height: 30rem;
+
+
     }
 }

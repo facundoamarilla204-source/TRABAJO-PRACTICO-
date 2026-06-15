@@ -11,7 +11,7 @@ const ezeiza_madrid = {
     aerolinea: "Fly Emirates",
 };
 
-const ezeiza_mendoza_aa = {
+const ezeiza_mendoza_aa = { 
     origen: "EZE", 
     destino: "MDZ", 
     salida: "06/05/2026 – 08:30 - 10:30", 

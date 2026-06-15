@@ -16,25 +16,46 @@
 <body>
 
       <header class="header">
-    <div class="header__logo">
-      <a href="../index_logueado.html" style="text-decoration: none;">
-        <span>AeroLink</span>
-      </a>
-    </div>
+      <div class="header__logo">
+        <a href="../index_logueado.html" style="text-decoration: none">
+          <span>AeroLink</span>
+        </a>
+      </div>
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    <nav class="header__nav">
-      <ul class="nav__list">
-        <li><a href="/pages/vuelos_logueado.html" class="nav__link">Vuelos</a></li>
-        <li><a href="ofertas_logueado.html" class="nav__link">Ofertas</a></li>
-        <li><a href="contacto_logueado.html" class="nav__link">Contacto</a></li>
-      </ul>
-    </nav>
+      <nav class="header__nav">
+        <ul class="nav__list">
+          <li>
+            <a href="/pages/vuelos_logueado.html" class="nav__link">Vuelos</a>
+          </li>
+          <li>
+            <a href="/pages/ofertas_logueado.html" class="nav__link">Ofertas</a>
+          </li>
+          <li>
+            <a href="/pages/contacto_logueado.html" class="nav__link"
+              >Contacto</a
+            >
+          </li>
+          <li class="mobile-only">
+            <a href="/pages/usuario.html" class="nav__link">Mi Perfil</a>
+          </li>
+          <li class="mobile-only">
+            <a href="/index.html" class="nav__link">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </nav>
 
       <div class="header__actions">
-        <a href="usuario.html" class="btn btn--outline">Mi Perfil</a>
-        <a href="../index.html" class="btn btn--primary">Cerrar sesión</a>
+        <a href="/pages/usuario.html" class="btn btn--outline">Mi Perfil</a>
+        <a href="/index.html" class="btn btn--primary">Cerrar Sesión</a>
       </div>
     </header>
+
 
 
     <main class="pago_confirmado_container">
@@ -48,12 +69,6 @@
 
             </div>
 
-            <div class="codigo_reserva_container">
-
-                <span class="codigo_reserva_texto">Código de reserva</span>
-                <strong class="codigo_reserva">AV25A8B</strong>
-                
-            </div>
 
             <div class="email_detalles_contenedor">
 

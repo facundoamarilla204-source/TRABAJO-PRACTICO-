@@ -93,6 +93,7 @@
                 class="input_documento_pasaporte"
                 type="text"
                 name="documento"
+                maxlength="9"
                 required
               />
 
@@ -116,7 +117,8 @@
               class="input_telefono"
               type="tel"
               name="telefono"
-              placeholder="Telefono"
+              maxlength="10"
+              placeholder="Teléfono"
             />
             <p class="numero_incorrecto">*numero incorrecto</p>
           </div>
@@ -126,6 +128,7 @@
           <h2>Método De Pago</h2>
 
           <div class="metodo_pago">
+
             <div class="tarjeta_credito_container">
               <label
                 for="opcion_tarjeta_credito"
@@ -147,35 +150,43 @@
               </div>
             </div>
 
-            <label for="tarjeta">Número De Tarjeta</label>
-            <input
-              class="input_tarjeta"
-              type="number"
-              name="numero_tarjeta"
-              placeholder="5197259847823615"
-              required
-            />
+            <div class="tarjeta_datos_oculta">
 
-            <label for="nombre_titular">Titular De La Tarjeta</label>
-            <input
-              class="input_nombre_titular"
-              type="text"
-              name="nombre_titular_tarjeta"
-              placeholder="FERNANDO GUTIERREZ"
-              required
-            />
 
-            <div class="vencimiento_cvv_container">
-              <div class="vencimiento_container">
-                <label for="fecha_vencimiento">Vencimiento</label>
+              <label for="tarjeta">Número De Tarjeta</label>
                 <input
-                  class="input_fecha_vencimiento"
+                class="input_tarjeta"
+                type="text"
+                name="numero_tarjeta"
+                placeholder="5197259847823615"
+                maxlength="16"
+                required
+              />
+
+              <p class="numero_tarjeta_incorrecta">*número de tarjeta incorrecto</p>
+
+              <label for="nombre_titular">Titular De La Tarjeta</label>
+                <input
+                  class="input_nombre_titular"
                   type="text"
-                  name="fecha_vencimiento_tarjeta"
-                  placeholder="MM/AA"
+                  name="nombre_titular_tarjeta"
+                  placeholder="GUTIERREZ FERNANDO"
                   required
-                />
+              />
+
+              <div class="vencimiento_cvv_container">
+                <div class="vencimiento_container">
+                  <label for="fecha_vencimiento">Vencimiento</label>
+                  <input
+                    class="input_fecha_vencimiento"
+                    type="text"
+                    name="fecha_vencimiento_tarjeta"
+                    placeholder="MM/AA"
+                    maxlength="5"
+                    required
+                  />
               </div>
+
 
               <div class="cvv_container">
                 <label for="cvv">CVV</label>
@@ -184,44 +195,57 @@
                   type="number"
                   name="codigo_seguridad_tarjeta"
                   placeholder="123"
+                  maxlength="3"
                   required
                 />
               </div>
+
             </div>
 
-           <div class="paypal_container">
-              <label for="opcion_paypal" class="opcion_paypal">
-                <input
-                  class="input_elegir_opcion_pago"
-                  type="radio"
-                  name="metodo_pago"
-                  value="paypal"
-                />
-                <span>Paypal</span>
-              </label>
+            <p class="fecha_vencimiento_incorrecta">*fecha de vencimiento incorrecta</p>
+            <p class="cvv_incorrecta">*código de seguridad incorrecto</p>
+       
+            </div>
 
-              <div class="imagen_paypal">
-               <i class="fa-brands fa-paypal imagen_paypal"></i>
-              </div>
-
+        
+              
               
             </div>
             
               <div class="transferencia_container">
-              <label for="opcion_transferencia" class="opcion_transferencia">
-                <input
-                  class="input_elegir_opcion_pago"
-                  type="radio"
-                  name="metodo_pago"
-                  value="banco"
-                />
-                <span>Transferencia Bancaria</span>
-              </label>
 
-              <div class="imagen_transferencia">
-               <i class="fa-solid fa-building-columns"></i>
+                <div class="input_transferencia_imagen">
+
+                   <label for="opcion_transferencia" class="opcion_transferencia">
+                    <input
+                    class="input_elegir_opcion_pago"
+                    type="radio"
+                    name="metodo_pago"
+                    value="transferencia"
+                    />
+                    <span>Transferencia Bancaria</span>
+                  </label>
+
+                    <div class="imagen_transferencia">
+                      <i class="fa-solid fa-building-columns"></i>
+                    </div>
+
+                </div>
+               
+                <div class="transferencia_oculto">
+
+                  <p><b>Alias: </b><span class="datos_transferencia"><b>aerolink.viajes</b></span> </p>
+                  <p><b>CBU: </b><span class="datos_transferencia"><b>4391446311100003826684</b></span></p>
+                  <p><b>Banco: </b><span class="datos_transferencia"><b>Nación</b></span></p>
+                  <p><b>Titular de la cuenta: </b><span class="datos_transferencia"><b>Aerolink Viajes</b></span></p>
+
+
+                </div>
+
+
               </div>
-          </div>
+
+
         </section>
 
         <section class="resumen_vuelo_container">
@@ -245,15 +269,23 @@
 
                 <div class="total_vuelo">
                 <span>Total</span>
-                <strong>USD $500</strong>
+                <strong>USD $<span class="total_precio_chico">500</span></strong>
                 </div>
+
+                <div class="cupon_container">
+                  <input class="input_cupon" type="text">
+                  <button  class="button_cupon">Aplicar Cupón</button>
+                </div>
+
+                <p class="cupon_aplicado">*Cupón Aplicado</p>
+                <p class="cupon_invalido">*Cupón Invalido</p>
             </div>
         </section>
 
         <div class="total_container">
           <div class="total_precio_container">
             <span class="texto_total">Total:</span>
-            <strong class="total_precio">USD $500</strong>
+            <strong class="total_precio">USD $<span class="total_precio_numero">500</span></strong>
           </div>
 
           <button class="button_confirmar_pago" type="submit">Pagar</button>

@@ -34,6 +34,11 @@ input_cvv.addEventListener("input", (e) => {
     .slice(0, 3 );         // máximo 4 dígitos
 });
 
+input_telefono.addEventListener("input", (e) => {
+  e.target.value = e.target.value
+    .replace(/\D/g, "")   // solo números
+});
+
 input_fecha_vencimiento.addEventListener("input", (e) => {  
   let value = e.target.value;
 

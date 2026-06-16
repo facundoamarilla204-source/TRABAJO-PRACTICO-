@@ -1,263 +1,203 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AeroLink - Confirmacion de Pago</title>
-    <link rel="stylesheet" href="../css/estilo_pago.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="icon" type="image/png" href="../img/aerolink1.png" />
-  </head>
-  <body>
-    <header id="main-header"></header>
 
-    <main class="checkout">
-      <h1>Checkout</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroLink - Confirmacion de Pago</title>
+  <link rel="stylesheet" href="../css/estilo_pago.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="icon" type="image/png" href="../img/aerolink1.png" />
+</head>
 
-      <form
-        class="info_pago_container"
-        action="../pages/pago_confirmado.html"
-        method="get"
-      >
-        <section class="datos_pasajero_container">
-          <h2>Datos Del Pasajero</h2>
+<body>
+  <header id="main-header"></header>
 
-          <div class="datos_pasajero">
-            <label for="nombre">Nombre Completo</label>
-            <div class="input_nombre_container">
-              <i class="fa-solid fa-user icono_usuario"></i>
-              <input
-                class="input_nombre_completo"
-                type="text"
-                name="nombre_completo"
-                placeholder="Nombre Completo"
-                required
-              />
-            </div>
+  <main class="checkout">
 
-            <label for="dni">Documento De Identidad</label>
-            <div class="datos_dni_pasaporte">
+    <h1>Checkout</h1>
 
-              <select class="select_dni_pasaporte" name="documento">
-                <option value="dni">DNI</option>
-                <option value="pasaporte">PASAPORTE</option>
-              </select>
+    <form class="info_pago_container" action="../pages/pago_confirmado.html" method="get">
+      <section class="datos_pasajero_container">
+        <h2>Datos Del Pasajero</h2>
 
-              <input
-                class="input_documento_pasaporte"
-                type="text"
-                name="documento"
-                maxlength="9"
-                required
-              />
-
-              <p class="dni_pasaporte_incorrecto">*dni o pasaporte incorrecto</p>
-            </div>
-
-            <label for="correo">Correo Electrónico</label>
-            <div class="input_email_container">
-              <i class="fa-solid fa-envelope icono_email"></i>
-              <input
-                class="input_email"
-                type="email"
-                name="correo"
-                placeholder="Email"
-                required
-              />
-            </div>
-
-            <label for="telefono">Teléfono (Opcional)</label>
-            <input
-              class="input_telefono"
-              type="tel"
-              name="telefono"
-              maxlength="10"
-              placeholder="Teléfono"
-            />
-            <p class="numero_incorrecto">*numero incorrecto</p>
+        <div class="datos_pasajero">
+          <label for="nombre">Nombre Completo</label>
+          <div class="input_nombre_container">
+            <i class="fa-solid fa-user icono_usuario"></i>
+            <input id="nombre" class="input_nombre_completo" type="text" name="nombre_completo"
+              placeholder="Nombre Completo" required />
           </div>
-        </section>
 
-        <section class="metodo_pago_container">
-          <h2>Método De Pago</h2>
+          <label for="dni">Documento De Identidad</label>
+          <div class="datos_dni_pasaporte">
 
-          <div class="metodo_pago">
+            <select class="select_dni_pasaporte" name="tipo_documento">
+              <option value="dni">DNI</option>
+              <option value="pasaporte">PASAPORTE</option>
+            </select>
 
-            <div class="tarjeta_credito_container">
-              <label
-                for="opcion_tarjeta_credito"
-                class="opcion_tarjeta_credito"
-              >
-                <input
-                  class="input_elegir_opcion_pago"
-                  type="radio"
-                  name="metodo_pago"
-                  value="tarjeta_credito"
-                  checked
-                />
-                <span>Tarjeta De Crédito</span>
-              </label>
+            <input id="dni" class="input_documento_pasaporte" type="text" name="numero_documento" maxlength="9"
+              required />
 
-              <div class="imagenes_tarjetas">
-                <i class="fa-brands fa-cc-visa tarjeta_imagen"></i>
-                <i class="fa-brands fa-cc-mastercard tarjeta_imagen"></i>
-              </div>
+            <p class="dni_pasaporte_incorrecto">*dni o pasaporte incorrecto</p>
+          </div>
+
+          <label for="correo">Correo Electrónico</label>
+          <div class="input_email_container">
+            <i class="fa-solid fa-envelope icono_email"></i>
+            <input id="correo" class="input_email" type="email" name="correo" placeholder="Email" required />
+          </div>
+
+          <label for="telefono">Teléfono (Opcional)</label>
+          <input id="telefono" class="input_telefono" type="tel" name="telefono" maxlength="10"
+            placeholder="Teléfono" />
+          <p class="numero_incorrecto">*numero incorrecto</p>
+        </div>
+      </section>
+
+      <section class="metodo_pago_container">
+        <h2>Método De Pago</h2>
+
+        <div class="metodo_pago">
+
+          <div class="tarjeta_credito_container">
+            <label for="opcion_tarjeta_credito" class="opcion_tarjeta_credito">
+              <input id="opcion_tarjeta_credito" class="input_elegir_opcion_pago" type="radio" name="metodo_pago"
+                value="tarjeta_credito" checked />
+              <span>Tarjeta De Crédito</span>
+            </label>
+
+            <div class="imagenes_tarjetas">
+              <i class="fa-brands fa-cc-visa tarjeta_imagen"></i>
+              <i class="fa-brands fa-cc-mastercard tarjeta_imagen"></i>
             </div>
+          </div>
 
-            <div class="tarjeta_datos_oculta">
+          <div class="tarjeta_datos_oculta">
 
 
-              <label for="tarjeta">Número De Tarjeta</label>
-                <input
-                class="input_tarjeta"
-                type="text"
-                name="numero_tarjeta"
-                placeholder="5197259847823615"
-                maxlength="16"
-                required
-              />
+            <label for="tarjeta">Número De Tarjeta</label>
+            <input id="tarjeta" class="input_tarjeta" type="text" name="numero_tarjeta" placeholder="5197259847823615"
+              maxlength="16" required />
 
-              <p class="numero_tarjeta_incorrecta">*número de tarjeta incorrecto</p>
+            <p class="numero_tarjeta_incorrecta">*número de tarjeta incorrecto</p>
 
-              <label for="nombre_titular">Titular De La Tarjeta</label>
-                <input
-                  class="input_nombre_titular"
-                  type="text"
-                  name="nombre_titular_tarjeta"
-                  placeholder="GUTIERREZ FERNANDO"
-                  required
-              />
+            <label for="nombre_titular">Titular De La Tarjeta</label>
+            <input id="nombre_titular" class="input_nombre_titular" type="text" name="nombre_titular_tarjeta"
+              placeholder="GUTIERREZ FERNANDO" required />
 
-              <div class="vencimiento_cvv_container">
-                <div class="vencimiento_container">
-                  <label for="fecha_vencimiento">Vencimiento</label>
-                  <input
-                    class="input_fecha_vencimiento"
-                    type="text"
-                    name="fecha_vencimiento_tarjeta"
-                    placeholder="MM/AA"
-                    maxlength="5"
-                    required
-                  />
+            <div class="vencimiento_cvv_container">
+              <div class="vencimiento_container">
+                <label for="fecha_vencimiento">Vencimiento</label>
+                <input id="fecha_vencimiento" class="input_fecha_vencimiento" type="text"
+                  name="fecha_vencimiento_tarjeta" placeholder="MM/AA" maxlength="5" required />
               </div>
 
 
               <div class="cvv_container">
                 <label for="cvv">CVV</label>
-                <input
-                  class="input_cvv"
-                  type="number"
-                  name="codigo_seguridad_tarjeta"
-                  placeholder="123"
-                  maxlength="3"
-                  required
-                />
+                <input id="cvv" class="input_cvv" type="text" name="codigo_seguridad_tarjeta" placeholder="123"
+                  maxlength="3" required />
               </div>
 
             </div>
 
             <p class="fecha_vencimiento_incorrecta">*fecha de vencimiento incorrecta</p>
             <p class="cvv_incorrecta">*código de seguridad incorrecto</p>
-       
-            </div>
 
-        
-              
-              
-            </div>
-            
-              <div class="transferencia_container">
-
-                <div class="input_transferencia_imagen">
-
-                   <label for="opcion_transferencia" class="opcion_transferencia">
-                    <input
-                    class="input_elegir_opcion_pago"
-                    type="radio"
-                    name="metodo_pago"
-                    value="transferencia"
-                    />
-                    <span>Transferencia Bancaria</span>
-                  </label>
-
-                    <div class="imagen_transferencia">
-                      <i class="fa-solid fa-building-columns"></i>
-                    </div>
-
-                </div>
-               
-                <div class="transferencia_oculto">
-
-                  <p><b>Alias: </b><span class="datos_transferencia"><b>aerolink.viajes</b></span> </p>
-                  <p><b>CBU: </b><span class="datos_transferencia"><b>4391446311100003826684</b></span></p>
-                  <p><b>Banco: </b><span class="datos_transferencia"><b>Nación</b></span></p>
-                  <p><b>Titular de la cuenta: </b><span class="datos_transferencia"><b>Aerolink Viajes</b></span></p>
-
-
-                </div>
-
-
-              </div>
-
-
-        </section>
-
-        <section class="resumen_vuelo_container">
-            <h2>Resumen De Vuelo</h2>
-            <div class="info_vuelo_container">
-                <div class="info_vuelo">
-                <p class="ida_texto">Ida</p>
-                <p><b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-right"></i> <b>CAM (Camboriu)</b></p>
-                <p>06/05/2026 – 07:20 - 09:30</p>
-                </div>
-
-                <div class="vuelta_container">
-                  <p class="vuelta_texto">Vuelta</p>
-                  <p>
-                    <b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-left"></i>
-                    <b>CAM (Camboriu)</b>
-                  </p>
-                  <p>10/05/2024 – 17:45 - 23:40</p>
-                </div>
-
-
-                <div class="total_vuelo">
-                <span>Total</span>
-                <strong>USD $<span class="total_precio_chico">500</span></strong>
-                </div>
-
-                <div class="cupon_container">
-                  <input class="input_cupon" type="text">
-                  <button  class="button_cupon">Aplicar Cupón</button>
-                </div>
-
-                <p class="cupon_aplicado">*Cupón Aplicado</p>
-                <p class="cupon_invalido">*Cupón Invalido</p>
-            </div>
-        </section>
-
-        <div class="total_container">
-          <div class="total_precio_container">
-            <span class="texto_total">Total:</span>
-            <strong class="total_precio">USD $<span class="total_precio_numero">500</span></strong>
           </div>
 
-          <button class="button_confirmar_pago" type="submit">Pagar</button>
-        </div>
-      </form>
-    </main>
 
-    <footer id="main-footer"></footer>
-  
+
+
+        </div>
+
+        <div class="transferencia_container">
+
+          <div class="input_transferencia_imagen">
+
+            <label for="opcion_transferencia" class="opcion_transferencia">
+              <input id="opcion_transferencia" class="input_elegir_opcion_pago" type="radio" name="metodo_pago"
+                value="transferencia" />
+              <span>Transferencia Bancaria</span>
+            </label>
+
+            <div class="imagen_transferencia">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+          </div>
+
+          <div class="transferencia_oculto">
+
+            <p><b>Alias: </b><span class="datos_transferencia"><b>aerolink.viajes</b></span> </p>
+            <p><b>CBU: </b><span class="datos_transferencia"><b>4391446311100003826684</b></span></p>
+            <p><b>Banco: </b><span class="datos_transferencia"><b>Nación</b></span></p>
+            <p><b>Titular de la cuenta: </b><span class="datos_transferencia"><b>Aerolink Viajes</b></span></p>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+      <section class="resumen_vuelo_container">
+        <h2>Resumen De Vuelo</h2>
+        <div class="info_vuelo_container">
+          <div class="info_vuelo">
+            <p class="ida_texto">Ida</p>
+            <p><b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-right"></i> <b>CAM (Camboriu)</b></p>
+            <p>06/05/2026 – 07:20 - 09:30</p>
+          </div>
+
+          <div class="vuelta_container">
+            <p class="vuelta_texto">Vuelta</p>
+            <p>
+              <b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-left"></i>
+              <b>CAM (Camboriu)</b>
+            </p>
+            <p>10/05/2026 – 17:45 - 23:40</p>
+          </div>
+
+
+          <div class="total_vuelo">
+            <span>Total</span>
+            <strong>USD $<span class="total_precio_chico">500</span></strong>
+          </div>
+
+          <div class="cupon_container">
+            <input class="input_cupon" type="text" placeholder="Código De Cupón">
+            <button type="button" class="button_cupon">Aplicar Cupón</button>
+          </div>
+
+          <p class="cupon_aplicado">*Cupón Aplicado</p>
+          <p class="cupon_invalido">*Cupón Invalido</p>
+        </div>
+      </section>
+
+      <div class="total_container">
+        <div class="total_precio_container">
+          <span class="texto_total">Total:</span>
+          <strong class="total_precio">USD $<span class="total_precio_numero">500</span></strong>
+        </div>
+
+        <button class="button_confirmar_pago" type="submit">Finalizar Reserva</button>
+      </div>
+    </form>
+  </main>
+
+  <footer id="main-footer"></footer>
+
   <script src="../js/header.js"></script>
   <script src="../js/footer.js"></script>
-  </body>
   <script src="../js/pago.js"></script>
+</body>
+
 </html>

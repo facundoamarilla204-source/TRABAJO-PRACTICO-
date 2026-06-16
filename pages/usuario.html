@@ -16,90 +16,48 @@
     <header id="main-header"></header>
     <main>
         <h1 class="titulo">Perfil de Usuario</h1>
-        <p class="descripcion">Bienvenido a tu perfil de usuario. Aquí puedes ver y editar tu información personal, revisar tus reservas y
-            gestionar tus preferencias de viaje.</p>
+        <p class="descripcion">Bienvenido a tu perfil de usuario. Aquí puedes ver y editar tu información personal, revisar tus reservas y gestionar tus preferencias de viaje.</p>
 
         <section class="perfil-vista">
             <section class="perfil-tarjeta">
                 <h2>Información Personal</h2>
-                <p><strong>Nombre:</strong> Juan Pérez</p>
-                <p><strong>Email:</strong> juan.perez@example.com<a href="" class="btn-icono-editar"><i
-                            class="fa-solid fa-pen"></i></a></p>
-
-                <p>
-                    <strong>Teléfono:</strong> 123-456-7890
+                <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
+                
+                <p><strong>Email:</strong> <span id="perfil-email"></span>
                     <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
                 </p>
 
-                <p>
-                    <strong>Dirección:</strong> Calle Falsa 123
+                <p><strong>Teléfono:</strong> <span id="perfil-telefono"></span>
                     <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
                 </p>
 
-                <p><strong>Edad:</strong> 33 años</p>
+                <p><strong>Dirección:</strong> <span id="perfil-direccion"></span>
+                    <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
+                </p>
+
+                <p><strong>Edad:</strong> <span id="perfil-edad"></span></p>
             </section>
+
             <section class="perfil-tarjeta">
                 <h2>Mis Reservas</h2>
-                <ul>
-                    <li>
-                        <details>
-                            <summary>Vuelo a París - 15 de Junio de 2026</summary>
-
-                            <ul class="detalles-reserva">
-                                <li>Tipo: Ida y Vuelta</li>
-                                <li>Cantidad de Pasajeros: 2</li>
-                                <li>Ruta: Buenos Aires - París</li>
-                                <li>Horario de vuelo: 14:00</li>
-                                <li>Duración: 11 horas</li>
-                                <li>Precio: $900 USD</li>
-                                <li>Clase: Económica</li>
-                                <li>Asiento Ida: 14A-15A </li>
-                                <li>Fecha de vuelta: 29 de Junio de 2026</li>
-                                <li>Horario de vuelo: 18:00</li>
-                                <li>Asiento Vuelta: 8C-9C</li>
-                            </ul>
-                        </details>
-                    </li>
-
-                    <li>
-                        <details>
-                            <summary>Vuelo a Nueva York - 20 de Agosto de 2026</summary>
-
-                            <ul class="detalles-reserva">
-                                <li>Tipo: Ida y Vuelta</li>
-                                <li>Cantidad de Pasajeros: 1</li>
-                                <li>Ruta: Buenos Aires - Punta Cana - Nueva York</li>
-                                <li>Horario de vuelo: 10:00</li>
-                                <li>Duración: 14 horas</li>
-                                <li>Precio: $1.900 USD</li>
-                                <li>Clase: Primera</li>
-                                <li>Asiento Ida: 8B</li>
-                                <li>Fecha de vuelta: 25 de Agosto de 2026</li>
-                                <li>Horario de vuelo: 16:00</li>
-                                <li>Asiento Vuelta: 14C</li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
+                <ul id="contenedor-reservas"></ul>
             </section>
+
             <section class="perfil-tarjeta">
                 <h2>Preferencias de Viaje</h2>
-                <p><strong>Asiento Preferido:</strong> Ventana <a href="" class="btn-icono-editar"><i
-                            class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Comida Especial:</strong> Vegetariana <a href="" class="btn-icono-editar"><i
-                            class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Actividades de Interés:</strong> Gastronomía, Arte <a href="" class="btn-icono-editar"><i
-                            class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Transporte al Aeropuerto:</strong> Taxi <a href="" class="btn-icono-editar"><i
-                            class="fa-solid fa-pen"></i></a></p>
+                <p><strong>Asiento Preferido:</strong> Ventana <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
+                <p><strong>Comida Especial:</strong> Vegetariana <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
+                <p><strong>Actividades de Interés:</strong> Gastronomía, Arte <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
+                <p><strong>Transporte al Aeropuerto:</strong> Taxi <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
             </section>
         </section>
     </main>
 
-   <footer id="main-footer"></footer>
+    <footer id="main-footer"></footer>
   
-  <script src="../js/header.js"></script>
-  <script src="../js/footer.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/perfil.js"></script>
 
 </body>
 

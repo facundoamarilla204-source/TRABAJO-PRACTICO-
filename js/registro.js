@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-   
     const formRegistro = document.querySelector('.formulario form');
 
     if (formRegistro) {
         formRegistro.addEventListener('submit', (e) => {
             e.preventDefault(); 
+            
             const nombre = document.getElementById('name').value;
             const apellido = document.getElementById('last-name').value;
+            const fechaNacimiento = document.getElementById('fecha-nacimiento').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
@@ -16,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            
             let usuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
             const usuarioExiste = usuarios.find(usuario => usuario.email === email);
@@ -25,9 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const nuevoUsuario = { nombre, apellido, email, password };
-            usuarios.push(nuevoUsuario);
+            const nuevoUsuario = { 
+                nombre, 
+                apellido, 
+                fechaNacimiento, 
+                email, 
+                password 
+            };
             
+            usuarios.push(nuevoUsuario);
             localStorage.setItem('listaUsuarios', JSON.stringify(usuarios));
 
             alert('¡Cuenta creada con éxito! Ahora podés iniciar sesión.');

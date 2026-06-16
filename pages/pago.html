@@ -153,23 +153,42 @@
         <div class="info_vuelo_container">
           <div class="info_vuelo">
             <p class="ida_texto">Ida</p>
-            <p><b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-right"></i> <b>CAM (Camboriu)</b></p>
-            <p>06/05/2026 – 07:20 - 09:30</p>
+            <p>
+              <b id="origenIdaCheckout">EZE</b>
+              <i class="fa-solid fa-arrow-right"></i>
+              <b id="destinoIdaCheckout">CAM</b>
+            </p>
+
+            <p id="horarioIdaCheckout">
+              06/05/2026 – 07:20 - 09:30
+            </p>
           </div>
 
           <div class="vuelta_container">
             <p class="vuelta_texto">Vuelta</p>
             <p>
-              <b>EZE (BS.AS)</b> <i class="fa-solid fa-arrow-left"></i>
-              <b>CAM (Camboriu)</b>
+              <b id="origenVueltaCheckout">CAM</b>
+              <i class="fa-solid fa-arrow-left"></i>
+              <b id="destinoVueltaCheckout">EZE</b>
             </p>
-            <p>10/05/2026 – 17:45 - 23:40</p>
+
+            <p id="horarioVueltaCheckout">
+              10/05/2026 – 17:45 - 23:40
+            </p>
           </div>
+
+          <p>
+            Asiento:
+            <span id="asientoCheckout">Sin seleccionar</span>
+          </p>
 
 
           <div class="total_vuelo">
             <span>Total</span>
-            <strong>USD $<span class="total_precio_chico">500</span></strong>
+            <strong>
+              USD $
+              <span id="totalCheckout" class="total_precio_chico">500</span>
+            </strong>
           </div>
 
           <div class="cupon_container">
@@ -185,7 +204,10 @@
       <div class="total_container">
         <div class="total_precio_container">
           <span class="texto_total">Total:</span>
-          <strong class="total_precio">USD $<span class="total_precio_numero">500</span></strong>
+          <strong class="total_precio">
+            USD $
+            <span id="totalCheckoutGrande" class="total_precio_numero">500</span>
+          </strong>
         </div>
 
         <button class="button_confirmar_pago" type="submit">Finalizar Reserva</button>

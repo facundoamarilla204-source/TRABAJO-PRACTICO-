@@ -9,6 +9,7 @@ const radios = document.querySelectorAll('input[name="metodo_pago"]');
 const input_telefono = document.querySelector(".input_telefono");
 const button_cupon = document.querySelector(".button_cupon");
 const input_cupon = document.querySelector(".input_cupon");
+const input_email = document.querySelector(".input_email");
 
 const mensaje_dni_pasaporte_incorrecto = document.querySelector(".dni_pasaporte_incorrecto");
 const mensaje_telefono_incorrecto = document.querySelector(".numero_incorrecto");
@@ -23,6 +24,33 @@ const datos_transferencia_oculta = document.querySelector(".transferencia_oculto
 
 const total_precio_chico = document.querySelector(".total_precio_chico");
 const total_precio = document.querySelector(".total_precio_numero");
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+    const asiento = localStorage.getItem("asientoSeleccionado");
+
+    if (!vuelo) return;
+
+    document.getElementById("origenIdaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
+
+    document.getElementById("destinoIdaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
+
+    document.getElementById("horarioIdaCheckout").textContent = `${vuelo.salida} - ${vuelo.llegada}`;
+
+    document.getElementById("origenVueltaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
+
+    document.getElementById("destinoVueltaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
+
+    document.getElementById("horarioVueltaCheckout").textContent = `${vuelo.salidaVuelta} - ${vuelo.llegadaVuelta}`;
+
+    document.getElementById("totalCheckout").textContent = vuelo.total;
+
+    document.getElementById("totalCheckoutGrande").textContent = vuelo.total;
+
+    document.getElementById("asientoCheckout").textContent = asiento || "Sin seleccionar";
+
+});
 
 input_tarjeta.addEventListener("input", (e) => {
   e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);   // saca todo lo que no sea número        // corta a 16
@@ -60,6 +88,7 @@ input_fecha_vencimiento.addEventListener("input", (e) => {
 
 form.addEventListener("submit", (e) => {
 
+    localStorage.setItem("emailCliente", input_email.value);
     const numero_tarjeta = input_tarjeta.value;
     const cvv = input_cvv.value;
     const fecha_vencimiento = input_fecha_vencimiento.value;

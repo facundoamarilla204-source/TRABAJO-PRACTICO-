@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeroLink - Confirmación de Pago</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/pago_confirmado.css" />
@@ -21,7 +22,7 @@
 
     <main class="pago_confirmado_container">
 
-       <div class="pago_container">
+        <div class="pago_container">
 
             <div class="compra_realizada_con_exito_container">
 
@@ -34,27 +35,32 @@
             <div class="email_detalles_contenedor">
 
                 <i class="fa-solid fa-envelope icono_email_confirmado"></i>
-                <p>Te enviamos los detalles a ......@gmail.com</p>
+                <p>
+                    Te enviamos los detalles a
+                    <strong id="emailCliente"></strong>
+                </p>
 
             </div>
 
-          
-            
-               <div class="button_container">
 
-                    <a href="/pages/usuario.html"><button class="button">Ir a mis reservas</button></a> 
-                    <a href="../index.html"><button class="button">Volver al inicio</button>
-</a> 
 
-                </div>
+            <div class="button_container">
 
-       </div>        
+                <a href="/pages/usuario.html"><button class="button">Ir a mis reservas</button></a>
+                <a href="../index.html"><button class="button">Volver al inicio</button>
+                </a>
+
+            </div>
+
+        </div>
     </main>
 
     <footer id="main-footer"></footer>
-  
-  <script src="../js/header.js"></script>
-  <script src="../js/footer.js"></script>
 
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/pago_confirmado.js"></script>
+    
 </body>
+
 </html>

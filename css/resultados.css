@@ -248,18 +248,18 @@ summary::-webkit-details-marker {
     color: var(--text-main);
 }
 
-.price-selection {
+.precio-seleccionado {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.price-selection .precioregular {
+.precio-seleccionado .precioregular {
     font-size: 1.5rem;
     margin-bottom: 0;
 }
 
-.price-selection span {
+.precio-seleccionado span {
     font-size: 0.85rem;
     color: #718096;
 }
@@ -359,7 +359,7 @@ summary::-webkit-details-marker {
         gap: 0.5rem;
     }
 
-    .price-selection {
+    .precio-seleccionado {
         flex-direction: column;
         gap: 0.5rem;
     }

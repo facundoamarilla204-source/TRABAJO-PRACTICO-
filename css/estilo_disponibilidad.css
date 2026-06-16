@@ -180,6 +180,19 @@ body {
     text-align: center;
 }
 
+#btnContinuar {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    background-color: var(--brand-color);
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+}
+
 @media (max-width: 992px) {
     .grid_vuelos {
         grid-template-columns: 1fr;

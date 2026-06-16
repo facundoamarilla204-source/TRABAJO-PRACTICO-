@@ -1,139 +1,150 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AeroLink - Ofertas</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="/css/header.css" />
-    <link rel="stylesheet" href="/css/ofertas.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="../img/aerolink1.png">
+    <link rel="stylesheet" href="/css/ofertas.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../img/aerolink1.png" />
   </head>
 
   <body>
+    <header id="main-header"></header>
 
-  <header id="main-header"></header>
-
-  <main class="container ofertas-page">
-    <section class="ofertas-header">
-      <h2>Ofertas disponibles</h2>
-      <p>Encontrá las mejores promociones para tu próximo viaje</p>
-      <div class="barra-resultado">
-        <p> 6 ofertas encontradas</p>
-      </div>
-    </section>
-
-    <section class="ofertas">
-    <div class="grid-ofertas">
-
-      <div class="card">
-        <span class="badge">-20%</span>
-
-        <img src="../img/mendoza.jpg" alt="Mendoza">
-
-        <div class="card-body">
-          <h3>Mendoza</h3>
-          <p class="origen">Desde Buenos Aires</p>
-
-          
-          <p class="detalle">Ida y vuelta</p>
-
-          <a href="/pages/resultados.html" class="btn-oferta">Desde $40.000</a> 
+    <main class="container ofertas-page">
+      <section class="ofertas-header">
+        <h2>Ofertas disponibles</h2>
+        <p>Encontrá las mejores promociones para tu próximo viaje</p>
+        <div class="barra-resultado">
+          <p>6 ofertas encontradas</p>
         </div>
-      </div>
+      </section>
 
+      <section class="ofertas">
+        <div class="grid-ofertas">
+          <div class="card">
+            <span class="badge">-20%</span>
 
-      <div class="card">
-        <span class="badge">-20%</span>
+            <img src="../img/mendoza.jpg" alt="Mendoza" />
 
-        <img src="../img/cancun.jpg" alt="Cancún">
+            <div class="card-body">
+              <h3>Mendoza</h3>
+              <p class="origen">Desde Buenos Aires</p>
 
-        <div class="card-body">
-          <h3>Cancún</h3>
-          <p class="origen">Desde Buenos Aires</p>
+              <p class="detalle">Ida y vuelta</p>
+              <a
+                href="/pages/resultados.html"
+                class="btn-oferta"
+                data-destino="Mendoza"
+              >
+                Desde $40.000
+              </a>
+            </div>
+          </div>
 
-          <p class="detalle">Ida y vuelta</p>
+          <div class="card">
+            <span class="badge">-20%</span>
 
-          <a href="/pages/resultados.html" class="btn-oferta">Desde USD $800</a> 
+            <img src="../img/cancun.jpg" alt="Cancún" />
+
+            <div class="card-body">
+              <h3>Cancún</h3>
+              <p class="origen">Desde Buenos Aires</p>
+
+              <p class="detalle">Ida y vuelta</p>
+
+              <a href="/pages/resultados.html" class="btn-oferta"
+                data-destino="Cancún"
+                >Desde USD $800</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge">-30%</span>
+
+            <img src="../img/madrid.jpg" alt="Madrid" />
+
+            <div class="card-body">
+              <h3>Madrid</h3>
+              <p class="origen">Desde Buenos Aires</p>
+
+              <p class="detalle">Ida y vuelta</p>
+
+              <a href="/pages/resultados.html" 
+              class="btn-oferta"
+              data-destino="Madrid"
+                >Desde USD $499</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge">-25%</span>
+
+            <img src="../img/miami.jpg" alt="Miami" />
+
+            <div class="card-body">
+              <h3>Miami</h3>
+              <p class="origen">Desde Buenos Aires</p>
+
+              <p class="detalle">Ida y vuelta</p>
+
+              <a href="/pages/resultados.html" class="btn-oferta"
+                data-destino="Miami"
+                >Desde USD $750</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge">-20%</span>
+
+            <img src="../img/puertorico.jpg" alt="Puerto Rico" />
+
+            <div class="card-body">
+              <h3>Puerto Rico</h3>
+              <p class="origen">Desde Buenos Aires</p>
+
+              <p class="detalle">Ida y vuelta</p>
+
+              <a href="/pages/resultados.html" class="btn-oferta"
+                data-destino="Puerto Rico"
+                >Desde USD $950</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <span class="badge">-20%</span>
+
+            <img src="../img/brasil.jpg" alt="Camboriu" />
+
+            <div class="card-body">
+              <h3>Camboriu</h3>
+              <p class="origen">Desde Buenos Aires</p>
+
+              <p class="detalle">Ida y vuelta</p>
+
+              <a href="/pages/resultados.html" class="btn-oferta"
+                data-destino="Camboriu"
+                >Desde USD $180</a
+              >
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+    </main>
 
-      
-      <div class="card">
-        <span class="badge">-30%</span>
+    <footer id="main-footer"></footer>
 
-        <img src="../img/madrid.jpg" alt="Madrid">
-
-        <div class="card-body">
-          <h3>Madrid</h3>
-          <p class="origen">Desde Buenos Aires</p>
-
-          
-          <p class="detalle">Ida y vuelta</p>
-
-          <a href="/pages/resultados.html" class="btn-oferta">Desde USD $499</a>
-        </div>
-      </div>
-
-      
-      <div class="card">
-        <span class="badge">-25%</span>
-
-        <img src="../img/miami.jpg" alt="Miami">
-
-        <div class="card-body">
-          <h3>Miami</h3>
-          <p class="origen">Desde Buenos Aires</p>
-
-        
-          <p class="detalle">Ida y vuelta</p>
-
-          <a href="/pages/resultados.html" class="btn-oferta">Desde USD $750</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="badge">-20%</span>
-
-        <img src="../img/puertorico.jpg" alt="Puerto Rico">
-
-        <div class="card-body">
-          <h3>Puerto Rico</h3>
-          <p class="origen">Desde Buenos Aires</p>
-
-          
-          <p class="detalle">Ida y vuelta</p>
-
-          <a href="/pages/resultados.html" class="btn-oferta">Desde USD $950</a>
-        </div>
-      </div>
-      <div class="card">
-        <span class="badge">-20%</span>
-
-        <img src="../img/brasil.jpg" alt="Camboriu">
-
-        <div class="card-body">
-          <h3>Camboriu</h3>
-          <p class="origen">Desde Buenos Aires</p>
-
-          
-          <p class="detalle">Ida y vuelta</p>
-
-          <a href="/pages/resultados.html" class="btn-oferta">Desde USD $180</a>
-        </div>
-      </div>
-      
-
-    </div>
-  </section>
-
-  </main>
-
-  <footer id="main-footer"></footer>
-  
-  <script src="../js/header.js"></script>
-  <script src="../js/footer.js"></script>
-
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/ofertas.js"></script>
   </body>
 </html>

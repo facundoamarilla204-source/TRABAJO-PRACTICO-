@@ -27,7 +27,7 @@
   <main class="container">
    
     <section class="container-formulario">
-      <form action="pages/resultados.html" class="form-busqueda">
+      <form id="formbusqueda"action="pages/resultados.html" class="form-busqueda">
         <div>
           <label for="origen">Origen</label>
           <input type="text" id="origen" name="origen" placeholder="¿Desde dónde volás?" required />
@@ -46,7 +46,7 @@
         </div>
         <div class="form-group--personas">
           <label>¿Cuántas personas?</label>
-          <select>
+          <select id="personas" name="personas" required>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -61,7 +61,8 @@
       <h2 class="titulo-seccion">Precios Increíbles</h2>
       <p class="parrafo-seccion">Nuestra selección de destinos con precios únicos pensados para vos.</p>
       <div class="grid-ofertas">
-        <a href="pages/resultados.html" class="caja-oferta">
+        <a href="pages/resultados.html" class="caja-oferta"
+         data-destino="Mendoza">
           <img src="img/mendoza.jpg" alt="Vuelos a Mendoza" />
           <div class="info">
             <h4>Mendoza</h4>
@@ -69,7 +70,8 @@
           <p class="precio">$40.000</p>
         </a>
 
-        <a href="pages/resultados.html" class="caja-oferta">
+        <a href="pages/resultados.html" class="caja-oferta" 
+          data-destino="Madrid">
           <img src="img/madrid.jpg" alt="Vuelos a Madrid" />
           <div class="info">
             <h4>Madrid</h4>
@@ -77,7 +79,8 @@
           <p class="precio">USD 750</p>
         </a>
 
-        <a href="pages/resultados.html" class="caja-oferta">
+        <a href="pages/resultados.html" class="caja-oferta" 
+          data-destino="Miami">
           <img src="img/miami.jpg" alt="Vuelos a Miami" />
           <div class="info">
             <h4>Miami</h4>
@@ -134,5 +137,7 @@
   <footer id="main-footer"></footer>
   <script src="./js/header.js"></script>
   <script src="./js/footer.js"></script>
+  <script src="./js/home.js"></script>
+  <script src="./js/ofertas.js"></script>
 </body>
 </html>

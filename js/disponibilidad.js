@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const usuarioActivo = localStorage.getItem('usuarioActivo');
         
         if (!usuarioActivo) {
-            e.preventDefault(); // Frenamos que vaya a la página de pago
+            e.preventDefault();
             alert("¡Ya casi! Para comprar el pasaje tenés que iniciar sesión o registrarte.");
             
             window.location.href = "login.html"; 

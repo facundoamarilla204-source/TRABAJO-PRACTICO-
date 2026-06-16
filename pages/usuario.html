@@ -24,15 +24,15 @@
                 <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
                 
                 <p><strong>Email:</strong> <span id="perfil-email"></span>
-                    <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'email')"><i class="fa-solid fa-pen"></i></a>
                 </p>
 
                 <p><strong>Teléfono:</strong> <span id="perfil-telefono"></span>
-                    <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'telefono')"><i class="fa-solid fa-pen"></i></a>
                 </p>
 
                 <p><strong>Dirección:</strong> <span id="perfil-direccion"></span>
-                    <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'direccion')"><i class="fa-solid fa-pen"></i></a>
                 </p>
 
                 <p><strong>Edad:</strong> <span id="perfil-edad"></span></p>
@@ -45,10 +45,13 @@
 
             <section class="perfil-tarjeta">
                 <h2>Preferencias de Viaje</h2>
-                <p><strong>Asiento Preferido:</strong> Ventana <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Comida Especial:</strong> Vegetariana <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Actividades de Interés:</strong> Gastronomía, Arte <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
-                <p><strong>Transporte al Aeropuerto:</strong> Taxi <a href="" class="btn-icono-editar"><i class="fa-solid fa-pen"></i></a></p>
+                <p><strong>Asiento Preferido:</strong> <span id="perfil-asiento"></span> <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'asientoPreferido')"><i class="fa-solid fa-pen"></i></a></p>
+                
+                <p><strong>Comida Especial:</strong> <span id="perfil-comida"></span> <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'comidaEspecial')"><i class="fa-solid fa-pen"></i></a></p>
+                
+                <p><strong>Actividades de Interés:</strong> <span id="perfil-actividades"></span> <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'actividadesInteres')"><i class="fa-solid fa-pen"></i></a></p>
+                
+                <p><strong>Transporte al Aeropuerto:</strong> <span id="perfil-transporte"></span> <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'transporteAeropuerto')"><i class="fa-solid fa-pen"></i></a></p>
             </section>
         </section>
     </main>

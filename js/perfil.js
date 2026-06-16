@@ -41,6 +41,11 @@ function cargarDatosPersonales() {
         document.getElementById('perfil-telefono').textContent = usuario.telefono || "No especificado";
         document.getElementById('perfil-direccion').textContent = usuario.direccion || "No especificado";
 
+        document.getElementById('perfil-asiento').textContent = usuario.asientoPreferido || "No especificado";
+        document.getElementById('perfil-comida').textContent = usuario.comidaEspecial || "No especificada";
+        document.getElementById('perfil-actividades').textContent = usuario.actividadesInteres || "No especificadas";
+        document.getElementById('perfil-transporte').textContent = usuario.transporteAeropuerto || "No especificado";
+
     } else {
         console.warn("No hay usuario activo logueado.");
     }
@@ -85,5 +90,38 @@ function cargarReservasDesdeStorage() {
         });
     } else {
         contenedor.innerHTML = "<p>Todavía no realizaste ninguna reserva de vuelo.</p>";
+    }
+}
+
+function editarDato(evento, campo) {
+    evento.preventDefault();
+
+    const usuarioStorage = localStorage.getItem('usuarioActivo');
+    if (!usuarioStorage) return;
+
+    let usuario = JSON.parse(usuarioStorage);
+    
+    let emailViejo = usuario.email; 
+
+    let valorActual = usuario[campo] || "";
+
+    let nuevoValor = prompt(`Ingresá tu nuevo/a ${campo}:`, valorActual);
+
+    if (nuevoValor !== null && nuevoValor.trim() !== "") {
+        
+        usuario[campo] = nuevoValor.trim();
+        
+        localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
+        
+        let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
+        
+        let indiceUsuario = listaUsuarios.findIndex(u => u.email === emailViejo);
+        
+        if (indiceUsuario !== -1) {
+            listaUsuarios[indiceUsuario] = usuario;
+            localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
+        }
+
+        cargarDatosPersonales();
     }
 }

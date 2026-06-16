@@ -43,9 +43,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     btnContinuar.addEventListener("click", function (e) {
+        
         if (asientoElegido === "") {
             e.preventDefault();
             alert("Tenés que seleccionar un asiento antes de continuar");
+            return; 
+        }
+
+        const usuarioActivo = localStorage.getItem('usuarioActivo');
+        
+        if (!usuarioActivo) {
+            e.preventDefault(); // Frenamos que vaya a la página de pago
+            alert("¡Ya casi! Para comprar el pasaje tenés que iniciar sesión o registrarte.");
+            
+            window.location.href = "login.html"; 
         }
     });
 });

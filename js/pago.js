@@ -33,38 +33,43 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!vuelo) return;
 
     document.getElementById("origenIdaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
-
     document.getElementById("destinoIdaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
-
     document.getElementById("horarioIdaCheckout").textContent = `${vuelo.salida} - ${vuelo.llegada}`;
-
     document.getElementById("origenVueltaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
-
     document.getElementById("destinoVueltaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
-
     document.getElementById("horarioVueltaCheckout").textContent = `${vuelo.salidaVuelta} - ${vuelo.llegadaVuelta}`;
-
     document.getElementById("totalCheckout").textContent = vuelo.total;
-
     document.getElementById("totalCheckoutGrande").textContent = vuelo.total;
-
     document.getElementById("asientoCheckout").textContent = asiento || "Sin seleccionar";
+
+    let totalFinal = parseFloat(vuelo.total);
+    if (asiento && asiento !== "") {
+        totalFinal += 25;
+    }
+
+    
+    document.getElementById("totalCheckout").textContent = totalFinal;
+    document.getElementById("totalCheckoutGrande").textContent = totalFinal;
+
+   
+    if (total_precio_chico) total_precio_chico.textContent = totalFinal;
+    if (total_precio) total_precio.textContent = totalFinal;
 
 });
 
 input_tarjeta.addEventListener("input", (e) => {
-  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);   // saca todo lo que no sea número        // corta a 16
+  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);   
 });
 
 input_cvv.addEventListener("input", (e) => {
   e.target.value = e.target.value
-    .replace(/\D/g, "")   // solo números
-    .slice(0, 3 );         // máximo 4 dígitos
+    .replace(/\D/g, "")  
+    .slice(0, 3 );         
 });
 
 input_telefono.addEventListener("input", (e) => {
   e.target.value = e.target.value
-    .replace(/\D/g, "")   // solo números
+    .replace(/\D/g, "")   
 });
 
 input_fecha_vencimiento.addEventListener("input", (e) => {  
@@ -141,8 +146,6 @@ radios.forEach((radio) => {
         }
 
     });
-
-
 
 })
 

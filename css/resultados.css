@@ -292,6 +292,11 @@ summary::-webkit-details-marker {
     box-shadow: var(--shadow-soft);
     border: 1px solid rgba(0,0,0,0.02);
 }
+.equipaje-card.seleccionado {
+  border: 2px solid #4a90e2;
+  background-color: #eef5ff;
+}
+
 
 .equipaje-opciones {
     display: flex;

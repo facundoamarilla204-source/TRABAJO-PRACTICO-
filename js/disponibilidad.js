@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (vuelo !== null) {
         cargarDatosVuelo(vuelo);
+
     }
 
     const asientos = document.querySelectorAll(".mapa .seat");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let i = 0; i < asientos.length; i++) {
         asientos[i].addEventListener("click", function () {
+
             if (asientos[i].classList.contains("ocupado")) {
                 alert("Ese asiento ya está ocupado");
                 return;
@@ -30,13 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
             asientos[i].classList.add("seleccionado");
 
             asientoElegido = obtenerAsiento(asientos[i]);
+            let costoAsiento = 25; // Costo fijo por asiento
 
             cardSeleccion.innerHTML = `
                 <h3>Tu selección</h3>
                 <p>Ida: Asiento ${asientoElegido}</p>
                 <p>Vuelta: Se asignará luego</p>
-                <p>Total asientos: USD 25</p>
+                <p>Total asientos: USD ${costoAsiento}</p>
             `;
+
+            document.getElementById("precioAsientos").textContent = vuelo.moneda + " " + costoAsiento;
+           
+            if (vuelo !== null) {
+               
+                let nuevoTotal = parseFloat(vuelo.total) + costoAsiento;
+             
+                document.getElementById("precioTotal").textContent = vuelo.moneda + " " + nuevoTotal;
+            }
 
             localStorage.setItem("asientoSeleccionado", asientoElegido);
         });

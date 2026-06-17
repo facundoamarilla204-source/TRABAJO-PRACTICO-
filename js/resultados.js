@@ -33,27 +33,28 @@
     for (let i = 0; i < botones.length; i++) {
 
         botones[i].addEventListener("click", function () {
-
+            const equipaje = Number(equipajeSeleccionado);
+            const totalbase = Number(this.dataset.total);
             const vuelo = {
-                aerolinea: this.dataset.aerolinea,
-                logo: this.dataset.logo,
-                origen: this.dataset.origen,
-                ciudadOrigen: this.dataset.ciudadOrigen,
-                destino: this.dataset.destino,
-                ciudadDestino: this.dataset.ciudadDestino,
-                salida: this.dataset.salida,
-                llegada: this.dataset.llegada,
-                duracion: this.dataset.duracion,
-                salidaVuelta: this.dataset.salidaVuelta,
-                llegadaVuelta: this.dataset.llegadaVuelta,
-                duracionVuelta: this.dataset.duracionVuelta,
-                moneda: this.dataset.moneda,
-                precioBase: this.dataset.precioBase,
-                equipaje: this.dataset.equipaje,
-                asientos: this.dataset.asientos,
-                impuestos: this.dataset.impuestos,
-                total: this.dataset.total,
-                pago: this.dataset.pago
+                     aerolinea: this.dataset.aerolinea,
+                     logo: this.dataset.logo,
+                     origen: this.dataset.origen,
+                    ciudadOrigen: this.dataset.ciudadOrigen,
+                    destino: this.dataset.destino,
+                     ciudadDestino: this.dataset.ciudadDestino,
+                     salida: this.dataset.salida,
+                   llegada: this.dataset.llegada,
+                   duracion: this.dataset.duracion,
+                 salidaVuelta: this.dataset.salidaVuelta,
+                  llegadaVuelta: this.dataset.llegadaVuelta,
+                   duracionVuelta: this.dataset.duracionVuelta,
+                  moneda: this.dataset.moneda,
+                  precioBase: this.dataset.precioBase,
+                   equipaje:equipaje,
+                  asientos: this.dataset.asientos,
+                  impuestos: this.dataset.impuestos,
+                  total:totalbase + equipaje,
+                 pago: this.dataset.pago
             };
 
             localStorage.setItem(
@@ -146,22 +147,31 @@
     });
 
     // EQUIPAJE
-    const equipajes =
-        document.querySelectorAll(".equipaje-card");
+    let equipajeSeleccionado = 0;
+    const equipajes = document.querySelectorAll(".equipaje-card");
 
-    equipajes.forEach(function (equipaje) {
+equipajes.forEach(function (equipaje) {
+  equipaje.addEventListener("click", function () {
 
-        equipaje.addEventListener("click", function () {
-
-            equipajes.forEach(function (e) {
-                e.classList.remove("seleccionado");
-            });
-
-            this.classList.add("seleccionado");
-
-        });
-
+    equipajes.forEach(function (e) {
+      e.classList.remove("seleccionado");
     });
+
+    this.classList.add("seleccionado");
+
+    const texto = this.querySelector("span").textContent;
+
+    if (texto.includes("45")) {
+      equipajeSeleccionado = 45;
+    } else if (texto.includes("85")) {
+      equipajeSeleccionado = 85;
+    } else {
+      equipajeSeleccionado = 0;
+    }
+
+    console.log("Equipaje seleccionado:", equipajeSeleccionado);
+  });
+});
 
     // ORDENAR VUELOS
     const selectOrdenar =

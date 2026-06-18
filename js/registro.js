@@ -17,6 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            if (!fechaNacimiento) {
+                alert('Por favor, ingresá tu fecha de nacimiento.');
+                return;
+            }
+
+            const partesFecha = fechaNacimiento.split('-');
+            const fechaNac = new Date(partesFecha[0], partesFecha[1] - 1, partesFecha[2]);
+            const hoy = new Date();
+
+            if (fechaNac > hoy) {
+                alert('La fecha de nacimiento es inválida.');
+                return;
+            }
+
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            const diferenciaMeses = hoy.getMonth() - fechaNac.getMonth();
+            
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+
+            if (edad < 18) {
+                alert('Debes ser mayor de 18 años para crear una cuenta en AeroLink.');
+                return;
+            }
+
             let usuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
             const usuarioExiste = usuarios.find(usuario => usuario.email === email);

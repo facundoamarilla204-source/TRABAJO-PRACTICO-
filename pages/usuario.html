@@ -14,84 +14,85 @@
 
 <body>
     <header id="main-header"></header>
+    
     <main>
         <h1 class="titulo">Perfil de Usuario</h1>
-        <p class="descripcion">Bienvenido a tu perfil de usuario. Aquí puedes ver y editar tu información personal,
-            revisar tus reservas y gestionar tus preferencias de viaje.</p>
+        <p class="descripcion">Bienvenido a tu perfil de usuario. Aquí puedes ver y editar tu información personal, revisar tus reservas y gestionar tus preferencias de viaje.</p>
 
         <section class="perfil-vista">
             <section class="perfil-tarjeta">
-                <div class="informacion_container">
-                    <h2><i class="fa-solid fa-user"></i>Información Personal</h2>
-                    <strong>Nombre:</strong> <span class="fondo_datos" id="perfil-nombre"></span>
+                <h2>Información Personal</h2>
+                <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
+                
+                <p><strong>Email:</strong> <span id="perfil-email"></span>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'email')"><i class="fa-solid fa-pen"></i></a>
+                </p>
 
-                    <strong>Email:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-email"></span>
-                        <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'email')"><i
-                                class="fa-solid fa-pen"></i></a>
-                    </p>
+                <p><strong>Teléfono:</strong> <span id="perfil-telefono"></span>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'telefono')"><i class="fa-solid fa-pen"></i></a>
+                </p>
 
+                <p><strong>Dirección:</strong> <span id="perfil-direccion"></span>
+                    <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'direccion')"><i class="fa-solid fa-pen"></i></a>
+                </p>
 
-                    <strong>Teléfono:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-telefono"></span>
-                        <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'telefono')"><i
-                                class="fa-solid fa-pen"></i></a>
-                    </p>
-
-
-                    <strong>Dirección:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-direccion"></span>
-                        <a href="#" class="btn-icono-editar" onclick="editarDato(event, 'direccion')"><i
-                                class="fa-solid fa-pen"></i></a>
-                    </p>
-
-
-                    <strong>Edad:</strong> <span class="fondo_datos" id="perfil-edad"></span>
-                </div>
-
+                <p><strong>Edad:</strong> <span id="perfil-edad"></span></p>
             </section>
 
             <section class="perfil-tarjeta">
-                <h2><i class="fa-solid fa-plane"></i>Mis Reservas</h2>
+                <h2>Mis Reservas</h2>
                 <ul id="contenedor-reservas"></ul>
             </section>
 
-            <section class="perfil-tarjeta reservas">
-                <h2><i class="fa-solid fa-heart"></i>Preferencias de Viaje</h2>
-                <div class="preferencias_de_viaje_container">
+            <section class="perfil-tarjeta">
+                <h2>Preferencias de Viaje</h2>
+                
+                <div class="grupo-preferencia">
+                    <label for="select-asiento"><strong>Asiento Preferido:</strong></label>
+                    <select id="select-asiento" class="select-perfil">
+                        <option value="No especificado">Seleccionar...</option>
+                        <option value="Ventana">Ventana</option>
+                        <option value="Pasillo">Pasillo</option>
+                    </select>
+                </div>
+                
+                <div class="grupo-preferencia">
+                    <label for="select-comida"><strong>Comida Especial:</strong></label>
+                    <select id="select-comida" class="select-perfil">
+                        <option value="No especificada">Seleccionar...</option>
+                        <option value="Estándar">Estándar</option>
+                        <option value="Vegana">Vegana</option>
+                        <option value="Vegetariana">Vegetariana</option>
+                        <option value="Sin TACC">Sin TACC</option>
+                    </select>
+                </div>
 
-                    <strong>Asiento Preferido:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-asiento"></span> <a href="#" class="btn-icono-editar"
-                            onclick="editarDato(event, 'asientoPreferido')"><i class="fa-solid fa-pen"></i></a>
-                        </p>
+                <div class="grupo-preferencia">
+                    <label for="select-actividades"><strong>Actividades de Interés:</strong></label>
+                    <select id="select-actividades" class="select-perfil">
+                        <option value="No especificadas">Seleccionar...</option>
+                        <option value="Cultura e Historia">Cultura e Historia</option>
+                        <option value="Gastronomía">Gastronomía</option>
+                        <option value="Naturaleza y Aventura">Naturaleza y Aventura</option>
+                        <option value="Relax y Playa">Relax y Playa</option>
+                    </select>
+                </div>
 
-                    <strong>Comida Especial:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-comida"></span> <a href="#" class="btn-icono-editar"
-                            onclick="editarDato(event, 'comidaEspecial')"><i class="fa-solid fa-pen"></i></a>
-                        </p>
-
-                    <strong>Actividades de Interés:</strong>
-                    <p class="fondo_datos">
-                        <span id="perfil-actividades"></span> <a href="#" class="btn-icono-editar"
-                            onclick="editarDato(event, 'actividadesInteres')"><i class="fa-solid fa-pen"></i></a>
-                        </p>
-
-                    <strong>Transporte al Aeropuerto:</strong>
-                    <p class="fondo_datos"><span id="perfil-transporte"></span> <a href="#" class="btn-icono-editar"
-                            onclick="editarDato(event, 'transporteAeropuerto')"><i class="fa-solid fa-pen"></i></a>
-                        </p>
+                <div class="grupo-preferencia">
+                    <label for="select-transporte"><strong>Transporte al Aeropuerto:</strong></label>
+                    <select id="select-transporte" class="select-perfil">
+                        <option value="No especificado">Seleccionar...</option>
+                        <option value="Privado (Taxi/Uber)">Privado (Taxi/Uber)</option>
+                        <option value="Transporte Público">Transporte Público</option>
+                        <option value="Alquiler de Auto">Alquiler de Auto</option>
+                    </select>
                 </div>
             </section>
         </section>
     </main>
 
     <footer id="main-footer"></footer>
-
+  
     <script src="../js/header.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/perfil.js"></script>

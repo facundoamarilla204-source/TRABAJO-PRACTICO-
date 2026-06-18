@@ -109,6 +109,32 @@ main {
     text-decoration: underline;
 }
 
+.contenedor-password {
+    position: relative;
+    width: 100%;
+}
+
+.contenedor-password input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.icono-ojo {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.icono-ojo:hover {
+    color: #0d6efd;
+}
+
 @media (max-width: 768px) {
     main {
         padding: 4.375rem 1.25rem 2.5rem 1.25rem; 

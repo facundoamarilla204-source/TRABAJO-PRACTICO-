@@ -47,11 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
         totalFinal += 25;
     }
 
-    
     document.getElementById("totalCheckout").textContent = totalFinal;
     document.getElementById("totalCheckoutGrande").textContent = totalFinal;
 
-   
     if (total_precio_chico) total_precio_chico.textContent = totalFinal;
     if (total_precio) total_precio.textContent = totalFinal;
 
@@ -64,7 +62,7 @@ input_tarjeta.addEventListener("input", (e) => {
 input_cvv.addEventListener("input", (e) => {
   e.target.value = e.target.value
     .replace(/\D/g, "")  
-    .slice(0, 3 );         
+    .slice(0, 3 );        
 });
 
 input_telefono.addEventListener("input", (e) => {
@@ -75,13 +73,10 @@ input_telefono.addEventListener("input", (e) => {
 input_fecha_vencimiento.addEventListener("input", (e) => {  
   let value = e.target.value;
 
-  // 1. dejar solo números
   value = value.replace(/\D/g, "");
 
-  // 2. limitar a 4 dígitos (MMYY)
   value = value.slice(0, 4);
 
-  // 3. agregar "/"
   if (value.length >= 3) {
     value = value.slice(0, 2) + "/" + value.slice(2);
   }
@@ -90,10 +85,11 @@ input_fecha_vencimiento.addEventListener("input", (e) => {
     
 });
 
-
 form.addEventListener("submit", (e) => {
 
     localStorage.setItem("emailCliente", input_email.value);
+    localStorage.setItem("precioFinalPago", total_precio.textContent);
+
     const numero_tarjeta = input_tarjeta.value;
     const cvv = input_cvv.value;
     const fecha_vencimiento = input_fecha_vencimiento.value;
@@ -113,20 +109,12 @@ form.addEventListener("submit", (e) => {
     }
 
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
-
-
         e.preventDefault();
-
-
     };
-
-
 
 })
 
 radios.forEach((radio) => {
-
-    
 
   radio.addEventListener("change", () => {
 
@@ -163,7 +151,6 @@ button_cupon.addEventListener("click", (e) => {
 
         mensaje_cupon_invalido.style.display = "block";
         e.preventDefault();
-
 
     } else {
 
@@ -221,16 +208,7 @@ button_cupon.addEventListener("click", (e) => {
             
         }
 
-        
-
-
     }
-
-
-
-
-
-
 
 })
 
@@ -239,11 +217,10 @@ function corroborar_pasaporte_valido_dni () {
     let cantidad_caracteres_ingresados = input_dni.value.length;
     let tipo_documento = select_documento_pasaporte.value;
 
-    if (tipo_documento === "dni") {  //En caso de que sea documento tomamos esta verificación
+    if (tipo_documento === "dni") { 
 
 
         if (cantidad_caracteres_ingresados !== 8) {
-
 
             mensaje_dni_pasaporte_incorrecto.style.display = "flex";
             
@@ -256,17 +233,13 @@ function corroborar_pasaporte_valido_dni () {
 
         } 
 
-
-
-    } else { //En caso de que sea pasaporte tomamos esta verificación
+    } else { 
 
 
         if (cantidad_caracteres_ingresados !== 9 || !corroborar_pasaporte_valido(input_dni)) {
 
-
             mensaje_dni_pasaporte_incorrecto.style.display = "flex";
             return false;
-
 
         } else {
 
@@ -275,11 +248,7 @@ function corroborar_pasaporte_valido_dni () {
 
         }
 
-
-
     }
-
-
 
 }
 
@@ -290,16 +259,12 @@ function corroborar_numero_telefono() {
         mensaje_telefono_incorrecto.style.display = "none";
         return true;
 
-
     } else {
 
         mensaje_telefono_incorrecto.style.display = "flex";
         return false;
 
-
     }
-
-
 
 }
 
@@ -322,7 +287,6 @@ function corroborar_pasaporte_valido(input_dni) {
         (numeros[4] >= "0" && numeros[4] <= "9") &&
         (numeros[5] >= "0" && numeros[5] <= "9")) 
         
-        
         {
 
         return true;
@@ -331,7 +295,6 @@ function corroborar_pasaporte_valido(input_dni) {
 
         return false;
     }
-
 
 }
 
@@ -399,6 +362,3 @@ function validar_tarjeta(numero_tarjeta, cvv, fecha_vencimiento) {
 
     return esValida;
 }
-
-
-

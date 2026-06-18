@@ -71,19 +71,25 @@ function cargarReservasDesdeStorage() {
             li.innerHTML = `
                 <details>
                     <summary>${reserva.titulo}</summary>
-                    <ul class="detalles-reserva">
-                        <li>Tipo: ${reserva.tipo}</li>
-                        <li>Cantidad de Pasajeros: ${reserva.pasajeros}</li>
-                        <li>Ruta: ${reserva.ruta}</li>
-                        <li>Horario de vuelo: ${reserva.horario}</li>
-                        <li>Duración: ${reserva.duracion}</li>
-                        <li>Precio: ${reserva.precio}</li>
-                        <li>Clase: ${reserva.clase}</li>
-                        <li>Asiento Ida: ${reserva.asientoIda}</li>
-                        <li>Fecha de vuelta: ${reserva.fechaVuelta || "No aplica"}</li>
-                        <li>Horario de vuelo: ${reserva.horarioVuelta || "--:--"}</li>
-                        <li>Asiento Vuelta: ${reserva.asientoVuelta || "No aplica"}</li>
-                    </ul>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 10px 0;">
+                        <ul class="detalles-reserva" style="flex: 1; min-width: 250px;">
+                            <li>Tipo: ${reserva.tipo}</li>
+                            <li>Cantidad de Pasajeros: ${reserva.pasajeros}</li>
+                            <li>Ruta: ${reserva.ruta}</li>
+                            <li>Horario de vuelo: ${reserva.horario}</li>
+                            <li>Duración: ${reserva.duracion}</li>
+                            <li>Precio: ${reserva.precio}</li>
+                            <li>Clase: ${reserva.clase}</li>
+                            <li>Asiento Ida: ${reserva.asientoIda}</li>
+                            <li>Fecha de vuelta: ${reserva.fechaVuelta}</li>
+                            <li>Horario de vuelo: ${reserva.horarioVuelta}</li>
+                            <li>Asiento Vuelta: ${reserva.asientoVuelta}</li>
+                        </ul>
+                        <div style="text-align: center; margin: 15px auto;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${reserva.codigoReserva || 'AeroLink'}" alt="QR de Reserva" style="border-radius: 8px;">
+                            <p style="font-size: 0.85em; margin-top: 8px; font-weight: bold; color: #333;">Reserva: ${reserva.codigoReserva || 'N/A'}</p>
+                        </div>
+                    </div>
                 </details>
             `;
             contenedor.appendChild(li);

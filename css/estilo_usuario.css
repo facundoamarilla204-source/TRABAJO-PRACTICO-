@@ -1,54 +1,89 @@
+main {
+    padding: 6rem 1.5rem;
+    min-height: 100vh;
+ 
+}
+
 .titulo {
     text-align: center;
     color: var(--brand-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .descripcion {
     text-align: center;
+    color: #666;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
 }
 
 .perfil-vista {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    width: 100%;
-    margin: 0 auto; 
-    gap: 1.25rem; 
-    margin-top: 1.25rem;
-    box-sizing: border-box; 
-    padding: 0 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: auto;
+    align-items: start;
 }
 
 .perfil-tarjeta {
+    background: white;
+    border-radius: 18px;
+    padding: 1.8rem;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08),
+        0 2px 4px rgba(0,0,0,0.05);
+
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    border: 1px solid #ccc;
-    padding: 1.25rem;
-    border-radius: 0.625rem; 
-    background-color: #f9f9f9;
+    gap: 1rem;
+
+    transition: all 0.3s ease;
 }
 
-.perfil-tarjeta li{
-    padding: 0.625rem;
+.perfil-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.12),
+        0 5px 10px rgba(0,0,0,0.08);
 }
 
 .perfil-tarjeta h2 {
-    color: #333;
-    text-align: center; 
+    text-align: center;
+    color: var(--brand-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.perfil-tarjeta p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.perfil-tarjeta strong {
+    color: #222;
+}
+
+.perfil-tarjeta span {
+    color: #555;
 }
 
 .btn-icono-editar {
-    display: inline-block;
-    margin-left: 0.625rem;
-    color: #888; 
-    font-size: 0.9rem; 
-    text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    color: #999;
+    font-size: 1rem;
+    transition: all 0.25s ease;
 }
 
 .btn-icono-editar:hover {
-    color: #000; 
-    transform: scale(1.15);
+    color: var(--brand-color);
+    transform: scale(1.2);
 }
 
 .perfil-tarjeta ul {
@@ -56,39 +91,55 @@
     padding: 0;
 }
 
+.perfil-tarjeta li {
+    background: #f5f7fa;
+    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
 summary {
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
     color: #333;
-    padding: 0.625rem;
-    background-color: #e9ecef;
-    border-radius: 0.3125rem;
-    margin-bottom: 0.3125rem;
-    transition: background-color 0.3s ease;
+    background: #eef2f7;
+    padding: 0.9rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 summary:hover {
-    background-color: #dee2e6;
+    background: #dde5ef;
 }
 
 .detalles-reserva {
-    margin-top: 0.625rem;
-    margin-bottom: 1.25rem;
-    padding-left: 1.875rem;
-    list-style-type: circle;
+    margin-top: 0.8rem;
+    padding-left: 1.5rem;
     color: #555;
 }
 
 .detalles-reserva li {
-    margin-bottom: 0.3125rem;
+    background: transparent;
+    padding: 0.3rem 0;
 }
 
-main{
-    padding: 5rem 1.25rem;
+.perfil-tarjeta.reservas {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+    .perfil-vista {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     .perfil-vista {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
+    }
+
+    .titulo {
+        font-size: 2rem;
     }
 }

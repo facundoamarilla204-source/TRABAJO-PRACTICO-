@@ -51,7 +51,7 @@
                   moneda: this.dataset.moneda,
                   precioBase: this.dataset.precioBase,
                    equipaje:equipaje,
-                  asientos: this.dataset.asientos,
+                  asientos: this.dataset.asientos,s
                   impuestos: this.dataset.impuestos,
                   total:totalbase + equipaje,
                  pago: this.dataset.pago

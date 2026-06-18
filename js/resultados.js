@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Destino buscado:", destinoBuscado);
 
-    
+
 
     // BOTONES SELECCIONAR
     const botones = document.querySelectorAll(".btn-select");
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         rangePrecio.addEventListener("input", function () {
 
-        
 
-         valorPrecio.textContent = this.value;
-        aplicarFiltros();
+
+            valorPrecio.textContent = this.value;
+            aplicarFiltros();
 
         });
 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         checkbox.addEventListener("change", function () {
 
-          aplicarFiltros();
+            aplicarFiltros();
 
         });
 
@@ -183,59 +183,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Aplicando filtros");
 
-    const precioMax = Number(rangePrecio.value);
+        const precioMax = Number(rangePrecio.value);
 
-    const aerolineasSeleccionadas = Array.from(
-        document.querySelectorAll(".filtroAerolinea:checked")
-    ).map(check => check.value);
+        const aerolineasSeleccionadas = Array.from(
+            document.querySelectorAll(".filtroAerolinea:checked")
+        ).map(check => check.value);
 
-    vuelos.forEach(function (vuelo) {
+        vuelos.forEach(function (vuelo) {
 
-        // FILTRO DESTINO
-        let coincideDestino = true;
+            // FILTRO DESTINO
+            let coincideDestino = true;
 
-        if (destinoBuscado) {
+            if (destinoBuscado) {
 
-            const ciudades = vuelo.querySelectorAll(".ciudad");
-            const ciudadDestino = ciudades[1].textContent.trim();
+                const ciudades = vuelo.querySelectorAll(".ciudad");
+                const ciudadDestino = ciudades[1].textContent.trim();
 
-            coincideDestino =
-                ciudadDestino.toLowerCase() ===
-                destinoBuscado.toLowerCase();
-        }
+                coincideDestino =
+                    ciudadDestino.toLowerCase() ===
+                    destinoBuscado.toLowerCase();
+            }
 
-        // FILTRO PRECIO
-        const coincidePrecio =
-            Number(vuelo.dataset.precio) <= precioMax;
+            // FILTRO PRECIO
+            const coincidePrecio =
+                Number(vuelo.dataset.precio) <= precioMax;
 
-        // FILTRO AEROLÍNEA
-        let coincideAerolinea = true;
+            // FILTRO AEROLÍNEA
+            const aerolineasDelVuelo = Array.from(
+                vuelo.querySelectorAll(".aerolinea-option span")
+            ).map(el => el.textContent.trim().toLowerCase());
 
-        if (aerolineasSeleccionadas.length > 0) {
+            let coincideAerolinea = true;
 
-            const aerolinea =
-                vuelo.querySelector(".aerolinea-option span")
-                    .textContent;
+            if (aerolineasSeleccionadas.length > 0) {
 
-            coincideAerolinea =
-                aerolineasSeleccionadas.some(nombre =>
-                    aerolinea.includes(nombre)
+                const seleccionadas = aerolineasSeleccionadas.map(a =>
+                    a.trim().toLowerCase()
                 );
-        }
 
-        // MOSTRAR U OCULTAR
-        if (
-            coincideDestino &&
-            coincidePrecio &&
-            coincideAerolinea
-        ) {
-            vuelo.style.display = "block";
-        } else {
-            vuelo.style.display = "none";
-        }
+                coincideAerolinea = seleccionadas.some(sel =>
+                    aerolineasDelVuelo.includes(sel)
+                );
+            }
 
-    });
-}
+            // MOSTRAR U OCULTAR
+            if (
+                coincideDestino &&
+                coincidePrecio &&
+                coincideAerolinea
+            ) {
+                vuelo.style.display = "block";
+            } else {
+                vuelo.style.display = "none";
+            }
+
+        });
+    }
 
 });
 

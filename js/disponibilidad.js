@@ -1,125 +1,235 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // =========================
+    // TRAER VUELO
+    // =========================
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
 
-    if (vuelo !== null) {
-        cargarDatosVuelo(vuelo);
-
+    if (!vuelo) {
+        alert("No hay vuelo seleccionado");
+        window.location.href = "./resultados.html";
+        return;
     }
+
+    cargarDatosVuelo(vuelo);
 
     const asientos = document.querySelectorAll(".mapa .seat");
-    const cardSeleccion = document.querySelector(".card_seleccion");
     const btnContinuar = document.getElementById("btnContinuar");
+    const cardSeleccion = document.querySelector(".card_seleccion");
 
-    let asientoElegido = "";
+    const pasajeros = Number(vuelo.personas) || 1;
 
-    for (let i = 0; i < asientos.length; i++) {
-        asientos[i].addEventListener("click", function () {
+    let seleccionados = [];
 
-            if (asientos[i].classList.contains("ocupado")) {
-                alert("Ese asiento ya está ocupado");
-                return;
-            }
+    // =========================
+    // COSTOS BASE
+    // =========================
+    const precioBase = Number(vuelo.precioBaseUnitario) || 0;
+    const impuestos = Number(vuelo.impuestosUnitario) || 0;
+    const equipaje = Number(vuelo.equipajeUnitario) || 0;
 
-            for (let j = 0; j < asientos.length; j++) {
-                asientos[j].classList.remove("seleccionado");
+    const costoAsientoUnitario = Number(vuelo.asientoUnitario) || 25;
 
-                if (!asientos[j].classList.contains("ocupado")) {
-                    asientos[j].classList.add("disponible");
+    const ida = document.querySelector(".ida");
+    const vuelta = document.querySelector(".vuelta");
+
+    ida.textContent = "Ida: " + vuelo.fechaIda;
+    vuelta.textContent = "Vuelta: " + vuelo.fechaVuelta;
+
+
+
+    // =========================
+    // BOTÓN INICIAL
+    // =========================
+    deshabilitarBoton();
+
+    function deshabilitarBoton() {
+        btnContinuar.style.pointerEvents = "none";
+        btnContinuar.style.opacity = "0.5";
+    }
+
+    function habilitarBoton() {
+        btnContinuar.style.pointerEvents = "auto";
+        btnContinuar.style.opacity = "1";
+    }
+
+    // =========================
+    // CLICK ASIENTOS
+    // =========================
+    asientos.forEach((seat) => {
+
+        seat.addEventListener("click", () => {
+
+            if (seat.classList.contains("ocupado")) return;
+
+            const index = seleccionados.indexOf(seat);
+
+            if (index !== -1) {
+                seleccionados.splice(index, 1);
+                seat.classList.remove("seleccionado");
+                seat.classList.add("disponible");
+            } else {
+
+                if (seleccionados.length >= pasajeros) {
+                    alert(`Solo podés seleccionar ${pasajeros} asiento(s)`);
+                    return;
                 }
+
+                seleccionados.push(seat);
+                seat.classList.add("seleccionado");
+                seat.classList.remove("disponible");
             }
 
-            asientos[i].classList.remove("disponible");
-            asientos[i].classList.add("seleccionado");
-
-            asientoElegido = obtenerAsiento(asientos[i]);
-            let costoAsiento = 25; // Costo fijo por asiento
-
-            cardSeleccion.innerHTML = `
-                <h3>Tu selección</h3>
-                <p>Ida: Asiento ${asientoElegido}</p>
-                <p>Vuelta: Se asignará luego</p>
-                <p>Total asientos: USD ${costoAsiento}</p>
-            `;
-
-            document.getElementById("precioAsientos").textContent = vuelo.moneda + " " + costoAsiento;
-           
-            if (vuelo !== null) {
-               
-                let nuevoTotal = parseFloat(vuelo.total) + costoAsiento;
-             
-                document.getElementById("precioTotal").textContent = vuelo.moneda + " " + nuevoTotal;
-            }
-
-            localStorage.setItem("asientoSeleccionado", asientoElegido);
+            actualizarUI();
         });
-    }
 
-    btnContinuar.addEventListener("click", function (e) {
-        
-        if (asientoElegido === "") {
-            e.preventDefault();
-            alert("Tenés que seleccionar un asiento antes de continuar");
-            return; 
-        }
-
-        const usuarioActivo = localStorage.getItem('usuarioActivo');
-        
-        if (!usuarioActivo) {
-            e.preventDefault();
-            alert("¡Ya casi! Para comprar el pasaje tenés que iniciar sesión o registrarte.");
-            
-            window.location.href = "login.html"; 
-        }
     });
-});
 
-function cargarDatosVuelo(vuelo) {
-    document.getElementById("logoIda").src = vuelo.logo;
-    document.getElementById("logoVuelta").src = vuelo.logo;
+    // =========================
+    // UI
+    // =========================
+    function actualizarUI() {
 
-    document.getElementById("aerolineaIda").textContent = vuelo.aerolinea;
-    document.getElementById("aerolineaVuelta").textContent = vuelo.aerolinea;
+        const codigos = seleccionados.map(getAsientoCode);
 
-    document.getElementById("horaSalidaIda").textContent = vuelo.salida;
-    document.getElementById("horaLlegadaIda").textContent = vuelo.llegada;
-    document.getElementById("duracionIda").textContent = vuelo.duracion;
+        // =========================
+        // CÁLCULOS
+        // =========================
+        const totalBase = (precioBase + impuestos + equipaje) * pasajeros;
+        const totalAsientos = costoAsientoUnitario * seleccionados.length;
+        const totalFinal = totalBase + totalAsientos;
 
-    document.getElementById("origenIda").textContent = vuelo.origen;
-    document.getElementById("ciudadOrigenIda").textContent = vuelo.ciudadOrigen;
-    document.getElementById("destinoIda").textContent = vuelo.destino;
-    document.getElementById("ciudadDestinoIda").textContent = vuelo.ciudadDestino;
+        // 🔥 GUARDADO CLAVE PARA PAGO.JS
+        vuelo.totalConAsientos = totalFinal;
+        localStorage.setItem("vueloSeleccionado", JSON.stringify(vuelo));
 
-    document.getElementById("horaSalidaVuelta").textContent = vuelo.salidaVuelta;
-    document.getElementById("horaLlegadaVuelta").textContent = vuelo.llegadaVuelta;
-    document.getElementById("duracionVuelta").textContent = vuelo.duracionVuelta;
+        // =========================
+        // RESUMEN LATERAL
+        // =========================
+        cardSeleccion.innerHTML = `
+            <h3>Tu selección</h3>
+            <p>Ida: ${codigos.length ? codigos.join(", ") : "Sin seleccionar"}</p>
+            <p>Vuelta: Se asignará luego</p>
+            <p>Progreso: ${seleccionados.length}/${pasajeros}</p>
+            <p>Total asientos: ${vuelo.moneda} ${totalAsientos}</p>
+        `;
 
-    document.getElementById("origenVuelta").textContent = vuelo.destino;
-    document.getElementById("ciudadOrigenVuelta").textContent = vuelo.ciudadDestino;
-    document.getElementById("destinoVuelta").textContent = vuelo.origen;
-    document.getElementById("ciudadDestinoVuelta").textContent = vuelo.ciudadOrigen;
+        // =========================
+        // UI PRECIOS
+        // =========================
+        document.getElementById("precioBase").textContent =
+            `${vuelo.moneda}${precioBase * pasajeros}`;
 
-    document.getElementById("precioBase").textContent = vuelo.moneda + " " + vuelo.precioBase;
-    document.getElementById("precioEquipaje").textContent = vuelo.moneda + " " + vuelo.equipaje;
-    document.getElementById("precioAsientos").textContent = vuelo.moneda + " " + vuelo.asientos;
-    document.getElementById("precioImpuestos").textContent = vuelo.moneda + " " + vuelo.impuestos;
-    document.getElementById("precioTotal").textContent = vuelo.moneda + " " + vuelo.total;
+        document.getElementById("precioImpuestos").textContent =
+            `${vuelo.moneda}${impuestos * pasajeros}`;
 
-    document.getElementById("btnContinuar").href = vuelo.pago;
-}
+        document.getElementById("precioEquipaje").textContent =
+            `${vuelo.moneda}${equipaje * pasajeros}`;
 
-function obtenerAsiento(asiento) {
-    const fila = asiento.parentElement;
-    const numeroFila = fila.querySelector("span").textContent;
-    const botones = fila.querySelectorAll("button");
-    const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
+        document.getElementById("precioAsientos").textContent =
+            `${vuelo.moneda}${totalAsientos}`;
 
-    let posicion = 0;
+        document.getElementById("precioTotal").textContent =
+            `${vuelo.moneda}${totalFinal}`;
 
-    for (let i = 0; i < botones.length; i++) {
-        if (botones[i] === asiento) {
-            posicion = i;
+        // =========================
+        // BOTÓN
+        // =========================
+        if (seleccionados.length === pasajeros) {
+            habilitarBoton();
+        } else {
+            deshabilitarBoton();
         }
     }
 
-    return numeroFila + letras[posicion];
-}
+    // =========================
+    // CONTINUAR
+    // =========================
+    btnContinuar.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const codigos = seleccionados.map(getAsientoCode);
+
+        if (codigos.length !== pasajeros) {
+            alert(`Tenés que seleccionar ${pasajeros} asiento(s)`);
+            return;
+        }
+
+        const usuario = localStorage.getItem("usuarioActivo");
+
+        if (!usuario) {
+            alert("Tenés que iniciar sesión");
+            window.location.href = "./login.html";
+            return;
+        }
+
+        // guardo asientos
+        localStorage.setItem("asientosSeleccionados", JSON.stringify(codigos));
+
+        const vueloActualizado = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+
+        localStorage.setItem("vueloSeleccionado", JSON.stringify({
+            ...vueloActualizado,
+            totalConAsientos: vueloActualizado.totalConAsientos,
+            asientosSeleccionados: codigos
+        }));
+
+        // voy a pago
+        window.location.href = "./pago.html";
+    });
+
+    // =========================
+    // CARGAR VUELO
+    // =========================
+    function cargarDatosVuelo(v) {
+
+        document.getElementById("logoIda").src = v.logo;
+        document.getElementById("logoVuelta").src = v.logo;
+
+        document.getElementById("aerolineaIda").textContent = v.aerolinea;
+        document.getElementById("aerolineaVuelta").textContent = v.aerolinea;
+
+        document.getElementById("horaSalidaIda").textContent = v.salida;
+        document.getElementById("horaLlegadaIda").textContent = v.llegada;
+        document.getElementById("duracionIda").textContent = v.duracion;
+
+        document.getElementById("origenIda").textContent = v.origen;
+        document.getElementById("ciudadOrigenIda").textContent = v.ciudadOrigen;
+        document.getElementById("destinoIda").textContent = v.destino;
+        document.getElementById("ciudadDestinoIda").textContent = v.ciudadDestino;
+
+        document.getElementById("horaSalidaVuelta").textContent = v.salidaVuelta;
+        document.getElementById("horaLlegadaVuelta").textContent = v.llegadaVuelta;
+        document.getElementById("duracionVuelta").textContent = v.duracionVuelta;
+
+        document.getElementById("origenVuelta").textContent = v.destino;
+        document.getElementById("ciudadOrigenVuelta").textContent = v.ciudadDestino;
+        document.getElementById("destinoVuelta").textContent = v.origen;
+        document.getElementById("ciudadDestinoVuelta").textContent = v.ciudadOrigen;
+
+        document.getElementById("cantidadPasajeros").textContent =
+            `${v.personas} Pasajero(s)`;
+    }
+
+    // =========================
+    // ASIENTO CODE
+    // =========================
+    function getAsientoCode(seat) {
+
+        const fila = seat.parentElement;
+        const numeroFila = fila.querySelector("span").textContent;
+
+        const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
+
+        const botones = fila.querySelectorAll("button");
+
+        let index = 0;
+
+        botones.forEach((b, i) => {
+            if (b === seat) index = i;
+        });
+
+        return numeroFila + letras[index];
+    }
+
+});

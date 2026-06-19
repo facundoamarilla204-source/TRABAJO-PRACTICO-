@@ -1,234 +1,237 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AeroLink - Detalle de vuelo</title>
-        <link rel="stylesheet" href="/css/estilo_disponibilidad.css">
-        <link rel="stylesheet" href="/css/header.css" />
-        <link rel="icon" type="image/png" href="/img/aerolink1.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
-    <body>
 
-        <header id="main-header"></header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroLink - Detalle de vuelo</title>
+    <link rel="stylesheet" href="/css/estilo_disponibilidad.css">
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="icon" type="image/png" href="/img/aerolink1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
-        <main class="contenedor">
-            <div class="grid_vuelos">
-                <section class="vuelos">
-                    <h1>Detalle de vuelo</h1>
-                    <p><strong>Ida</strong> - Miércoles 6 de mayo de 2026</p>
-                    
-                    <div class="card_vuelo">
-                        <div class="empresa">
-                            <img id="logoIda" src="../img/aerolineasArgentinas.png" alt="Logo">
-                            <span id="aerolineaIda">Aerolíneas Argentinas</span>
-                        </div>
+<body>
 
-                        <div class="horario">
-                            <div>
+    <header id="main-header"></header>
+
+    <main class="contenedor">
+        <div class="grid_vuelos">
+            <section class="vuelos">
+                <h1>Detalle de vuelo</h1>
+                <strong class="ida">Ida</strong>
+
+                <div class="card_vuelo">
+                    <div class="empresa">
+                        <img id="logoIda" src="../img/aerolineasArgentinas.png" alt="Logo">
+                        <span id="aerolineaIda">Aerolíneas Argentinas</span>
+                    </div>
+
+                    <div class="horario">
+                        <div>
                             <strong id="horaSalidaIda">00:00</strong>
                             <p id="origenIda">EZE</p>
                             <p id="ciudadOrigenIda">Buenos Aires</p>
-                            </div>
+                        </div>
 
-                            <div class="timeline">
+                        <div class="timeline">
                             <span id="duracionIda">0h 00m</span>
                             <div class="linea"></div>
                             <span>Directo</span>
-                            </div>
+                        </div>
 
-                            <div>
+                        <div>
                             <strong id="horaLlegadaIda">00:00</strong>
                             <p id="destinoIda">MAD</p>
                             <p id="ciudadDestinoIda">Madrid</p>
-                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <p><strong>Vuelta</strong> - Miércoles 10 de mayo de 2026</p>
-                    
-                    <div class="card_vuelo">
-                        <div class="empresa">
-                            <img id="logoVuelta" src="../img/aerolineasArgentinas.png" alt="Logo">
-                            <span id="aerolineaVuelta">Aerolíneas Argentinas</span>
-                        </div>
+                <strong class="vuelta">Vuelta</strong>
 
-                        <div class="horario">
-                            <div>
-                                <strong id="horaSalidaVuelta">00:00</strong>
-                                <p id="origenVuelta">MAD</p>
-                                <p id="ciudadOrigenVuelta">Madrid</p>
-                            </div>
-
-                            <div class="timeline">
-                                <span id="duracionVuelta">0h 00m</span>
-                                <div class="linea"></div>
-                                <span>Directo</span>
-                            </div>
-
-                            <div>
-                                <strong id="horaLlegadaVuelta">00:00</strong>
-                                <p id="destinoVuelta">EZE</p>
-                                <p id="ciudadDestinoVuelta">Buenos Aires</p>
-                            </div>
-                        </div>
+                <div class="card_vuelo">
+                    <div class="empresa">
+                        <img id="logoVuelta" src="../img/aerolineasArgentinas.png" alt="Logo">
+                        <span id="aerolineaVuelta">Aerolíneas Argentinas</span>
                     </div>
 
-                    <h3>Selecciona tu asiento (Ida)</h3>
-
-                    <div class="disponibilidad">
-                        <span class="seat disponible"></span> Disponible
-                        <span class="seat ocupado"></span> Ocupado
-                        <span class="seat seleccionado"></span> Seleccionado
-                    </div>
-
-                    <div class="mapa">
-                        <div class="asientos_letras">
-                            <span></span>
-                            <span>A</span>
-                            <span>B</span>
-                            <span>C</span>
-                            <span>D</span>
-                            <span class="pasillo"></span>
-                            <span>E</span>
-                            <span>F</span>
-                            <span>G</span>
-                            <span>H</span>
+                    <div class="horario">
+                        <div>
+                            <strong id="horaSalidaVuelta">00:00</strong>
+                            <p id="origenVuelta">MAD</p>
+                            <p id="ciudadOrigenVuelta">Madrid</p>
                         </div>
 
-                        <div class="fila">
-                            <span>1</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
+                        <div class="timeline">
+                            <span id="duracionVuelta">0h 00m</span>
+                            <div class="linea"></div>
+                            <span>Directo</span>
                         </div>
 
-                        <div class="fila">
-                            <span>2</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>3</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>4</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>5</span>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>6</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>7</span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat ocupado"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                        </div>
-
-                        <div class="fila">
-                            <span>8</span>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat ocupado"></button>
-                            <button class="seat disponible"></button>
-                            <span class="pasillo"></span>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
-                            <button class="seat disponible"></button>
+                        <div>
+                            <strong id="horaLlegadaVuelta">00:00</strong>
+                            <p id="destinoVuelta">EZE</p>
+                            <p id="ciudadDestinoVuelta">Buenos Aires</p>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <aside class="resumen_vuelo">
+                <h3>Selecciona tu asiento (Ida)</h3>
 
-                    <div class="card_resumen">
-                        <h3>Resumen de precio</h3>
-                        <p>1 Pasajero <span id="precioBase">USD $0</span></p>
-                        <p>Equipaje <span id="precioEquipaje">USD $0</span></p>
-                        <p>Asientos <span id="precioAsientos">USD $0</span></p>
-                        <p>Impuestos <span id="precioImpuestos">USD $0</span></p>
-                        <hr>
-                        <p class="total">Total <span id="precioTotal">USD $750</span></p>
-                        <a href="#" id="btnContinuar">Continuar</a>
+                <div class="disponibilidad">
+                    <span class="seat disponible"></span> Disponible
+                    <span class="seat ocupado"></span> Ocupado
+                    <span class="seat seleccionado"></span> Seleccionado
+                </div>
+
+                <div class="mapa">
+                    <div class="asientos_letras">
+                        <span></span>
+                        <span>A</span>
+                        <span>B</span>
+                        <span>C</span>
+                        <span>D</span>
+                        <span class="pasillo"></span>
+                        <span>E</span>
+                        <span>F</span>
+                        <span>G</span>
+                        <span>H</span>
                     </div>
-                    <div class="card_seleccion">
-                        <h3>Tu selección</h3>
-                        <p>Ida: Sin seleccionar</p>
-                        <p>Vuelta: Se asignará luego</p>
-                        <p>Total asientos: USD 25</p>
+
+                    <div class="fila">
+                        <span>1</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
                     </div>
-                </aside>
-            </div>
-        </main>
 
-        <footer id="main-footer"></footer>
+                    <div class="fila">
+                        <span>2</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                    </div>
 
-        <script src="../js/header.js"></script>
-        <script src="../js/footer.js"></script>
-        <script src="../js/disponibilidad.js"></script>
-    </body>
+                    <div class="fila">
+                        <span>3</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                    </div>
+
+                    <div class="fila">
+                        <span>4</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                    </div>
+
+                    <div class="fila">
+                        <span>5</span>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                    </div>
+
+                    <div class="fila">
+                        <span>6</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                    </div>
+
+                    <div class="fila">
+                        <span>7</span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat ocupado"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                    </div>
+
+                    <div class="fila">
+                        <span>8</span>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat ocupado"></button>
+                        <button class="seat disponible"></button>
+                        <span class="pasillo"></span>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                        <button class="seat disponible"></button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="resumen_vuelo">
+
+                <div class="card_resumen">
+                    <h3>Resumen de precio</h3>
+                    <p><span id="cantidadPasajeros">1 Pasajero</span><span id="precioBase">USD $0</span></p>
+                    <p>Equipaje <span id="precioEquipaje">USD $0</span></p>
+                    <p>Asientos <span id="precioAsientos">USD $0</span></p>
+                    <p>Impuestos <span id="precioImpuestos">USD $0</span></p>
+                    <hr>
+                    <p class="total">Total <span id="precioTotal">USD $0</span></p>
+                    <button id="btnContinuar" type="button">Continuar</button>
+                </div>
+                <div class="card_seleccion">
+                    <h3>Tu selección</h3>
+                    <p>Ida: Sin seleccionar</p>
+                    <p>Vuelta: Se asignará luego</p>
+                    <p id="resumenAsientos">Total asientos: USD 0</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/disponibilidad.js"></script>
+</body>
+
 </html>

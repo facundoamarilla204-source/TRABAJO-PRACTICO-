@@ -7,112 +7,95 @@ document.addEventListener("DOMContentLoaded", function () {
     const fechaIdaBuscada = localStorage.getItem("fechaIda");
     const fechaVueltaBuscada = localStorage.getItem("fechaVuelta");
 
-    const idaBuscada = fechaIdaBuscada ? new Date(fechaIdaBuscada) : null;
-    const vueltaBuscada = fechaVueltaBuscada ? new Date(fechaVueltaBuscada) : null;
-
-    console.log("Destino:", destinoBuscado);
-    console.log("Fecha ida:", idaBuscada);
-    console.log("Fecha vuelta:", vueltaBuscada);
+    let equipajeSeleccionado = 0;
 
     // =========================
     // EQUIPAJE
     // =========================
-    let equipajeSeleccionado = 0;
-
     const equipajes = document.querySelectorAll(".equipaje-card");
 
-    equipajes.forEach(function (equipaje) {
+    equipajes.forEach((equipaje) => {
+
         equipaje.addEventListener("click", function () {
 
             equipajes.forEach(e => e.classList.remove("seleccionado"));
             this.classList.add("seleccionado");
 
-            const texto = this.querySelector("span").textContent;
+            const valor = Number(this.dataset.equipaje);
 
-            if (texto.includes("45")) {
-                equipajeSeleccionado = 45;
-            } else if (texto.includes("85")) {
-                equipajeSeleccionado = 85;
-            } else {
-                equipajeSeleccionado = 0;
-            }
-
-            console.log("Equipaje:", equipajeSeleccionado);
+            equipajeSeleccionado = isNaN(valor) ? 0 : valor;
         });
     });
 
     // =========================
-    // BOTONES SELECT
+    // BOTÓN SELECCIONAR VUELO
     // =========================
     const botones = document.querySelectorAll(".btn-select");
 
     botones.forEach(function (btn) {
 
-        btn.addEventListener("click", function () {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
 
-            const totalbase = Number(this.dataset.total);
+            const personas = Number(localStorage.getItem("personas")) || 1;
 
             const vuelo = {
-                aerolinea: this.dataset.aerolinea,
-                logo: this.dataset.logo,
+                aerolinea: btn.dataset.aerolinea,
+                logo: btn.dataset.logo,
 
-                origen: this.dataset.origen,
-                ciudadOrigen: this.dataset.ciudadOrigen,
+                origen: btn.dataset.origen,
+                ciudadOrigen: btn.dataset.ciudadOrigen,
+                destino: btn.dataset.destino,
+                ciudadDestino: btn.dataset.ciudadDestino,
 
-                destino: this.dataset.destino,
-                ciudadDestino: this.dataset.ciudadDestino,
+                salida: btn.dataset.salida,
+                llegada: btn.dataset.llegada,
+                duracion: btn.dataset.duracion,
 
-                salida: this.dataset.salida,
-                llegada: this.dataset.llegada,
-                duracion: this.dataset.duracion,
+                salidaVuelta: btn.dataset.salidaVuelta,
+                llegadaVuelta: btn.dataset.llegadaVuelta,
+                duracionVuelta: btn.dataset.duracionVuelta,
 
-                salidaVuelta: this.dataset.salidaVuelta,
-                llegadaVuelta: this.dataset.llegadaVuelta,
-                duracionVuelta: this.dataset.duracionVuelta,
+                moneda: btn.dataset.moneda || "USD",
 
-                moneda: this.dataset.moneda,
+                // =========================
+                // IMPORTANTÍSIMO: UNITARIOS
+                // =========================
+                precioBaseUnitario: Number(btn.dataset.precioBase),
+                impuestosUnitario: Number(btn.dataset.impuestos),
+                asientoUnitario: Number(btn.dataset.asientos),
 
-                precioBase: this.dataset.precioBase,
-                equipaje: equipajeSeleccionado,
+                equipajeUnitario: equipajeSeleccionado,
 
-                asientos: this.dataset.asientos,
-                impuestos: this.dataset.impuestos,
+                personas: personas,
 
-                total: totalbase + equipajeSeleccionado,
+                pago: btn.dataset.pago,
 
-                pago: this.dataset.pago
+                fechaIda: fechaIdaBuscada,
+                fechaVuelta: fechaVueltaBuscada
             };
 
-            localStorage.setItem(
-                "vueloSeleccionado",
-                JSON.stringify(vuelo)
-            );
+            localStorage.setItem("vueloSeleccionado", JSON.stringify(vuelo));
+
+            // limpiar asiento anterior
+            localStorage.removeItem("asientosSeleccionados");
+
+            window.location.href = "./disponibilidad.html";
         });
     });
 
     // =========================
-    // VUELOS
+    // FILTROS + ORDEN
     // =========================
     const vuelos = document.querySelectorAll(".vuelo-card");
 
-    vuelos.forEach(function (vuelo, index) {
-        vuelo.dataset.ordenOriginal = index;
-    });
+    vuelos.forEach((v, i) => v.dataset.ordenOriginal = i);
 
-    // =========================
-    // FILTRO PRECIO
-    // =========================
     const rangePrecio = document.getElementById("filtroPrecio");
     const valorPrecio = document.getElementById("valorPrecio");
-
-    // =========================
-    // AEROLINEAS
-    // =========================
     const filtroAerolineas = document.querySelectorAll(".filtroAerolinea");
 
-    filtroAerolineas.forEach(cb => {
-        cb.addEventListener("change", aplicarFiltros);
-    });
+    filtroAerolineas.forEach(cb => cb.addEventListener("change", aplicarFiltros));
 
     if (rangePrecio) {
         rangePrecio.addEventListener("input", function () {
@@ -121,9 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =========================
-    // ORDENAR
-    // =========================
     const selectOrdenar = document.querySelector(".select_ordenar");
 
     if (selectOrdenar) {
@@ -136,12 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 vuelosArray.sort((a, b) =>
                     Number(a.dataset.precio) - Number(b.dataset.precio)
                 );
-
             } else if (this.value === "Precio mayor") {
                 vuelosArray.sort((a, b) =>
                     Number(b.dataset.precio) - Number(a.dataset.precio)
                 );
-
             } else {
                 vuelosArray.sort((a, b) =>
                     Number(a.dataset.ordenOriginal) - Number(b.dataset.ordenOriginal)
@@ -152,9 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =========================
-    // FILTROS PRINCIPALES
-    // =========================
     function aplicarFiltros() {
 
         const precioMax = Number(rangePrecio?.value || 999999);
@@ -163,77 +138,50 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".filtroAerolinea:checked")
         ).map(el => el.value.toLowerCase());
 
-        let vuelosEncontrados = 0;
+        let count = 0;
 
-        vuelos.forEach(function (vuelo) {
+        vuelos.forEach(vuelo => {
 
-            // =========================
-            // DESTINO
-            // =========================
+            const precio = Number(vuelo.dataset.precio);
+
+            const coincidePrecio = precio <= precioMax;
+
+            const aerolineas = Array.from(
+                vuelo.querySelectorAll(".aerolinea-option span")
+            ).map(e => e.textContent.toLowerCase());
+
+            const coincideAerolinea =
+                aerolineasSeleccionadas.length === 0 ||
+                aerolineasSeleccionadas.some(a => aerolineas.includes(a));
+
             let coincideDestino = true;
 
             if (destinoBuscado) {
-                const ciudadDestino =
-                    vuelo.querySelectorAll(".ciudad")[1].textContent.trim();
-
-                coincideDestino =
-                    ciudadDestino.toLowerCase() === destinoBuscado.toLowerCase();
+                const ciudad = vuelo.querySelectorAll(".ciudad")[1].textContent;
+                coincideDestino = ciudad.toLowerCase() === destinoBuscado.toLowerCase();
             }
 
-            // =========================
-            // PRECIO
-            // =========================
-            const coincidePrecio =
-                Number(vuelo.dataset.precio) <= precioMax;
+            const fechaIda = vuelo.dataset.fechaIda;
+            const fechaVuelta = vuelo.dataset.fechaVuelta;
 
-            // =========================
-            // AEROLINEA
-            // =========================
-            const aerolineasDelVuelo = Array.from(
-                vuelo.querySelectorAll(".aerolinea-option span")
-            ).map(el => el.textContent.trim().toLowerCase());
-
-            let coincideAerolinea = true;
-
-            if (aerolineasSeleccionadas.length > 0) {
-                coincideAerolinea = aerolineasSeleccionadas.some(sel =>
-                    aerolineasDelVuelo.includes(sel)
-                );
-            }
-
-            // =========================
-            // FECHAS (CORREGIDO)
-            // =========================
             let coincideFecha = true;
-
-            const fechaIdaVuelo = vuelo.dataset.fechaIda;
-            const fechaVueltaVuelo = vuelo.dataset.fechaVuelta;
 
             if (fechaIdaBuscada && fechaVueltaBuscada) {
                 coincideFecha =
-                    fechaIdaVuelo === fechaIdaBuscada &&
-                    fechaVueltaVuelo === fechaVueltaBuscada;
+                    fechaIda === fechaIdaBuscada &&
+                    fechaVuelta === fechaVueltaBuscada;
             }
 
-            // =========================
-            // MOSTRAR / OCULTAR
-            // =========================
-            if (
-                coincideDestino &&
-                coincidePrecio &&
-                coincideAerolinea &&
-                coincideFecha
-            ) {
+            if (coincidePrecio && coincideAerolinea && coincideDestino && coincideFecha) {
                 vuelo.style.display = "block";
-                vuelosEncontrados++;
+                count++;
             } else {
                 vuelo.style.display = "none";
             }
         });
 
-        document.getElementById("cantidadVuelos").textContent = vuelosEncontrados;
+        document.getElementById("cantidadVuelos").textContent = count;
     }
 
-    // primera carga
     aplicarFiltros();
 });

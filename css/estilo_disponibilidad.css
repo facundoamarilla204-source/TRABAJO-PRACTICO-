@@ -191,6 +191,7 @@ body {
     padding: 1rem;
     border-radius: 0.5rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 @media (max-width: 992px) {

@@ -25,66 +25,85 @@ const datos_transferencia_oculta = document.querySelector(".transferencia_oculto
 const total_precio_chico = document.querySelector(".total_precio_chico");
 const total_precio = document.querySelector(".total_precio_numero");
 
+let totalBaseGlobal = 0;
+
+// =========================
+// INIT
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
 
-    const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
-    const asiento = localStorage.getItem("asientoSeleccionado");
+     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+    const asientos = JSON.parse(localStorage.getItem("asientosSeleccionados"));
 
-    if (!vuelo) return;
-
-    document.getElementById("origenIdaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
-    document.getElementById("destinoIdaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
-    document.getElementById("horarioIdaCheckout").textContent = `${vuelo.salida} - ${vuelo.llegada}`;
-    document.getElementById("origenVueltaCheckout").textContent = `${vuelo.destino} (${vuelo.ciudadDestino})`;
-    document.getElementById("destinoVueltaCheckout").textContent = `${vuelo.origen} (${vuelo.ciudadOrigen})`;
-    document.getElementById("horarioVueltaCheckout").textContent = `${vuelo.salidaVuelta} - ${vuelo.llegadaVuelta}`;
-    document.getElementById("totalCheckout").textContent = vuelo.total;
-    document.getElementById("totalCheckoutGrande").textContent = vuelo.total;
-    document.getElementById("asientoCheckout").textContent = asiento || "Sin seleccionar";
-
-    let totalFinal = parseFloat(vuelo.total);
-    if (asiento && asiento !== "") {
-        totalFinal += 25;
+    if (!vuelo) {
+        alert("No hay vuelo seleccionado");
+        window.location.href = "./resultados.html";
+        return;
     }
 
-    document.getElementById("totalCheckout").textContent = totalFinal;
-    document.getElementById("totalCheckoutGrande").textContent = totalFinal;
+    const pasajeros = Number(vuelo.personas) || 1;
 
-    if (total_precio_chico) total_precio_chico.textContent = totalFinal;
-    if (total_precio) total_precio.textContent = totalFinal;
+    // =========================
+    // TOTAL
+    // =========================
+    let total = Number(vuelo.totalConAsientos ?? vuelo.total);
 
+    window.totalBase = total;
+
+    // =========================
+    // RENDER
+    // =========================
+
+    document.getElementById("origenIdaCheckout").textContent = vuelo.origen;
+    document.getElementById("destinoIdaCheckout").textContent = vuelo.destino;
+
+    document.getElementById("horarioIdaCheckout").textContent =
+        `${vuelo.fechaIda || ""} - ${vuelo.salida} - ${vuelo.llegada}`;
+
+    document.getElementById("origenVueltaCheckout").textContent = vuelo.destino;
+    document.getElementById("destinoVueltaCheckout").textContent = vuelo.origen;
+
+    document.getElementById("horarioVueltaCheckout").textContent =
+        `${vuelo.fechaVuelta || ""} - ${vuelo.salidaVuelta} - ${vuelo.llegadaVuelta}`;
+
+
+    document.getElementById("totalCheckout").textContent = total;
+    document.getElementById("totalCheckoutGrande").textContent = total;
+
+    document.getElementById("asientoCheckout").textContent =
+        asientos.length > 0
+            ? `${asientos.join(", ")} (${pasajeros})`
+            : "Sin seleccionar";
 });
 
+// =========================
+// VALIDACIONES INPUT
+// =========================
 input_tarjeta.addEventListener("input", (e) => {
-  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);   
+    e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);
 });
 
 input_cvv.addEventListener("input", (e) => {
-  e.target.value = e.target.value
-    .replace(/\D/g, "")  
-    .slice(0, 3 );        
+    e.target.value = e.target.value.replace(/\D/g, "").slice(0, 3);
 });
 
 input_telefono.addEventListener("input", (e) => {
-  e.target.value = e.target.value
-    .replace(/\D/g, "")   
+    e.target.value = e.target.value.replace(/\D/g, "");
 });
 
-input_fecha_vencimiento.addEventListener("input", (e) => {  
-  let value = e.target.value;
+input_fecha_vencimiento.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "").slice(0, 4);
 
-  value = value.replace(/\D/g, "");
+    if (value.length >= 3) {
+        value = value.slice(0, 2) + "/" + value.slice(2);
+    }
 
-  value = value.slice(0, 4);
-
-  if (value.length >= 3) {
-    value = value.slice(0, 2) + "/" + value.slice(2);
-  }
-
-   e.target.value = value; 
-    
+    e.target.value = value;
 });
 
+// =========================
+// SUBMIT
+// =========================
 form.addEventListener("submit", (e) => {
 
     localStorage.setItem("emailCliente", input_email.value);
@@ -93,6 +112,7 @@ form.addEventListener("submit", (e) => {
     const numero_tarjeta = input_tarjeta.value;
     const cvv = input_cvv.value;
     const fecha_vencimiento = input_fecha_vencimiento.value;
+
     const dni_pasaporte_valido = corroborar_pasaporte_valido_dni();
     const telefono_valido = corroborar_numero_telefono();
 
@@ -100,23 +120,21 @@ form.addEventListener("submit", (e) => {
 
     let tarjeta_valida = true;
 
-    if (metodo_pago_seleccionado.value === "tarjeta_credito") {
-        tarjeta_valida = validar_tarjeta(
-            numero_tarjeta,
-            cvv,
-            fecha_vencimiento
-        );
+    if (metodo_pago_seleccionado && metodo_pago_seleccionado.value === "tarjeta_credito") {
+        tarjeta_valida = validar_tarjeta(numero_tarjeta, cvv, fecha_vencimiento);
     }
 
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
         e.preventDefault();
-    };
+    }
+});
 
-})
-
+// =========================
+// METODO PAGO UI
+// =========================
 radios.forEach((radio) => {
 
-  radio.addEventListener("change", () => {
+    radio.addEventListener("change", () => {
 
         mensaje_numero_tarjeta_incorrecto.style.display = "none";
         mensaje_fecha_vencimiento_incorrecta.style.display = "none";
@@ -132,233 +150,119 @@ radios.forEach((radio) => {
         if (radio.value === "transferencia") {
             datos_transferencia_oculta.style.display = "block";
         }
-
     });
+});
 
-})
-
+// =========================
+// CUPONES
+// =========================
 button_cupon.addEventListener("click", (e) => {
 
     mensaje_cupon_invalido.style.display = "none";
     mensaje_cupon_aplicado.style.display = "none";
 
     let cupon = input_cupon.value;
-    let precio = parseInt(total_precio_chico.textContent);
-    let descuento = 0;
-    let precio_con_descuento = 0;
+    let precio = totalBaseGlobal;
 
-    if(!validar_cupon(cupon)) {
-
+    if (!validar_cupon(cupon)) {
         mensaje_cupon_invalido.style.display = "block";
         e.preventDefault();
+        return;
+    }
 
+    mensaje_cupon_aplicado.style.display = "block";
+
+    let descuento = 0;
+
+    if (cupon === "FLYNOW10%") descuento = precio * 0.10;
+    if (cupon === "FLYNOW20%") descuento = precio * 0.20;
+    if (cupon === "FLYNOW30%") descuento = precio * 0.30;
+    if (cupon === "FLYNOW40%") descuento = precio * 0.40;
+    if (cupon === "FLYNOW50%") descuento = precio * 0.50;
+
+    const nuevoTotal = precio - descuento;
+
+    total_precio_chico.textContent = nuevoTotal;
+    total_precio.textContent = nuevoTotal;
+
+    input_cupon.value = "";
+});
+
+// =========================
+// VALIDACIONES
+// =========================
+function corroborar_pasaporte_valido_dni() {
+
+    let cantidad = input_dni.value.length;
+    let tipo = select_documento_pasaporte.value;
+
+    if (tipo === "dni") {
+        if (cantidad !== 8) {
+            mensaje_dni_pasaporte_incorrecto.style.display = "flex";
+            return false;
+        }
     } else {
-
-        mensaje_cupon_aplicado.style.display = "block";
-
-        if(cupon === "FLYNOW10%") {
-
-            descuento = (precio*10) / 100;
-            precio_con_descuento = precio - descuento;
-            total_precio_chico.textContent = precio_con_descuento;
-            total_precio.textContent = precio_con_descuento;
-            input_cupon.value = "";
-            return;
-
-        }
-
-          if(cupon === "FLYNOW20%") {
-
-            descuento = (precio*20) / 100;
-            precio_con_descuento = precio - descuento;
-            total_precio_chico.textContent = precio_con_descuento;
-            total_precio.textContent = precio_con_descuento;
-            input_cupon.value = "";
-            return;
-            
-        }
-
-          if(cupon === "FLYNOW30%") {
-            descuento = (precio*30) / 100;
-            precio_con_descuento = precio - descuento;
-            total_precio_chico.textContent = precio_con_descuento;
-            total_precio.textContent = precio_con_descuento;
-            input_cupon.value = "";
-            return;
-            
-        }
-
-          if(cupon === "FLYNOW40%") {
-            descuento = (precio*40) / 100;
-            precio_con_descuento = precio - descuento;
-            total_precio_chico.textContent = precio_con_descuento;
-            total_precio.textContent = precio_con_descuento;
-            input_cupon.value = "";
-            return;
-            
-        }
-
-          if(cupon === "FLYNOW50%") {
-            descuento = (precio*50) / 100;
-            precio_con_descuento = precio - descuento;
-            total_precio_chico.textContent = precio_con_descuento;
-            total_precio.textContent = precio_con_descuento;
-            input_cupon.value = "";
-            return;
-            
-        }
-
-    }
-
-})
-
-function corroborar_pasaporte_valido_dni () {
-
-    let cantidad_caracteres_ingresados = input_dni.value.length;
-    let tipo_documento = select_documento_pasaporte.value;
-
-    if (tipo_documento === "dni") { 
-
-
-        if (cantidad_caracteres_ingresados !== 8) {
-
-            mensaje_dni_pasaporte_incorrecto.style.display = "flex";
-            
-            return false;
-
-        } else {
-
-            mensaje_dni_pasaporte_incorrecto.style.display = "none"; 
-            return true;
-
-        } 
-
-    } else { 
-
-
-        if (cantidad_caracteres_ingresados !== 9 || !corroborar_pasaporte_valido(input_dni)) {
-
+        if (cantidad !== 9 || !corroborar_pasaporte_valido(input_dni)) {
             mensaje_dni_pasaporte_incorrecto.style.display = "flex";
             return false;
-
-        } else {
-
-            mensaje_dni_pasaporte_incorrecto.style.display = "none";
-            return true;
-
         }
-
     }
 
+    mensaje_dni_pasaporte_incorrecto.style.display = "none";
+    return true;
 }
 
 function corroborar_numero_telefono() {
 
-    if (input_telefono.value == "" || input_telefono.value.length == 10 ) {
-
+    if (input_telefono.value === "" || input_telefono.value.length === 10) {
         mensaje_telefono_incorrecto.style.display = "none";
         return true;
-
-    } else {
-
-        mensaje_telefono_incorrecto.style.display = "flex";
-        return false;
-
     }
 
+    mensaje_telefono_incorrecto.style.display = "flex";
+    return false;
 }
 
-function corroborar_pasaporte_valido(input_dni) {
+function corroborar_pasaporte_valido(input) {
 
-    let pasaporte = input_dni.value;
-    let letra_uno = pasaporte[0].toUpperCase();
-    let letra_dos = pasaporte[1].toUpperCase();
-    let letra_tres = pasaporte[2].toUpperCase();
-    let numeros = pasaporte.slice(3);
+    let p = input.value;
 
-    if (
-        (letra_uno >= "A" && letra_uno <= "Z") && 
-        (letra_dos >= "A" && letra_dos <= "Z") && 
-        (letra_tres >= "A" && letra_tres <= "Z") &&
-        (numeros[0] >= "0" && numeros[0] <= "9") &&
-        (numeros[1] >= "0" && numeros[1] <= "9") &&
-        (numeros[2] >= "0" && numeros[2] <= "9") &&
-        (numeros[3] >= "0" && numeros[3] <= "9") &&
-        (numeros[4] >= "0" && numeros[4] <= "9") &&
-        (numeros[5] >= "0" && numeros[5] <= "9")) 
-        
-        {
+    let letras = p.slice(0, 3).toUpperCase();
+    let numeros = p.slice(3);
 
-        return true;
-
-    } else {
-
-        return false;
-    }
-
+    return (
+        /^[A-Z]{3}$/.test(letras) &&
+        /^[0-9]{6}$/.test(numeros)
+    );
 }
 
 function validar_cupon(cupon) {
-
-      if(cupon === "FLYNOW10%") {
-        return true;
-    }
-
-      if(cupon === "FLYNOW20%") {
-        return true;
-    }
-
-      if(cupon === "FLYNOW30%") {
-        return true;
-    }
-
-      if(cupon === "FLYNOW40%") {
-        return true;
-    }
-
-      if(cupon === "FLYNOW50%") {
-        return true;
-    }
-
-    return false;
-
+    return ["FLYNOW10%", "FLYNOW20%", "FLYNOW30%", "FLYNOW40%", "FLYNOW50%"].includes(cupon);
 }
 
-function validar_tarjeta(numero_tarjeta, cvv, fecha_vencimiento) {
+function validar_tarjeta(numero, cvv, fecha) {
 
-    let esValida = true;
+    let ok = true;
 
     mensaje_numero_tarjeta_incorrecto.style.display = "none";
     mensaje_fecha_vencimiento_incorrecta.style.display = "none";
     mensaje_cvv_incorrecto.style.display = "none";
 
-    let mes = fecha_vencimiento.slice(0, 2);
-    let barra = fecha_vencimiento[2];
-    let anio = fecha_vencimiento.slice(3);
+    if (numero.length !== 16) ok = false;
+    if (!/^\d+$/.test(numero)) ok = false;
 
-    if (numero_tarjeta.length !== 16) {
+    let mes = fecha.slice(0, 2);
+    let barra = fecha[2];
+    let anio = fecha.slice(3);
+
+    if (mes < "01" || mes > "12" || barra !== "/" || anio.length !== 2) ok = false;
+    if (cvv.length !== 3) ok = false;
+
+    if (!ok) {
         mensaje_numero_tarjeta_incorrecto.style.display = "flex";
-        esValida = false;
-    }
-
-    for (let i = 0; i < numero_tarjeta.length; i++) {
-
-        if (numero_tarjeta[i] < "0" || numero_tarjeta[i] > "9") {
-            mensaje_numero_tarjeta_incorrecto.style.display = "flex";
-            esValida = false;
-        }
-
-    }
-
-    if (mes < "01" || mes > "12" || barra !== "/" || anio.length !== 2) {
         mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
-        esValida = false;
-    }
-
-    if (cvv.length !== 3) {
         mensaje_cvv_incorrecto.style.display = "flex";
-        esValida = false;
     }
 
-    return esValida;
+    return ok;
 }

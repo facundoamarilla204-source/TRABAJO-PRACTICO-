@@ -327,14 +327,57 @@ summary::-webkit-details-marker {
 }
 
 .select_ordenar {
-
-    border: none;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-
+    border: 1px solid #dbeafe;
+    border-radius: .8rem;
+    padding: .6rem 1rem;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
 }
 
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.ordenar_por {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.vuelos_encontrados {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.vuelos_encontrados i {
+    color: var(--brand-color);
+}
+
+#cantidadVuelos {
+    color: var(--brand-color);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.ordenar_por label {
+    color: #64748b;
+    font-weight: 600;
+}
 
 @media (max-width: 900px) {
     .vuelo-summary {

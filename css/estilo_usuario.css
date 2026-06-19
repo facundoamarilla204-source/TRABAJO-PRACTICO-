@@ -142,6 +142,7 @@ main {
 .perfil-tarjeta ul {
     list-style: none;
     padding: 0;
+    padding-left: 1rem;
 }
 
 .perfil-tarjeta li {

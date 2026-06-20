@@ -8,10 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
-    const asientos = JSON.parse(localStorage.getItem("asientosSeleccionados")) || [];
-    const precioGuardado = localStorage.getItem("precioFinalPago");
 
     if (!vuelo) return;
+
+    const asientosIda = vuelo.asientosIda || [];
+    const asientosVuelta = vuelo.asientosVuelta || [];
+
+    const precioGuardado = localStorage.getItem("precioFinalPago");
 
     let emailPropietario;
 
@@ -43,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         precio: precioFormateado,
         clase: "Económica",
 
-        asientoIda: asientos.join(", "),
-        asientoVuelta: asientos.join(", "),
+        asientoIda: asientosIda.join(", "),
+        asientoVuelta: asientosVuelta.join(", "),
 
         fechaIda: vuelo.fechaIda,
         fechaVuelta: vuelo.fechaVuelta,
@@ -63,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("misReservas", JSON.stringify(reservas));
 
     localStorage.removeItem("vueloSeleccionado");
-    localStorage.removeItem("asientoSeleccionado");
     localStorage.removeItem("precioFinalPago");
 });
 

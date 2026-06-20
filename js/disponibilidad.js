@@ -21,7 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const equipaje = Number(vuelo.equipajeUnitario) || 0;
     const costoAsiento = Number(vuelo.asientoUnitario) || 25;
 
-    let seleccionados = [];
+    let etapa = "ida";
+
+    let asientosIda = [];
+    let asientosVuelta = [];
+
+    function obtenerListaActual() {
+        return etapa === "ida"
+            ? asientosIda
+            : asientosVuelta;
+    }
 
     document.querySelector(".ida").textContent =
         "Ida: " + vuelo.fechaIda;
@@ -30,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Vuelta: " + vuelo.fechaVuelta;
 
     actualizarBoton();
+    actualizarDatos();
 
     // =====================
     // SELECCIÓN DE ASIENTOS
@@ -41,26 +51,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (asiento.classList.contains("ocupado")) return;
 
-            const index = seleccionados.indexOf(asiento);
+            const listaActual = obtenerListaActual();
+
+            const index = listaActual.indexOf(asiento);
 
             if (index !== -1) {
 
-                seleccionados.splice(index, 1);
+                listaActual.splice(index, 1);
 
                 asiento.classList.remove("seleccionado");
                 asiento.classList.add("disponible");
 
             } else {
 
-                if (seleccionados.length >= pasajeros) {
+                if (listaActual.length >= pasajeros) {
                     alert(`Solo podés seleccionar ${pasajeros} asiento(s)`);
                     return;
                 }
 
-                seleccionados.push(asiento);
+                listaActual.push(asiento);
 
                 asiento.classList.add("seleccionado");
                 asiento.classList.remove("disponible");
+
+                // COMPLETÓ LOS ASIENTOS DE IDA
+                if (
+                    etapa === "ida" &&
+                    asientosIda.length === pasajeros
+                ) {
+
+                    etapa = "vuelta";
+
+                    document.getElementById("tituloMapa").textContent =
+                        "Seleccioná los asientos de vuelta";
+
+                    document
+                        .querySelectorAll(".seat.seleccionado")
+                        .forEach(seat => {
+
+                            seat.classList.remove("seleccionado");
+                            seat.classList.add("disponible");
+
+                        });
+
+                    actualizarDatos();
+                }
             }
 
             actualizarDatos();
@@ -74,13 +109,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function actualizarDatos() {
 
-        const codigos = seleccionados.map(getAsientoCode);
+        const codigosIda = asientosIda.map(getAsientoCode);
+        const codigosVuelta = asientosVuelta.map(getAsientoCode);
 
         const totalBase =
             (precioBase + impuestos + equipaje) * pasajeros;
 
         const totalAsientos =
-            costoAsiento * seleccionados.length;
+            costoAsiento *
+            (asientosIda.length + asientosVuelta.length);
 
         const totalFinal =
             totalBase + totalAsientos;
@@ -93,11 +130,23 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         cardSeleccion.innerHTML = `
-            <h3>Tu selección</h3>
-            <p>Ida y vuelta: ${codigos.length ? codigos.join(", ") : "Sin seleccionar"}</p>
-            <p>Progreso: ${seleccionados.length}/${pasajeros}</p>
-            <p>Total asientos: ${vuelo.moneda} ${totalAsientos}</p>
-        `;
+    <h3>Tu selección</h3>
+
+    <p><strong>Etapa:</strong> ${etapa === "ida"
+                ? "Seleccionando asientos de ida"
+                : "Seleccionando asientos de vuelta"
+            }</p>
+
+    <p>Ida: ${codigosIda.length ? codigosIda.join(", ") : "Sin seleccionar"}</p>
+
+    <p>Vuelta: ${codigosVuelta.length ? codigosVuelta.join(", ") : "Sin seleccionar"}</p>
+
+    <p>Progreso Ida: ${asientosIda.length}/${pasajeros}</p>
+
+    <p>Progreso Vuelta: ${asientosVuelta.length}/${pasajeros}</p>
+
+    <p>Total asientos: ${vuelo.moneda} ${totalAsientos}</p>
+`;
 
         document.getElementById("precioBase").textContent =
             `${vuelo.moneda}${precioBase * pasajeros}`;
@@ -123,7 +172,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function actualizarBoton() {
 
-        if (seleccionados.length === pasajeros) {
+        if (
+            asientosIda.length === pasajeros &&
+            asientosVuelta.length === pasajeros
+        ) {
 
             btnContinuar.style.pointerEvents = "auto";
             btnContinuar.style.opacity = "1";
@@ -139,10 +191,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         e.preventDefault();
 
-        const codigos = seleccionados.map(getAsientoCode);
+        const codigosIda = asientosIda.map(getAsientoCode);
+        const codigosVuelta = asientosVuelta.map(getAsientoCode);
 
-        if (codigos.length !== pasajeros) {
-            alert(`Tenés que seleccionar ${pasajeros} asiento(s)`);
+        if (
+            codigosIda.length !== pasajeros ||
+            codigosVuelta.length !== pasajeros
+        ) {
+            alert(
+                `Tenés que seleccionar ${pasajeros} asiento(s) para ida y vuelta`
+            );
             return;
         }
 
@@ -153,15 +211,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        localStorage.setItem(
-            "asientosSeleccionados",
-            JSON.stringify(codigos)
-        );
-
         const vueloActualizado =
             JSON.parse(localStorage.getItem("vueloSeleccionado"));
 
-        vueloActualizado.asientosSeleccionados = codigos;
+        vueloActualizado.asientosIda = codigosIda;
+        vueloActualizado.asientosVuelta = codigosVuelta;
 
         localStorage.setItem(
             "vueloSeleccionado",

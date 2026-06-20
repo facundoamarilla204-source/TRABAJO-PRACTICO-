@@ -1,32 +1,19 @@
-const form = document.querySelector(".filtros");
-const vuelos = document.querySelectorAll(".vuelo-item");
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const elementoFecha = document.querySelector(".fecha-barra p");
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    if (elementoFecha) {
+        const fechaHoy = new Date();
 
-    const origen = document.getElementById("origen").value.toLowerCase().trim();
-    const destino = document.getElementById("destino").value.toLowerCase().trim();
+        const opcionesDeFormato = { 
+            day: 'numeric', 
+            month: 'long', 
+            year: 'numeric' 
+        };
 
-    vuelos.forEach(vuelo => {
-        const texto = vuelo.textContent.toLowerCase();
-
-        const matchOrigen = origen === "" || texto.includes(origen);
-        const matchDestino = destino === "" || texto.includes(destino);
-
-        if (matchOrigen && matchDestino) {
-            vuelo.style.display = "flex";
-        } else {
-            vuelo.style.display = "none";
-        }
-    });
-});
-
-const reset = document.getElementById("reset");
-
-reset.addEventListener("click", () => {
-    form.reset();
-
-    vuelos.forEach(vuelo => {
-        vuelo.style.display = "flex";
-    });
+        const fechaFormateada = fechaHoy.toLocaleDateString('es-AR', opcionesDeFormato);
+        
+       
+        elementoFecha.textContent = fechaFormateada;
+    }
 });

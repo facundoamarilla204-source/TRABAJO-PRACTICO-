@@ -26,13 +26,14 @@ const total_precio_chico = document.querySelector(".total_precio_chico");
 const total_precio = document.querySelector(".total_precio_numero");
 
 let totalBaseGlobal = 0;
+let cuponAplicado = false;
 
 // =========================
 // INIT
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
 
-     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+    const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
     const asientos = JSON.parse(localStorage.getItem("asientosSeleccionados"));
 
     if (!vuelo) {
@@ -46,9 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     // TOTAL
     // =========================
-    let total = Number(vuelo.totalConAsientos ?? vuelo.total);
+    let total;
 
-    window.totalBase = total;
+    if (vuelo.totalConAsientos !== null && vuelo.totalConAsientos !== undefined) {
+        total = Number(vuelo.totalConAsientos);
+    } else {
+        total = Number(vuelo.total);
+    }
+
+    totalBaseGlobal = total;
 
     // =========================
     // RENDER
@@ -127,6 +134,8 @@ form.addEventListener("submit", (e) => {
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
         e.preventDefault();
     }
+
+    console.log(localStorage.getItem("precioFinalPago"));
 });
 
 // =========================
@@ -145,9 +154,7 @@ radios.forEach((radio) => {
 
         if (radio.value === "tarjeta_credito") {
             datos_tarjeta_oculta.style.display = "flex";
-        }
-
-        if (radio.value === "transferencia") {
+        } else if (radio.value === "transferencia") {
             datos_transferencia_oculta.style.display = "block";
         }
     });
@@ -158,10 +165,15 @@ radios.forEach((radio) => {
 // =========================
 button_cupon.addEventListener("click", (e) => {
 
+    if (cuponAplicado) {
+        alert("Ya aplicaste un cupón");
+        return;
+    }
+
     mensaje_cupon_invalido.style.display = "none";
     mensaje_cupon_aplicado.style.display = "none";
 
-    let cupon = input_cupon.value;
+    let cupon = input_cupon.value.trim().toUpperCase();
     let precio = totalBaseGlobal;
 
     if (!validar_cupon(cupon)) {
@@ -170,15 +182,12 @@ button_cupon.addEventListener("click", (e) => {
         return;
     }
 
+    cuponAplicado = true;
+
     mensaje_cupon_aplicado.style.display = "block";
 
-    let descuento = 0;
-
-    if (cupon === "FLYNOW10%") descuento = precio * 0.10;
-    if (cupon === "FLYNOW20%") descuento = precio * 0.20;
-    if (cupon === "FLYNOW30%") descuento = precio * 0.30;
-    if (cupon === "FLYNOW40%") descuento = precio * 0.40;
-    if (cupon === "FLYNOW50%") descuento = precio * 0.50;
+    const porcentaje = Number(cupon.replace("FLYNOW", "").replace("%", ""));
+    const descuento = precio * (porcentaje / 100);
 
     const nuevoTotal = precio - descuento;
 
@@ -186,6 +195,9 @@ button_cupon.addEventListener("click", (e) => {
     total_precio.textContent = nuevoTotal;
 
     input_cupon.value = "";
+    input_cupon.disabled = true;
+    button_cupon.disabled = true;
+    button_cupon.style.cursor = "default";
 });
 
 // =========================
@@ -242,27 +254,29 @@ function validar_cupon(cupon) {
 
 function validar_tarjeta(numero, cvv, fecha) {
 
-    let ok = true;
+    let tarjeta_valida = true;
 
     mensaje_numero_tarjeta_incorrecto.style.display = "none";
     mensaje_fecha_vencimiento_incorrecta.style.display = "none";
     mensaje_cvv_incorrecto.style.display = "none";
 
-    if (numero.length !== 16) ok = false;
-    if (!/^\d+$/.test(numero)) ok = false;
+    if (numero.length !== 16 || !/^\d+$/.test(numero)) {
+        tarjeta_valida = false;
+    }
 
     let mes = fecha.slice(0, 2);
     let barra = fecha[2];
     let anio = fecha.slice(3);
 
-    if (mes < "01" || mes > "12" || barra !== "/" || anio.length !== 2) ok = false;
-    if (cvv.length !== 3) ok = false;
+    if (mes < "01" || mes > "12" || barra !== "/" || anio.length !== 2) tarjeta_valida = false;
+    if (cvv.length !== 3) tarjeta_valida = false;
 
-    if (!ok) {
+    if (!tarjeta_valida) {
         mensaje_numero_tarjeta_incorrecto.style.display = "flex";
         mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
         mensaje_cvv_incorrecto.style.display = "flex";
     }
 
-    return ok;
+    return tarjeta_valida;
 }
+

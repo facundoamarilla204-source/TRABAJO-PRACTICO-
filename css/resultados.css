@@ -49,13 +49,20 @@ details {
 }
 
 summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
-    font-weight: 700;
-    color: var(--text-main);
-    outline: none;
-    /* Quitar el triángulo por defecto */
-    list-style: none;
 }
+
+summary i {
+    transition: transform .3s ease;
+}
+
+details[open] summary i {
+    transform: rotate(180deg);
+}
+
 summary::-webkit-details-marker {
   display: none;
 }

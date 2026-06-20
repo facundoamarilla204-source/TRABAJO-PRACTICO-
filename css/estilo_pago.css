@@ -158,6 +158,11 @@ input:focus, select:focus {
     transform: translateY(-1px);
 }
 
+.button_cupon:disabled:hover {
+    background-color: #0056b3; /* color normal */
+    transform: none;
+}
+
 .total_vuelo {
     display: flex;
     justify-content: space-between;

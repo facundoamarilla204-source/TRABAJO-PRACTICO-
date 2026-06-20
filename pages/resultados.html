@@ -28,13 +28,13 @@
       </details>
 
       <details>
-        <summary>Tipo de vuelo</summary>
-        <label><input type="checkbox" /> Directo</label>
-        <label><input type="checkbox" /> Con escala</label>
+        <summary>Tipo de vuelo<i class="fa-solid fa-chevron-down"></i></summary>
+        <label><input class="filtroTipoVuelo" type="checkbox" value="Directo" /> Directo</label>
+        <label><input class="filtroTipoVuelo" type="checkbox" value="Con escala" /> Con escala</label>
       </details>
 
       <details>
-        <summary>Aerolíneas</summary>
+        <summary>Aerolíneas<i class="fa-solid fa-chevron-down"></i></summary>
         <label>
           <input type="checkbox" class="filtroAerolinea" value="LATAM Airlines" />
           LATAM Airlines
@@ -45,10 +45,6 @@
           Aerolíneas Argentinas
         </label>
 
-        <label>
-          <input type="checkbox" class="filtroAerolinea" value="Fly Emirates" />
-          Fly Emirates
-        </label>
       </details>
     </aside>
 
@@ -67,6 +63,195 @@
         <p class="vuelos_encontrados"><i class="fa-solid fa-plane"></i><span id="cantidadVuelos">4</span>vuelos encontrados</p>
       </div>
       <div class="lista-vuelos">
+
+        <details class="vuelo-card" data-precio="720" data-fecha-ida="2026-07-18" data-fecha-vuelta="2026-07-25">
+  <summary class="vuelo-summary">
+    <div class="vuelo-info">
+      <div class="horarios">
+        <div>
+          <p class="hora">21:30</p>
+          <span>EZE</span><span class="ciudad">Buenos Aires</span>
+        </div>
+        <div class="duracion">
+          <span>15h 40m</span>
+          <div class="linea"></div>
+          <span class="directo">Con escala</span>
+        </div>
+        <div>
+          <p class="hora">13:10</p>
+          <span>MAD</span><span class="ciudad">Madrid</span>
+        </div>
+      </div>
+    </div>
+    <div class="vuelo-precio-summary">
+      <p>Desde</p>
+      <p class="precioregular">USD $720</p>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+  </summary>
+
+  <div class="vuelo-options">
+    <h4>Opciones para este vuelo:</h4>
+    <div class="option-row">
+      <div class="aerolinea-option">
+        <img src="/img/latam2.png" alt="" />
+        <span>LATAM Airlines</span>
+      </div>
+      <div class="precio-seleccionado">
+        <p class="precioregular">USD $720</p>
+        <span>Ida y vuelta</span>
+        <a href="./disponibilidad.html" class="btn-select"
+          data-aerolinea="LATAM Airlines"
+          data-logo="../img/latam2.png"
+          data-origen="EZE"
+          data-ciudad-origen="Buenos Aires"
+          data-destino="MAD"
+          data-ciudad-destino="Madrid"
+          data-salida="21:30"
+          data-llegada="13:10"
+          data-duracion="15h 40m"
+          data-salida-vuelta="18:20"
+          data-llegada-vuelta="10:15"
+          data-duracion-vuelta="15h 55m"
+          data-moneda="USD $"
+          data-precio-base="720"
+          data-equipaje="45"
+          data-asientos="25"
+          data-impuestos="120"
+          data-tipo-vuelo="Con escala"
+          data-pago="./pago.html">
+          Seleccionar
+        </a>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="vuelo-card" data-precio="830" data-fecha-ida="2026-07-22" data-fecha-vuelta="2026-07-30">
+  <summary class="vuelo-summary">
+    <div class="vuelo-info">
+      <div class="horarios">
+        <div>
+          <p class="hora">07:10</p>
+          <span>EZE</span><span class="ciudad">Buenos Aires</span>
+        </div>
+        <div class="duracion">
+          <span>11h 50m</span>
+          <div class="linea"></div>
+          <span class="directo">Con escala</span>
+        </div>
+        <div>
+          <p class="hora">19:00</p>
+          <span>CUN</span><span class="ciudad">Cancún</span>
+        </div>
+      </div>
+    </div>
+    <div class="vuelo-precio-summary">
+      <p>Desde</p>
+      <p class="precioregular">USD $830</p>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+  </summary>
+
+  <div class="vuelo-options">
+    <h4>Opciones para este vuelo:</h4>
+    <div class="option-row">
+      <div class="aerolinea-option">
+        <img src="/img/latam2.png" alt="" />
+        <span>LATAM Airlines</span>
+      </div>
+      <div class="precio-seleccionado">
+        <p class="precioregular">USD $830</p>
+        <span>Ida y vuelta</span>
+        <a href="./disponibilidad.html" class="btn-select"
+          data-aerolinea="LATAM Airlines"
+          data-logo="../img/latam2.png"
+          data-origen="EZE"
+          data-ciudad-origen="Buenos Aires"
+          data-destino="CUN"
+          data-ciudad-destino="Cancún"
+          data-salida="07:10"
+          data-llegada="19:00"
+          data-duracion="11h 50m"
+          data-salida-vuelta="14:40"
+          data-llegada-vuelta="02:30"
+          data-duracion-vuelta="11h 50m"
+          data-moneda="USD $"
+          data-precio-base="830"
+          data-equipaje="45"
+          data-asientos="25"
+          data-impuestos="110"
+          data-tipo-vuelo="Con escala"
+          data-pago="./pago.html">
+          Seleccionar
+        </a>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="vuelo-card" data-precio="890" data-fecha-ida="2026-07-25" data-fecha-vuelta="2026-08-02">
+  <summary class="vuelo-summary">
+    <div class="vuelo-info">
+      <div class="horarios">
+        <div>
+          <p class="hora">10:20</p>
+          <span>EZE</span><span class="ciudad">Buenos Aires</span>
+        </div>
+        <div class="duracion">
+          <span>9h 15m</span>
+          <div class="linea"></div>
+          <span class="directo">Directo</span>
+        </div>
+        <div>
+          <p class="hora">19:35</p>
+          <span>SJU</span><span class="ciudad">San Juan</span>
+        </div>
+      </div>
+    </div>
+    <div class="vuelo-precio-summary">
+      <p>Desde</p>
+      <p class="precioregular">USD $890</p>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+  </summary>
+
+  <div class="vuelo-options">
+    <h4>Opciones para este vuelo:</h4>
+    <div class="option-row">
+      <div class="aerolinea-option">
+        <img src="/img/latam2.png" alt="" />
+        <span>LATAM Airlines</span>
+      </div>
+      <div class="precio-seleccionado">
+        <p class="precioregular">USD $890</p>
+        <span>Ida y vuelta</span>
+        <a href="./disponibilidad.html" class="btn-select"
+          data-aerolinea="LATAM Airlines"
+          data-logo="../img/latam2.png"
+          data-origen="EZE"
+          data-ciudad-origen="Buenos Aires"
+          data-destino="SJU"
+          data-ciudad-destino="Puerto Rico"
+          data-salida="10:20"
+          data-llegada="19:35"
+          data-duracion="9h 15m"
+          data-salida-vuelta="21:10"
+          data-llegada-vuelta="06:25"
+          data-duracion-vuelta="9h 15m"
+          data-moneda="USD $"
+          data-precio-base="890"
+          data-equipaje="45"
+          data-asientos="25"
+          data-impuestos="130"
+          data-tipo-vuelo="Directo"
+          data-pago="./pago.html">
+          Seleccionar
+        </a>
+      </div>
+    </div>
+  </div>
+</details>
 
         <details class="vuelo-card" data-precio="651" data-fecha-ida="2026-07-18" data-fecha-vuelta="2026-07-25">
           <summary class="vuelo-summary">
@@ -109,7 +294,8 @@
                   data-destino="MAD" data-ciudad-destino="Madrid" data-salida="23:55" data-llegada="16:15"
                   data-duracion="16h 20m" data-salida-vuelta="17:45" data-llegada-vuelta="23:40"
                   data-duracion-vuelta="5h 55m" data-moneda="USD $" data-precio-base="651" data-equipaje="45"
-                  data-asientos="25" data-impuestos="139" data-data-pago="./pago.html">
+                  data-asientos="25" data-impuestos="139" data-tipo-vuelo="Directo" data-data-pago="./pago.html">
+                  
                   Seleccionar
                 </a>
               </div>
@@ -156,24 +342,7 @@
                   data-destino="MDZ" data-ciudad-destino="Mendoza" data-salida="08:30" data-llegada="10:30"
                   data-duracion="2h 00m" data-salida-vuelta="17:45" data-llegada-vuelta="23:40"
                   data-duracion-vuelta="5h 55m" data-moneda="USD $" data-precio-base="680" data-equipaje="0"
-                  data-asientos="0" data-impuestos="100" data-pago="./pago.html">
-                  Seleccionar
-                </a>
-              </div>
-            </div>
-            <div class="option-row">
-              <div class="aerolinea-option">
-                <img src="/img/latam2.png" alt="" /><span>LATAM Airlines</span>
-              </div>
-              <div class="precio-seleccionado">
-                <p class="precioregular">USD $680</p>
-                <span>Ida y vuelta</span>
-                <a href="./disponibilidad.html" class="btn-select" data-aerolinea="LATAM Airlines"
-                  data-logo="../img/latam2.png" data-origen="EZE" data-ciudad-origen="Buenos Aires" data-destino="MDZ"
-                  data-ciudad-destino="Mendoza" data-salida="08:30" data-llegada="10:30" data-duracion="2h 00m"
-                  data-salida-vuelta="17:45" data-llegada-vuelta="23:40" data-duracion-vuelta="5h 55m" data-moneda="USD $"
-                  data-precio-base="680" data-equipaje="0" data-asientos="0" data-impuestos="100"
-                  data-pago="./pago.html">
+                  data-asientos="0" data-impuestos="100" data-tipo-vuelo="Directo" data-pago="./pago.html">
                   Seleccionar
                 </a>
               </div>
@@ -220,7 +389,7 @@
                   data-destino="CUN" data-ciudad-destino="Cancún" data-salida="06:40" data-llegada="15:00"
                   data-duracion="8h 20m" data-salida-vuelta="17:45" data-llegada-vuelta="23:40"
                   data-duracion-vuelta="5h 55m" data-moneda="USD $" data-precio-base="900" data-equipaje="0"
-                  data-asientos="0" data-impuestos="50" data-pago="./pago.html">
+                  data-asientos="0" data-impuestos="50" data-tipo-vuelo="Directo" data-pago="./pago.html">
                   Seleccionar
                 </a>
               </div>
@@ -266,7 +435,7 @@
                   data-logo="../img/latam2.png" data-origen="EZE" data-ciudad-origen="Buenos Aires" data-destino="MIA"
                   data-ciudad-destino="Miami" data-salida="14:15" data-llegada="00:25" data-duracion="10h 10m"
                   data-salida-vuelta="17:45" data-llegada-vuelta="23:40" data-duracion-vuelta="5h 55m"
-                  data-moneda="USD $" data-precio-base="750" data-equipaje="0" data-asientos="0" data-impuestos="100"
+                  data-moneda="USD $" data-precio-base="750" data-equipaje="0" data-asientos="0" data-impuestos="100" data-tipo-vuelo="Directo"
                    data-pago="./pago.html">
                   Seleccionar
                 </a>
@@ -314,7 +483,7 @@
                   data-destino="CAM" data-ciudad-destino="Camboriu" data-salida="07:20" data-llegada="09:30"
                   data-duracion="2h 10m" data-salida-vuelta="17:45" data-llegada-vuelta="23:40"
                   data-duracion-vuelta="5h 55m" data-moneda="USD $" data-precio-base="500" data-equipaje="0"
-                  data-asientos="0" data-impuestos="100" data-pago="./pago.html">
+                  data-asientos="0" data-impuestos="100" data-tipo-vuelo="Directo" data-pago="./pago.html">
                   Seleccionar
                 </a>
               </div>
@@ -362,7 +531,7 @@
                   data-destino="SJU" data-ciudad-destino="Puerto Rico" data-salida="05:50" data-llegada="16:30"
                   data-duracion="10h 40m" data-salida-vuelta="17:45" data-llegada-vuelta="23:40"
                   data-duracion-vuelta="5h 55m" data-moneda="USD $" data-precio-base="950" data-equipaje="0"
-                  data-asientos="0" data-impuestos="50" data-pago="./pago.html">
+                  data-asientos="0" data-impuestos="50" data-tipo-vuelo="Directo" data-pago="./pago.html">
                   Seleccionar
                 </a>
               </div>

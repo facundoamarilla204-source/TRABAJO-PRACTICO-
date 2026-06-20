@@ -85,14 +85,14 @@ function cargarReservasDesdeStorage() {
                             <li>Cantidad de Pasajeros: ${reserva.pasajeros}</li>
                             <li>Ruta: ${reserva.ruta}</li>
                             <li>Fecha de ida: ${reserva.fechaIda}</li>
+                            <li>Fecha de vuelta: ${reserva.fechaVuelta}</li>
                             <li>Horario de vuelo-ida: ${reserva.horario}</li>
+                            <li>Horario de vuelo-vuelta: ${reserva.horarioVuelta}</li>
+                            <li>Asientos de Ida: ${reserva.asientoIda}</li>
+                            <li>Asientos de Vuelta: ${reserva.asientoVuelta}</li>
                             <li>Duración: ${reserva.duracion}</li>
                             <li>Precio: ${reserva.precio}</li>
-                            <li>Clase: ${reserva.clase}</li>
-                            <li>Asientos de Ida: ${reserva.asientoIda}</li>
-                            <li>Fecha de vuelta: ${reserva.fechaVuelta}</li>
-                            <li>Horario de vuelo-vuelta: ${reserva.horarioVuelta}</li>
-                            <li>Asientos de Vuelta: ${reserva.asientoVuelta}</li>
+                            <li>Clase: ${reserva.clase}</li>   
                         </ul>
                         <div class="contenedor-acciones-reserva">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${reserva.codigoReserva || 'AeroLink'}" alt="QR de Reserva" class="qr-reserva">

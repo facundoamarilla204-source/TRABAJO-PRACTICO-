@@ -133,11 +133,28 @@ form.addEventListener("submit", (e) => {
 
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
         e.preventDefault();
+        return; 
     }
 
-    console.log(localStorage.getItem("precioFinalPago"));
-});
+    const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+    const nuevosAsientos = JSON.parse(localStorage.getItem("asientosSeleccionados"));
 
+    if (vuelo && nuevosAsientos) {
+        
+        const claveVuelo = `comprados_${vuelo.origen}_${vuelo.destino}`;
+        
+        let asientosYaComprados = JSON.parse(localStorage.getItem(claveVuelo)) || [];
+        
+        asientosYaComprados = [...asientosYaComprados, ...nuevosAsientos];
+        
+        localStorage.setItem(claveVuelo, JSON.stringify(asientosYaComprados));
+
+        localStorage.removeItem("asientosSeleccionados");
+    }
+
+    console.log("Monto a pagar:", localStorage.getItem("precioFinalPago"));
+   
+});
 // =========================
 // METODO PAGO UI
 // =========================

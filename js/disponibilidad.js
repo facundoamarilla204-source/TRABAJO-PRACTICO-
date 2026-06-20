@@ -16,6 +16,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const pasajeros = Number(vuelo.personas) || 1;
 
+    // =====================
+    // BLOQUEAR ASIENTOS YA COMPRADOS
+    // =====================
+    const claveVuelo = `comprados_${vuelo.origen}_${vuelo.destino}`;
+    const asientosYaComprados = JSON.parse(localStorage.getItem(claveVuelo)) || [];
+
+    asientos.forEach(function (asiento) {
+        const codigo = getAsientoCode(asiento);
+        
+        if (asientosYaComprados.includes(codigo)) {
+            asiento.classList.remove("disponible");
+            asiento.classList.add("ocupado");
+        }
+    });
+
     const precioBase = Number(vuelo.precioBaseUnitario) || 0;
     const impuestos = Number(vuelo.impuestosUnitario) || 0;
     const equipaje = Number(vuelo.equipajeUnitario) || 0;

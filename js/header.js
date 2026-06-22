@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <nav class="header__nav">
           <ul class="nav__list">
-              <li><a href="${pagesPath}vuelos.html" class="nav__link">Vuelos</a></li>
-              <li><a href="${pagesPath}ofertas.html" class="nav__link">Ofertas</a></li>
+              <li><a href="${pagesPath}vuelos.html" class="nav__link">Vuelos en horario</a></li>
+              <li><a href="${pagesPath}ofertas.html" class="nav__link">Vuelos</a></li>
               <li><a href="${pagesPath}contacto.html" class="nav__link">Contacto</a></li>
     `;
 

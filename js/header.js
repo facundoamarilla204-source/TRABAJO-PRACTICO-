@@ -29,13 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <nav class="header__nav">
           <ul class="nav__list">
-<<<<<<< HEAD
+              <li><a href="${pagesPath}vuelos.html" class="nav__link">Vuelos</a></li>
+              <li><a href="${pagesPath}ofertas.html" class="nav__link">Ofertas</a></li>
               <li><a href="${pagesPath}vuelos.html" class="nav__link">Vuelos en horario</a></li>
               <li><a href="${pagesPath}ofertas.html" class="nav__link">Vuelos</a></li>
-=======
-              <li><a href="${pagesPath}vuelos.html" class="nav__link">Estados</a></li>
-              <li><a href="${pagesPath}ofertas.html" class="nav__link">Ofertas</a></li>
->>>>>>> 815ff9b656f148c508b70386d857dd7f9a96daa8
               <li><a href="${pagesPath}contacto.html" class="nav__link">Contacto</a></li>
     `;
 

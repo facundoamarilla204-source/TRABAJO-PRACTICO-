@@ -189,16 +189,48 @@ function cancelarReserva(codigoReserva) {
     const contrasenaIngresada = prompt("Por seguridad, ingresá tu contraseña para confirmar la cancelación de la reserva:");
 
     if (contrasenaIngresada === null) {
-        return;
+        return; 
     }
 
     if (contrasenaIngresada === usuario.password) {
         let reservasActuales = JSON.parse(localStorage.getItem("misReservas")) || [];
+        const reservaACancelar = reservasActuales.find(r => r.codigoReserva === codigoReserva);
+        
+        if (reservaACancelar) {
+            let asientosIda = [];
+            if (reservaACancelar.asientoIda) {
+                asientosIda = Array.isArray(reservaACancelar.asientoIda) 
+                    ? reservaACancelar.asientoIda 
+                    : reservaACancelar.asientoIda.split(',').map(s => s.trim());
+            }
+
+            let asientosVuelta = [];
+            if (reservaACancelar.asientoVuelta) {
+                asientosVuelta = Array.isArray(reservaACancelar.asientoVuelta) 
+                    ? reservaACancelar.asientoVuelta 
+                    : reservaACancelar.asientoVuelta.split(',').map(s => s.trim());
+            }
+
+            const asientosALiberar = [...asientosIda, ...asientosVuelta].filter(a => a);
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                
+                if (key && key.startsWith("comprados_")) {
+                    let ocupados = JSON.parse(localStorage.getItem(key)) || [];
+                    
+                    let ocupadosActualizados = ocupados.filter(asiento => !asientosALiberar.includes(asiento));
+                    
+                    localStorage.setItem(key, JSON.stringify(ocupadosActualizados));
+                }
+            }
+        }
+
         reservasActuales = reservasActuales.filter(reserva => reserva.codigoReserva !== codigoReserva);
         localStorage.setItem("misReservas", JSON.stringify(reservasActuales));
         
         cargarReservasDesdeStorage();
-        alert("La reserva ha sido cancelada exitosamente.");
+        alert("La reserva ha sido cancelada y los asientos fueron liberados exitosamente.");
     } else {
         alert("Contraseña incorrecta. La reserva no ha sido cancelada.");
     }

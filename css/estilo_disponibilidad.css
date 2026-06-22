@@ -241,3 +241,43 @@ body {
         font-size: 1.2rem;
     }
 }
+.controles-etapa {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-tab {
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid var(--brand-color);
+    background-color: var(--white);
+    color: var(--brand-color);
+    transition: all 0.3s ease;
+}
+
+.btn-tab:hover {
+    background-color: #e6f0fa;
+}
+
+.btn-tab.activo {
+    background-color: var(--brand-color);
+    color: var(--white);
+}
+
+@media (max-width: 480px) {
+    .controles-etapa {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-tab {
+        width: 100%;
+    }
+}

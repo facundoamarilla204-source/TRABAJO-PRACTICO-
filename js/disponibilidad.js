@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
         vueloActualizado.asientosVuelta = codigosVuelta;
 
         localStorage.setItem("vueloSeleccionado", JSON.stringify(vueloActualizado));
-        window.location.href = "./pago.html";
+        window.location.href = "./datos_pasajeros.html";
     });
 
     // =====================

@@ -11,25 +11,49 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarDatosVuelo(vuelo);
 
     const asientos = document.querySelectorAll(".mapa .seat");
+
+    const asientosBaseOcupados = [];
+    asientos.forEach(asiento => {
+        if (asiento.classList.contains("ocupado")) {
+            asientosBaseOcupados.push(getAsientoCode(asiento));
+        }
+    });
+
     const btnContinuar = document.getElementById("btnContinuar");
     const cardSeleccion = document.querySelector(".card_seleccion");
 
     const pasajeros = Number(vuelo.personas) || 1;
 
-    // =====================
-    // BLOQUEAR ASIENTOS YA COMPRADOS
-    // =====================
-    const claveVuelo = `comprados_${vuelo.origen}_${vuelo.destino}`;
-    const asientosYaComprados = JSON.parse(localStorage.getItem(claveVuelo)) || [];
-
-    asientos.forEach(function (asiento) {
-        const codigo = getAsientoCode(asiento);
+    function bloquearAsientosSegunEtapa(etapaActual) {
         
-        if (asientosYaComprados.includes(codigo)) {
-            asiento.classList.remove("disponible");
-            asiento.classList.add("ocupado");
-        }
-    });
+        asientos.forEach(asiento => {
+            asiento.classList.remove("ocupado");
+            if (!asiento.classList.contains("seleccionado")) {
+                asiento.classList.add("disponible");
+            }
+        });
+
+        const origenRuta = etapaActual === "ida" ? vuelo.origen : vuelo.destino;
+        const destinoRuta = etapaActual === "ida" ? vuelo.destino : vuelo.origen;
+        
+        const claveBuscada = `comprados_${origenRuta}_${destinoRuta}`;
+        
+        const asientosYaComprados = JSON.parse(localStorage.getItem(claveBuscada)) || [];
+
+        const todosOcupados = [...asientosBaseOcupados, ...asientosYaComprados];
+
+        asientos.forEach(function (asiento) {
+            const codigo = getAsientoCode(asiento);
+            
+            if (todosOcupados.includes(codigo)) {
+                asiento.classList.remove("disponible", "seleccionado");
+                asiento.classList.add("ocupado");
+            }
+        });
+    }
+
+    bloquearAsientosSegunEtapa("ida");
+
 
     const precioBase = Number(vuelo.precioBaseUnitario) || 0;
     const impuestos = Number(vuelo.impuestosUnitario) || 0;
@@ -108,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             seat.classList.add("disponible");
 
                         });
+                    bloquearAsientosSegunEtapa("vuelta");
 
                     actualizarDatos();
                 }

@@ -137,19 +137,24 @@ form.addEventListener("submit", (e) => {
     }
 
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
-    const nuevosAsientos = JSON.parse(localStorage.getItem("asientosSeleccionados"));
 
-    if (vuelo && nuevosAsientos) {
+    if (vuelo) {
         
-        const claveVuelo = `comprados_${vuelo.origen}_${vuelo.destino}`;
-        
-        let asientosYaComprados = JSON.parse(localStorage.getItem(claveVuelo)) || [];
-        
-        asientosYaComprados = [...asientosYaComprados, ...nuevosAsientos];
-        
-        localStorage.setItem(claveVuelo, JSON.stringify(asientosYaComprados));
+        if (vuelo.asientosIda && vuelo.asientosIda.length > 0) {
+            const claveIda = `comprados_${vuelo.origen}_${vuelo.destino}`;
+            let compradosIda = JSON.parse(localStorage.getItem(claveIda)) || [];
+            
+            compradosIda = [...compradosIda, ...vuelo.asientosIda];
+            localStorage.setItem(claveIda, JSON.stringify(compradosIda));
+        }
 
-        localStorage.removeItem("asientosSeleccionados");
+        if (vuelo.asientosVuelta && vuelo.asientosVuelta.length > 0) {
+            const claveVuelta = `comprados_${vuelo.destino}_${vuelo.origen}`;
+            let compradosVuelta = JSON.parse(localStorage.getItem(claveVuelta)) || [];
+            
+            compradosVuelta = [...compradosVuelta, ...vuelo.asientosVuelta];
+            localStorage.setItem(claveVuelta, JSON.stringify(compradosVuelta));
+        }
     }
 
     console.log("Monto a pagar:", localStorage.getItem("precioFinalPago"));

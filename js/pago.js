@@ -111,7 +111,10 @@ input_fecha_vencimiento.addEventListener("input", (e) => {
 // =========================
 // SUBMIT
 // =========================
+
 form.addEventListener("submit", (e) => {
+    
+    e.preventDefault(); 
 
     localStorage.setItem("emailCliente", input_email.value);
     localStorage.setItem("precioFinalPago", total_precio.textContent);
@@ -132,18 +135,22 @@ form.addEventListener("submit", (e) => {
     }
 
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
-        e.preventDefault();
         return; 
     }
 
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
+    const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+
+    if (!usuarioActivo) {
+        alert("Debes iniciar sesión para finalizar la compra.");
+        window.location.href = "./login.html";
+        return;
+    }
 
     if (vuelo) {
-        
         if (vuelo.asientosIda && vuelo.asientosIda.length > 0) {
             const claveIda = `comprados_${vuelo.origen}_${vuelo.destino}`;
             let compradosIda = JSON.parse(localStorage.getItem(claveIda)) || [];
-            
             compradosIda = [...compradosIda, ...vuelo.asientosIda];
             localStorage.setItem(claveIda, JSON.stringify(compradosIda));
         }
@@ -151,14 +158,38 @@ form.addEventListener("submit", (e) => {
         if (vuelo.asientosVuelta && vuelo.asientosVuelta.length > 0) {
             const claveVuelta = `comprados_${vuelo.destino}_${vuelo.origen}`;
             let compradosVuelta = JSON.parse(localStorage.getItem(claveVuelta)) || [];
-            
             compradosVuelta = [...compradosVuelta, ...vuelo.asientosVuelta];
             localStorage.setItem(claveVuelta, JSON.stringify(compradosVuelta));
         }
-    }
 
-    console.log("Monto a pagar:", localStorage.getItem("precioFinalPago"));
-   
+        const nuevaReserva = {
+            codigoReserva: "AL-" + Math.floor(Math.random() * 1000000), 
+            emailPropietario: usuarioActivo.email,
+            titulo: "Vuelo a " + (vuelo.ciudadDestino || vuelo.destino),
+            tipo: vuelo.tipoVuelo || "Directo",
+            pasajeros: vuelo.personas || 1,
+            ruta: `${vuelo.origen} - ${vuelo.destino}`,
+            fechaIda: vuelo.fechaIda || "No especificada",
+            fechaVuelta: vuelo.fechaVuelta || "No especificada",
+            horario: vuelo.salida || "00:00",
+            horarioVuelta: vuelo.salidaVuelta || "00:00",
+            asientoIda: vuelo.asientosIda || [],
+            asientoVuelta: vuelo.asientosVuelta || [],
+            duracion: vuelo.duracion || "N/A",
+            precio: (vuelo.moneda || "USD") + " " + total_precio.textContent,
+            clase: "Económica"
+        };
+
+        let reservasActuales = JSON.parse(localStorage.getItem("misReservas")) || [];
+        reservasActuales.push(nuevaReserva);
+        localStorage.setItem("misReservas", JSON.stringify(reservasActuales));
+
+        localStorage.removeItem("vueloSeleccionado");
+        localStorage.removeItem("asientosSeleccionados");
+        localStorage.removeItem("registroPasajeros");
+
+        window.location.href = "../pages/pago_confirmado.html"; 
+    }
 });
 // =========================
 // METODO PAGO UI

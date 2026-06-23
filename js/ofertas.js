@@ -4,18 +4,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     botonesOferta.forEach(function (boton) {
 
-        boton.addEventListener("click", function () {
+        boton.addEventListener("click", function (e) {
+            
+            e.preventDefault(); 
 
-            localStorage.setItem(
-                "destino",
-                this.dataset.destino
-            );
+            
+            const destinoOferta = this.dataset.destino;
+            const idaOferta = this.dataset.fechaIda;
+            const vueltaOferta = this.dataset.fechaVuelta;
 
-            console.log(
-                "Destino guardado:",
-                this.dataset.destino
-            );
+            localStorage.setItem("origen", "Buenos Aires"); 
+            localStorage.setItem("destino", destinoOferta);
+            localStorage.setItem("fechaIda", idaOferta);
+            localStorage.setItem("fechaVuelta", vueltaOferta);
+            localStorage.setItem("personas", "1"); 
 
+            console.log("Oferta seleccionada:", destinoOferta, "del", idaOferta, "al", vueltaOferta);
+
+            window.location.href = "./resultados.html";
         });
 
     });

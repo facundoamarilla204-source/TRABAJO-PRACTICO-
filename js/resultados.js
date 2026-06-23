@@ -275,8 +275,6 @@ function aplicarFiltros() {
         // -------------------
         let coincideDestino = true;
 
-        
-
         if (destinoBuscado) {
 
             const ciudadDestino =
@@ -295,17 +293,6 @@ function aplicarFiltros() {
         // FECHAS
         // -------------------
         let coincideFecha = true;
-
-        if (fechaIdaBuscada && fechaVueltaBuscada) {
-
-            if (
-                vuelo.dataset.fechaIda !== fechaIdaBuscada ||
-                vuelo.dataset.fechaVuelta !== fechaVueltaBuscada
-            ) {
-                coincideFecha = false;
-            }
-
-        }
 
         // -------------------
         // TIPO DE VUELO

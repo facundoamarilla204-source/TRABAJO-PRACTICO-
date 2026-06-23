@@ -1,21 +1,17 @@
 const formulario = document.getElementById("formbusqueda");
 
 formulario.addEventListener("submit", function(event){
-
     event.preventDefault();
 
     const origen = document.getElementById("origen").value.trim();
     const destino = document.getElementById("destino").value.trim();
     const fechaIda = document.getElementById("fechaIda").value;
     const fechaVuelta = document.getElementById("fechaVuelta").value;
-    const personas = document.getElementById("personas").value;
+    
+    const selectPersonas = document.getElementById("personas");
+    const personas = selectPersonas ? selectPersonas.value : 1;
 
-    if(
-        origen === "" ||
-        destino === "" ||
-        fechaIda === "" ||
-        fechaVuelta === ""
-    ){
+    if(origen === "" || destino === "" || fechaIda === "" || fechaVuelta === ""){
         alert("Complete todos los campos.");
         return;
     }
@@ -25,7 +21,18 @@ formulario.addEventListener("submit", function(event){
         return;
     }
 
-    if(fechaVuelta < fechaIda){
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    const fechaIdaObj = new Date(fechaIda + 'T00:00:00');
+    const fechaVueltaObj = new Date(fechaVuelta + 'T00:00:00');
+
+    if (fechaIdaObj <= hoy) {
+        alert("La fecha de ida debe ser a partir de mañana.");
+        return;
+    }
+
+    if (fechaVueltaObj <= fechaIdaObj) {
         alert("La fecha de vuelta debe ser posterior a la fecha de ida.");
         return;
     }
@@ -40,23 +47,15 @@ formulario.addEventListener("submit", function(event){
 });
 
 
-// OFERTAS DEL HOME
 const ofertasHome = document.querySelectorAll(".caja-oferta");
 
 ofertasHome.forEach(function (oferta) {
-
     oferta.addEventListener("click", function () {
-
         localStorage.removeItem("origen");
         localStorage.removeItem("fechaIda");
         localStorage.removeItem("fechaVuelta");
         localStorage.removeItem("personas");
 
-        localStorage.setItem(
-            "destino",
-            this.dataset.destino
-        );
-
+        localStorage.setItem("destino", this.dataset.destino);
     });
-
 });

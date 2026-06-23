@@ -275,6 +275,8 @@ function aplicarFiltros() {
         // -------------------
         let coincideDestino = true;
 
+        
+
         if (destinoBuscado) {
 
             const ciudadDestino =

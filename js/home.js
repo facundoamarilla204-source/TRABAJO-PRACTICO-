@@ -50,12 +50,22 @@ formulario.addEventListener("submit", function(event){
 const ofertasHome = document.querySelectorAll(".caja-oferta");
 
 ofertasHome.forEach(function (oferta) {
-    oferta.addEventListener("click", function () {
-        localStorage.removeItem("origen");
-        localStorage.removeItem("fechaIda");
-        localStorage.removeItem("fechaVuelta");
-        localStorage.removeItem("personas");
+    oferta.addEventListener("click", function (e) {
+        e.preventDefault();
 
-        localStorage.setItem("destino", this.dataset.destino);
+       
+        const destinoOferta = this.dataset.destino;
+        const idaOferta = this.dataset.fechaIda;
+        const vueltaOferta = this.dataset.fechaVuelta;
+
+        
+        localStorage.setItem("origen", "Buenos Aires");
+        localStorage.setItem("destino", destinoOferta);
+        localStorage.setItem("fechaIda", idaOferta);
+        localStorage.setItem("fechaVuelta", vueltaOferta);
+        localStorage.setItem("personas", "1"); 
+
+        
+        window.location.href = "pages/resultados.html";
     });
 });

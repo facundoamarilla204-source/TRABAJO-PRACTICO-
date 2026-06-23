@@ -27,7 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (usuarioValido) {
                 localStorage.setItem('usuarioActivo', JSON.stringify(usuarioValido));
-                window.location.href = '../index.html';
+                const volverDespuesLogin = localStorage.getItem("volverDespuesLogin");
+                if (volverDespuesLogin) {
+                    localStorage.removeItem("volverDespuesLogin");
+                    window.location.href = volverDespuesLogin;
+                } else {
+                    window.location.href = '../index.html';
+                }
             } else {
                 alert('El correo o la contraseña son incorrectos.');
             }

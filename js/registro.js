@@ -87,8 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
             usuarios.push(nuevoUsuario);
             localStorage.setItem('listaUsuarios', JSON.stringify(usuarios));
 
-            alert('¡Cuenta creada con éxito! Ahora podés iniciar sesión.');
-            window.location.href = 'login.html';
+            localStorage.setItem('usuarioActivo', JSON.stringify(nuevoUsuario));
+
+            const volverDespuesLogin = localStorage.getItem("volverDespuesLogin");
+
+            if (volverDespuesLogin) {
+                localStorage.removeItem("volverDespuesLogin");
+                alert('¡Cuenta creada con éxito!');
+                window.location.href = volverDespuesLogin;
+            } else {
+                alert('¡Cuenta creada con éxito! Ahora podés iniciar sesión.');
+                window.location.href = 'login.html';
+            }
         });
     }
 });

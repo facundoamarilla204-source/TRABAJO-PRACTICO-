@@ -23,14 +23,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const impuestos = Number(vuelo.impuestosUnitario) || 0;
     const equipaje = Number(vuelo.equipajeUnitario) || 0;
     const costoAsiento = Number(vuelo.asientoUnitario) || 25;
-
+    
     let etapa = "ida";
     let asientosIda = [];
     let asientosVuelta = [];
 
-    // ==========================================
-    // 1. GUARDAR ASIENTOS ARTIFICIALES DEL HTML
-    // ==========================================
+    const recuperarAsientosTemp = localStorage.getItem("recuperarAsientosTemp");
+
+    if (recuperarAsientosTemp === "true") {
+        const asientosGuardadosIda = JSON.parse(localStorage.getItem("asientosIdaTemp")) || [];
+        const asientosGuardadosVuelta = JSON.parse(localStorage.getItem("asientosVueltaTemp")) || [];
+
+        asientos.forEach(function (asiento) {
+            const codigo = getAsientoCode(asiento);
+
+            if (asientosGuardadosIda.includes(codigo)) {
+                asientosIda.push(asiento);
+            }
+
+            if (asientosGuardadosVuelta.includes(codigo)) {
+                asientosVuelta.push(asiento);
+            }
+        });
+
+        localStorage.removeItem("recuperarAsientosTemp");
+    }
+
     const asientosBaseOcupados = [];
     asientos.forEach(asiento => {
         if (asiento.classList.contains("ocupado")) {
@@ -38,9 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ==========================================
-    // 2. FUNCIÓN PARA BLOQUEAR ASIENTOS
-    // ==========================================
     function bloquearAsientosSegunEtapa(etapaActual) {
 
         asientos.forEach(asiento => {
@@ -65,9 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ==========================================
-    // 3. FUNCIÓN PARA CAMBIAR ENTRE IDA Y VUELTA
-    // ==========================================
     function cambiarEtapa(nuevaEtapa) {
         etapa = nuevaEtapa;
 
@@ -105,9 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".ida").textContent = "Ida: " + (vuelo.fechaIda || "");
     document.querySelector(".vuelta").textContent = "Vuelta: " + (vuelo.fechaVuelta || "");
 
-    // =====================
-    // 4. SELECCIÓN DE ASIENTOS
-    // =====================
     asientos.forEach(function (asiento) {
         asiento.addEventListener("click", function () {
             if (asiento.classList.contains("ocupado")) return;
@@ -141,9 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // =====================
-    // ACTUALIZAR PANTALLA
-    // =====================
     function actualizarDatos() {
         const codigosIda = asientosIda.map(getAsientoCode);
         const codigosVuelta = asientosVuelta.map(getAsientoCode);
@@ -175,9 +181,6 @@ document.addEventListener("DOMContentLoaded", function () {
         actualizarBoton();
     }
 
-    // =====================
-    // BOTÓN CONTINUAR
-    // =====================
     function actualizarBoton() {
         if (asientosIda.length === pasajeros && asientosVuelta.length === pasajeros) {
             btnContinuar.style.pointerEvents = "auto";
@@ -201,6 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!localStorage.getItem("usuarioActivo")) {
             alert("¡Ya casi! Para comprar el pasaje tenés que iniciar sesión o registrarte.");
+
+            localStorage.setItem("asientosIdaTemp", JSON.stringify(asientosIda.map(getAsientoCode)));
+            localStorage.setItem("asientosVueltaTemp", JSON.stringify(asientosVuelta.map(getAsientoCode)));
+            localStorage.setItem("recuperarAsientosTemp", "true");
+            localStorage.setItem("volverDespuesLogin", "./disponibilidad.html");
+
             window.location.href = "./login.html";
             return;
         }
@@ -210,12 +219,14 @@ document.addEventListener("DOMContentLoaded", function () {
         vueloActualizado.asientosVuelta = codigosVuelta;
 
         localStorage.setItem("vueloSeleccionado", JSON.stringify(vueloActualizado));
+
+        localStorage.removeItem("asientosIdaTemp");
+        localStorage.removeItem("asientosVueltaTemp");
+        localStorage.removeItem("recuperarAsientosTemp");
+
         window.location.href = "./datos_pasajeros.html";
     });
 
-    // =====================
-    // CARGAR DATOS DEL VUELO
-    // =====================
     function cargarDatosVuelo(vuelo) {
         document.getElementById("logoIda").src = vuelo.logo || "../img/aerolineasArgentinas.png";
         document.getElementById("logoVuelta").src = vuelo.logo || "../img/aerolineasArgentinas.png";
@@ -250,9 +261,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("cantidadPasajeros").textContent = `${vuelo.personas} Pasajero(s)`;
     }
 
-    // =====================
-    // CÓDIGO DE ASIENTO
-    // =====================
     function getAsientoCode(asiento) {
         const fila = asiento.parentElement;
         const numeroFila = fila.querySelector("span").textContent;
@@ -269,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return numeroFila + letras[index];
     }
 
-    // INICIALIZAMOS LA PANTALLA EN LA IDA
+
     cambiarEtapa("ida");
 
 });

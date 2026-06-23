@@ -50,6 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     contenedorFormularios.innerHTML = htmlFormularios;
 
+    const btnVolverAsientos = document.getElementById("btnVolverAsientos");
+
+    if (btnVolverAsientos) {
+        btnVolverAsientos.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            localStorage.setItem("recuperarAsientosTemp", "true");
+
+            window.location.href = "./disponibilidad.html";
+        });
+    }
+
     formPrincipal.addEventListener("submit", (e) => {
         e.preventDefault();
 

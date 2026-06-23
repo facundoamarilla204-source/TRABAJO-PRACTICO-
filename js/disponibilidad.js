@@ -31,8 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const recuperarAsientosTemp = localStorage.getItem("recuperarAsientosTemp");
 
     if (recuperarAsientosTemp === "true") {
-        const asientosGuardadosIda = JSON.parse(localStorage.getItem("asientosIdaTemp")) || [];
-        const asientosGuardadosVuelta = JSON.parse(localStorage.getItem("asientosVueltaTemp")) || [];
+        const asientosGuardadosIda =
+        JSON.parse(localStorage.getItem("asientosIdaTemp")) ||
+        vuelo.asientosIda ||
+        [];
+
+        const asientosGuardadosVuelta =
+        JSON.parse(localStorage.getItem("asientosVueltaTemp")) ||
+        vuelo.asientosVuelta ||
+        [];
 
         asientos.forEach(function (asiento) {
             const codigo = getAsientoCode(asiento);

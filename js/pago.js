@@ -28,9 +28,6 @@ const total_precio = document.querySelector(".total_precio_numero");
 let totalBaseGlobal = 0;
 let cuponAplicado = false;
 
-// =========================
-// INIT
-// =========================
 document.addEventListener("DOMContentLoaded", () => {
 
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
@@ -44,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pasajeros = Number(vuelo.personas) || 1;
 
-    // =========================
+
     // TOTAL
-    // =========================
+   
     let total;
 
     if (vuelo.totalConAsientos !== null && vuelo.totalConAsientos !== undefined) {
@@ -57,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalBaseGlobal = total;
 
-    // =========================
+
     // RENDER
-    // =========================
+
 
     document.getElementById("origenIdaCheckout").textContent = vuelo.origen;
     document.getElementById("destinoIdaCheckout").textContent = vuelo.destino;
@@ -83,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Sin seleccionar";
 });
 
-// =========================
+
 // VALIDACIONES INPUT
-// =========================
+
 input_tarjeta.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16);
 });
@@ -108,9 +105,9 @@ input_fecha_vencimiento.addEventListener("input", (e) => {
     e.target.value = value;
 });
 
-// =========================
+
 // SUBMIT
-// =========================
+
 
 form.addEventListener("submit", (e) => {
 
@@ -191,9 +188,9 @@ form.addEventListener("submit", (e) => {
         window.location.href = "../pages/pago_confirmado.html";
     }
 });
-// =========================
+
 // METODO PAGO UI
-// =========================
+
 radios.forEach((radio) => {
 
     radio.addEventListener("change", () => {
@@ -213,9 +210,9 @@ radios.forEach((radio) => {
     });
 });
 
-// =========================
+
 // CUPONES
-// =========================
+
 button_cupon.addEventListener("click", (e) => {
 
     if (cuponAplicado) {
@@ -253,9 +250,9 @@ button_cupon.addEventListener("click", (e) => {
     button_cupon.style.cursor = "default";
 });
 
-// =========================
+
 // VALIDACIONES
-// =========================
+
 function corroborar_pasaporte_valido_dni() {
 
     let cantidad = input_dni.value.length;
@@ -309,40 +306,53 @@ function validar_tarjeta(numero, cvv, fecha) {
 
     let tarjeta_valida = true;
 
+    // ocultar todos los errores primero
     mensaje_numero_tarjeta_incorrecto.style.display = "none";
     mensaje_fecha_vencimiento_incorrecta.style.display = "none";
     mensaje_cvv_incorrecto.style.display = "none";
 
-    if (numero.length !== 16 || !/^\d+$/.test(numero)) {
+
+    // TARJETA
+
+    if (!/^\d{16}$/.test(numero)) {
+        mensaje_numero_tarjeta_incorrecto.style.display = "flex";
         tarjeta_valida = false;
     }
 
-    let mes = parseInt(fecha.slice(0, 2));
-    let barra = fecha[2];
-    let anio = parseInt("20" + fecha.slice(3)); // 20AA
+    // CVV
 
-    if (mes < 1 || mes > 12 || barra !== "/" || isNaN(anio)) {
+    if (!/^\d{3}$/.test(cvv)) {
+        mensaje_cvv_incorrecto.style.display = "flex";
+        tarjeta_valida = false;
+    }
+
+    // FECHA
+
+    const partes = fecha.split("/");
+
+    if (partes.length !== 2) {
+        mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
         tarjeta_valida = false;
     } else {
 
-        // VALIDAR FECHA VENCIDA
-        const hoy = new Date();
-        const mesActual = hoy.getMonth() + 1;
-        const anioActual = hoy.getFullYear();
+        const mes = Number(partes[0]);
+        const anio = Number("20" + partes[1]);
 
-        if (anio < anioActual || (anio === anioActual && mes < mesActual)) {
+        if (mes < 1 || mes > 12 || isNaN(anio)) {
+            mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
             tarjeta_valida = false;
+        } else {
+
+            const hoy = new Date();
+            const mesActual = hoy.getMonth() + 1;
+            const anioActual = hoy.getFullYear();
+
+            if (anio < anioActual || (anio === anioActual && mes < mesActual)) {
+                mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
+                tarjeta_valida = false;
+            }
         }
-    }
-
-    if (cvv.length !== 3) tarjeta_valida = false;
-
-    if (!tarjeta_valida) {
-        mensaje_numero_tarjeta_incorrecto.style.display = "flex";
-        mensaje_fecha_vencimiento_incorrecta.style.display = "flex";
-        mensaje_cvv_incorrecto.style.display = "flex";
     }
 
     return tarjeta_valida;
 }
-

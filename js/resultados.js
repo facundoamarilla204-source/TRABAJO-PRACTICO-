@@ -6,6 +6,44 @@ document.addEventListener("DOMContentLoaded", function () {
 const destinoBuscado = localStorage.getItem("destino");
 const fechaIdaBuscada = localStorage.getItem("fechaIda");
 const fechaVueltaBuscada = localStorage.getItem("fechaVuelta");
+const descuentoOferta = Number(localStorage.getItem("descuentoOferta")) || 0;
+
+if (descuentoOferta > 0) {
+    const botonesVuelo = document.querySelectorAll(".btn-select");
+    
+    botonesVuelo.forEach(btn => {
+        let precioOriginal = Number(btn.dataset.precioBase);
+        let nuevoPrecio = Math.round(precioOriginal - (precioOriginal * (descuentoOferta / 100)));
+        
+        btn.dataset.precioBase = nuevoPrecio;
+        
+        const tarjetaVuelo = btn.closest(".vuelo-card");
+        if (tarjetaVuelo) {
+            tarjetaVuelo.dataset.precio = nuevoPrecio;
+            
+            const todosLosElementos = tarjetaVuelo.querySelectorAll("*");
+            
+            todosLosElementos.forEach(el => {
+                if (el.children.length === 0 && el.textContent.includes(precioOriginal.toString())) {
+                    
+                    let textoOriginal = el.textContent;
+                    
+                    let diseñoHTML = `
+                        <del style="color: #999; font-size: 0.85em; font-weight: normal; margin-right: 5px;">
+                            ${textoOriginal}
+                        </del> 
+                        <span style="color: #28a745; font-weight: bold;">
+                            USD $${nuevoPrecio}
+                        </span>
+                    `;
+            
+                    el.innerHTML = diseñoHTML;
+                }
+            });
+            btn.textContent = "Seleccionar";
+        }
+    });
+}
 
 let equipajeSeleccionado = 0;
 

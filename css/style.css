@@ -284,6 +284,39 @@ h4 {
   transform: translateY(-2px);
 }
 
+.caja-oferta {
+  position: relative; 
+}
+
+.caja-oferta .badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2d3e50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.caja-oferta .info-fechas {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.caja-oferta .precio-viejo {
+  color: #999;
+  font-size: 0.75em;
+  font-weight: normal;
+  margin-right: 5px;
+}
+
+.caja-oferta .precio-nuevo {
+  color: #28a745;
+}
+
 @media (max-width: 768px) {
     .grid-ofertas, .grid-beneficios {
         grid-template-columns: 1fr;

@@ -28,7 +28,15 @@
   align-items: center; 
 }
 
+.btn-oferta .btn-precio-viejo {
+  color: #999;
+  font-weight: normal;
+  margin: 0 5px;
+}
 
+.btn-oferta .btn-precio-nuevo {
+  color: #28a745; 
+}
 
 
 

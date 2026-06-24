@@ -8,6 +8,7 @@ formulario.addEventListener("submit", function(event){
     const fechaIda = document.getElementById("fechaIda").value;
     const fechaVuelta = document.getElementById("fechaVuelta").value;
     
+    
     const selectPersonas = document.getElementById("personas");
     const personas = selectPersonas ? selectPersonas.value : 1;
 
@@ -37,6 +38,7 @@ formulario.addEventListener("submit", function(event){
         return;
     }
 
+    localStorage.removeItem("descuentoOferta");
     localStorage.setItem("origen", origen);
     localStorage.setItem("destino", destino);
     localStorage.setItem("fechaIda", fechaIda);
@@ -54,36 +56,23 @@ const selectPersonasModal = document.querySelector("#cantidad_personas");
 const ofertasHome = document.querySelectorAll(".caja-oferta");
 
 ofertasHome.forEach(function (oferta) {
-
     oferta.addEventListener("click", function (e) {
-
         e.preventDefault();
 
         localStorage.setItem("origen", "Buenos Aires");
         localStorage.setItem("destino", this.dataset.destino);
         localStorage.setItem("fechaIda", this.dataset.fechaIda);
         localStorage.setItem("fechaVuelta", this.dataset.fechaVuelta);
+        localStorage.setItem("descuentoOferta", this.dataset.descuento);
 
         modal.style.display = "flex";
-
     });
-
 });
 
 btnContinuar.addEventListener("click", function () {
-
     const cantidadPersonas = selectPersonasModal.value;
 
     localStorage.setItem("personas", cantidadPersonas);
 
     window.location.href = "pages/resultados.html";
-
-});
-
-modal.addEventListener("click", function (e) {
-
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-
 });

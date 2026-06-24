@@ -113,8 +113,8 @@ input_fecha_vencimiento.addEventListener("input", (e) => {
 // =========================
 
 form.addEventListener("submit", (e) => {
-    
-    e.preventDefault(); 
+
+    e.preventDefault();
 
     localStorage.setItem("emailCliente", input_email.value);
     localStorage.setItem("precioFinalPago", total_precio.textContent);
@@ -135,7 +135,7 @@ form.addEventListener("submit", (e) => {
     }
 
     if (!dni_pasaporte_valido || !telefono_valido || !tarjeta_valida) {
-        return; 
+        return;
     }
 
     const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
@@ -163,7 +163,7 @@ form.addEventListener("submit", (e) => {
         }
 
         const nuevaReserva = {
-            codigoReserva: "AL-" + Math.floor(Math.random() * 1000000), 
+            codigoReserva: "AL-" + Math.floor(Math.random() * 1000000),
             emailPropietario: usuarioActivo.email,
             titulo: "Vuelo a " + (vuelo.ciudadDestino || vuelo.destino),
             tipo: vuelo.tipoVuelo || "Directo",
@@ -188,7 +188,7 @@ form.addEventListener("submit", (e) => {
         localStorage.removeItem("asientosSeleccionados");
         localStorage.removeItem("registroPasajeros");
 
-        window.location.href = "../pages/pago_confirmado.html"; 
+        window.location.href = "../pages/pago_confirmado.html";
     }
 });
 // =========================
@@ -317,11 +317,24 @@ function validar_tarjeta(numero, cvv, fecha) {
         tarjeta_valida = false;
     }
 
-    let mes = fecha.slice(0, 2);
+    let mes = parseInt(fecha.slice(0, 2));
     let barra = fecha[2];
-    let anio = fecha.slice(3);
+    let anio = parseInt("20" + fecha.slice(3)); // 20AA
 
-    if (mes < "01" || mes > "12" || barra !== "/" || anio.length !== 2) tarjeta_valida = false;
+    if (mes < 1 || mes > 12 || barra !== "/" || isNaN(anio)) {
+        tarjeta_valida = false;
+    } else {
+
+        // VALIDAR FECHA VENCIDA
+        const hoy = new Date();
+        const mesActual = hoy.getMonth() + 1;
+        const anioActual = hoy.getFullYear();
+
+        if (anio < anioActual || (anio === anioActual && mes < mesActual)) {
+            tarjeta_valida = false;
+        }
+    }
+
     if (cvv.length !== 3) tarjeta_valida = false;
 
     if (!tarjeta_valida) {

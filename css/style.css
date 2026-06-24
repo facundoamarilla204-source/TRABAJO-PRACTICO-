@@ -206,6 +206,84 @@ h4 {
     color: #666;
 }
 
+.modal_personas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modal_personas_contenido {
+  background: var(--white);
+  width: 90%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+  animation: aparecer 0.25s ease-out;
+}
+
+.seleccionador_personas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.seleccionador_personas label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.seleccionador_personas select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.seleccionador_personas select:focus {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+.btn_modal_continuar {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: var(--brand-color);
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn_modal_continuar:hover {
+  background: #004494;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     .grid-ofertas, .grid-beneficios {
         grid-template-columns: 1fr;
